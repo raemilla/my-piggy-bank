@@ -3,7 +3,8 @@ class ChildDashboard extends React.Component {
 
 		return(
 			<div>
-				<UndepositedFunds current_child={this.props.current_child} />
+			<UndepositedFunds current_child={this.props.current_child} />
+			<ChangeMachine />
 			</div>
 		)
 	}
