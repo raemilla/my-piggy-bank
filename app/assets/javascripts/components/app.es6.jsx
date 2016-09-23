@@ -6,18 +6,17 @@ class App extends React.Component {
 
   displayUserComponent(){
     if(this.props["parent?"]){
-      return (<ParentDashboard />) //is return necessary?
+      return (<ParentDashboard />)
     } else {
-      <ChildDashboard />
+      return (<ChildDashboard current_child={this.props.current_child} />)
     }
   }
 
   render(){
     return(
-      <div>
-        {/* this should be bootstrapped?? */}
+      <div className="container">
         <pre><code>{JSON.stringify(this.props,null,2)}</code></pre>
-        {displayUserComponent()}
+        {this.displayUserComponent()}
       </div>
     )
   }

@@ -30,6 +30,7 @@ gem 'react-rails'
 gem 'jquery-ui-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'better_errors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,4 +48,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
