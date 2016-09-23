@@ -1,9 +1,13 @@
 <div class="row">
 <div class="col-sm-4">
 <ul class="nav nav-pills" role="tablist">
-  <li role="presentation" class="active"><a href="#">Home <span class="badge"></span></a></li>
-  <li role="presentation"><a href="#"><%= current_user.email %></a></li>
-  <li role="presentation"><a href="#">Messages <span class="badge"></span></a></li>
+  <li role="presentation" ><a href="/login">Home <span class="badge"></span></a></li>
+  <% if current_user%>
+  <li role="presentation"><a href="This goes to the parent homepage"><%= current_user.email %></a></li>
+  <li role="presentation"><a href="/logout">Log Out <span class="badge"></span></a></li>
+  <%else%>
+  <li role="presentation"><a href="/parents/new">Register</a></li>
+    <%end%>
 </ul>
 </div>
 </div>
