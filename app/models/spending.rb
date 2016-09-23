@@ -1,3 +1,2 @@
 class Spending < Bank
-
 end
