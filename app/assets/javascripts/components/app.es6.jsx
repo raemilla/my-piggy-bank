@@ -6,9 +6,9 @@ class App extends React.Component {
 
   displayUserComponent(){
     if(this.props["parent?"]){
-      return (<ParentDashboard />)
+      return (<ParentDashboard parent={this.props.current_user}/>)
     } else {
-      return (<ChildDashboard current_child={this.props.current_child} />)
+      return (<ChildDashboard current_child={this.props.current_user} />)
     }
   }
 

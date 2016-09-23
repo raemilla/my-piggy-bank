@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-	resources :shawntests
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-get '/tests' => 'tests#index'
+resources :shawntests
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-
-root to: 'sessions#new'
+root to: 'pages#index'
 
 resources :pages, only: [:index]
 resources :parents

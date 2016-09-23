@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @parent = Parent.find_by(email: params[:user][:email])
-    #@child = Child.find_by(email: params[:user][:email])
+    @parent = Parent.find_by(username: params[:user][:username])
+    @child = Child.find_by(username: params[:user][:username])
     if @parent && @parent.authenticate(params[:user][:password])
       session[:parent_id] = @parent.id
       redirect_to pages_path
