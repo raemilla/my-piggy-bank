@@ -23,7 +23,7 @@ class InitialSetup extends React.Component {
 
   displayForm(){
     return(
-      <form>
+      <form method="post" action="/children">
         <div className="form-group">
           <label htmlFor="childName">Name</label>
           <input type="text" className="form-control" placeholder="Enter your child's name" name="child[name]" />

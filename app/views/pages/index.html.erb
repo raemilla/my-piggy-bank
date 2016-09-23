@@ -1,1 +1,5 @@
-<%= react_component 'App', current_user: current_user, parent?: parent? %>
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
+<%= react_component 'App', current_user: @current_user, parent?: parent? %>
