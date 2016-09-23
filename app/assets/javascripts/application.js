@@ -16,5 +16,7 @@
 //= require bootstrap-sprockets
 //= require react
 //= require react_ujs
+//= require jquery-ui/draggable
+//= require jquery-ui/droppable
 //= require components
 //= require_tree .

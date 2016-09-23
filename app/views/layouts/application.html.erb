@@ -8,9 +8,13 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-  <%= render :template => 'partials/_navbar' %>
 
-    <%= yield %>
+		<div class="container">
+  		<%= render :template => 'partials/_navbar' %>
+
+   	 <%= yield %>
+   	 
     </div>
+
   </body>
 </html>

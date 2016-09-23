@@ -8,7 +8,7 @@ class UndepositedFunds extends React.Component {
 	render(){
 		
 		return(
-			<div className="container">
+			
 				<div className="row">
 				<div className="col-sm-2">
 				
@@ -20,7 +20,7 @@ class UndepositedFunds extends React.Component {
 					
 					</div>
 				</div>
-			</div>
+			
 			)
 	}
 }
