@@ -8,6 +8,9 @@ class ChangeMachine extends React.Component {
     this.loop = this.loop.bind(this)
   }
 
+	ComponentDidUpdate(){
+  		
+  }
   
   handleSubmit(event){
   	event.preventDefault()
@@ -48,6 +51,7 @@ class ChangeMachine extends React.Component {
       }
   
   }
+
 
 
 	render(){
