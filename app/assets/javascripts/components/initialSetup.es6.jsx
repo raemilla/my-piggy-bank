@@ -36,6 +36,10 @@ class InitialSetup extends React.Component {
           <label htmlFor="childPassword">Password</label>
           <input type="password" className="form-control" placeholder="Set a password for your child" name="child[password]" />
         </div>
+        <div className="form-group">
+          <label htmlFor="childInterestRate">Interest Rate</label>
+          <input type="number" className="form-control" defaultValue="2" name="interest_rate" />
+        </div>
         <button type="submit" className="btn btn-primary">Add!</button>
       </form>
     )
