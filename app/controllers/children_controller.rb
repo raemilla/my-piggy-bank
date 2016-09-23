@@ -5,12 +5,12 @@ class ChildrenController < ApplicationController
   def create
     child = Child.new(child_params)
     child.parent = current_user
-    debugger
+    # debugger
     if child.save
-      Investment.new(child: child)
-      Donation.new(child: child)
-      Saving.new(child: child)
-      Spending.new(child: child)
+      Investment.create(child: child, interest_rate: params[:interest_rate])
+      Donation.create(child: child)
+      Saving.create(child: child)
+      Spending.create(child: child)
       redirect_to root_path
     else
       flash[:alert] = "Error creating child"
