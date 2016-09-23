@@ -191,5 +191,11 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console
 
+<<<<<<< d9d40d17cfaade168310a35a2a26e8d095301977
+=======
+RUBY VERSION
+   ruby 2.2.3p173
+
+>>>>>>> Create parent, children controllers and sessionhelper
 BUNDLED WITH
    1.13.1
