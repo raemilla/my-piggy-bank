@@ -1,12 +1,12 @@
 class UndepositedFunds extends React.Component {
 	constructor(){
 		super()
-		state = {
-			 currentChild: ""
-
-		}
+		// state = {
+		// 	 currentChild: ''
+		// }
 	}
 	render(){
+		
 		return(
 			<div className="container">
 				<div className="row">
@@ -14,7 +14,7 @@ class UndepositedFunds extends React.Component {
 				
 				</div>
 					<div className="col-md-8">
-						<p className="text-center">Ephraim(current_child.name), you have 25(current_child.undeposited_funds) cents to Deposit.</p>
+						<p className="text-center">Welcome {this.props.current_child.name}, you have {this.props.current_child.undeposited_funds} cents to Deposit.</p>
 					</div>
 					<div className="col-md-2">
 					
