@@ -2,6 +2,7 @@ class InitialSetup extends React.Component {
   constructor(){
     super()
     this.state = {
+      displayButton: true,
       displayForm: false
     }
     this.toggleForm = this.toggleForm.bind(this)
@@ -10,16 +11,33 @@ class InitialSetup extends React.Component {
 
   toggleForm(event){
     event.preventDefault()
-    let shouldToggle = !this.state.displayForm
+    let shouldToggleForm = !this.state.displayForm
+    let shouldToggleButton = !this.state.displayButton
 
     this.setState({
-      displayForm: shouldToggle
+      displayForm: shouldToggleForm,
+      displayButton: shouldToggleButton
     })
+
   }
 
   displayForm(){
     return(
-      <p>toggle yay</p>
+      <form>
+        <div className="form-group">
+          <label htmlFor="childName">Name</label>
+          <input type="text" className="form-control" placeholder="Enter your child's name" name="child[name]" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="childUsername">Username</label>
+          <input type="text" className="form-control" placeholder="Set a username for your child" name="child[username]" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="childPassword">Password</label>
+          <input type="password" className="form-control" placeholder="Set a password for your child" name="child[password]" />
+        </div>
+        <button type="submit" className="btn btn-primary">Add!</button>
+      </form>
     )
   }
 
@@ -27,7 +45,7 @@ class InitialSetup extends React.Component {
     return(
       <div className="row">
         <div className="col-sm-8">
-          <button onClick={this.toggleForm} type="button" className="btn btn-outline-primary">Add a child</button>
+          {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary">Add a child</button> : null }
           {this.state.displayForm ? this.displayForm() : null }
         </div>
         <div className="col-sm-2"></div>
