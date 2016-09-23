@@ -15,6 +15,7 @@ class App extends React.Component {
   render(){
     return(
       <div>
+        {/* this should be bootstrapped?? */}
         <pre><code>{JSON.stringify(this.props,null,2)}</code></pre>
         {displayUserComponent()}
       </div>
