@@ -5,6 +5,7 @@ class ChangeMachine extends React.Component {
       coins: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loop = this.loop.bind(this)
   }
 
   
@@ -31,7 +32,22 @@ class ChangeMachine extends React.Component {
   	
   }
 
+   loop(){
+   
+      if(this.state.coins){
 
+      return( 
+      	<div className="row">
+        {
+            this.state.coins.map((coin)=>{
+            return (<Quarter />)
+          })
+        }
+      </div>
+      )
+      }
+  
+  }
 
 
 	render(){
@@ -39,17 +55,18 @@ class ChangeMachine extends React.Component {
 		return(
 			<div className="row">
 				<div className="col-md-2">
-			<h3>Make change</h3>
-			<form onSubmit={this.handleSubmit}>
-			
-				<div className="form-group">
-			    <label>Amount</label>
-			    <input type="text" ref="amount" className="form-control" placeholder="enter in an amount"/>
-  			</div>
-  			<button type="submit" className="btn btn-primary">Make Change</button>
-  		
-			</form>
+					<h3>Make change</h3>
+					<form onSubmit={this.handleSubmit}>
+					
+						<div className="form-group">
+					    <label>Amount</label>
+					    <input type="text" ref="amount" className="form-control" placeholder="enter in an amount"/>
+		  			</div>
+		  			<button type="submit" className="btn btn-primary">Make Change</button>
+		  		
+					</form>
 				</div>
+				{this.loop()}
 			</div>
 
 			)
