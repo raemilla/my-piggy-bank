@@ -1,7 +1,7 @@
 class CreateBanks < ActiveRecord::Migration[5.0]
   def change
     create_table :banks do |t|
-      t.float :balance, default: 0
+      t.integer :balance, default: 0
       t.integer :interest_rate, default: 0
       t.date :start_date
       t.string :type
