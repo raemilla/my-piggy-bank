@@ -7,7 +7,7 @@ render(){
   return(
 
   
-      <form action="/noticifations" method="post" onSubmit={this.handleSubmit}>
+      <form action="/notifications" method="post" onSubmit={this.handleSubmit}>
         <select name="review[rating]">
           <option value="Investment">1</option>
           <option value="2">2</option>

@@ -6,7 +6,7 @@ class PagesController < ApplicationController
                                                           include: {banks: {only: [:balance, :type]}}
                                                           }})
     else
-      @current_user = current_user.as_json(include: :banks)
+      @current_user = current_user.as_json(include: {banks: {methods: :type}})
     end
   end
 end
