@@ -14,9 +14,18 @@ class ParentsController < ApplicationController
     end
   end
 
+  def transfer
+    parent = current_user
+    @child = parent.children.find_by(name: transfer_params["child"])
+		@child.update_attribute("undeposited_funds", transfer_params["amount"].to_i)
+  end
+
   private
   def user_params
     params.require(:parent).permit(:name, :email, :username, :password)
   end
 
+  def transfer_params
+    params.permit(:child, :amount)
+  end
 end
