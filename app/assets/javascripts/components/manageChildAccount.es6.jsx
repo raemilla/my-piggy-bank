@@ -21,9 +21,7 @@ class ManageChildAccount extends React.Component {
         {
           this.props.child.banks.map((bank, idx) =>
           <li className="list-group-item list-group-item-action" key={idx}>
-            <div className="col-md-6">
               {bank.type}, {bank.balance}
-            </div>
               <TransferButton bank={bank} banks={this.props.child.banks} /> <WithdrawButton bank={bank} />
           </li>)
         }
