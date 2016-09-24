@@ -5,6 +5,7 @@ class ChildDashboard extends React.Component {
 			<div>
 			<UndepositedFunds current_child={this.props.current_child} />
 			<ChangeMachine />
+			<Banks current_child={this.props.current_child}/>
 			</div>
 		)
 	}
