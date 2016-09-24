@@ -3,6 +3,6 @@ class NotificationsController < ApplicationController
 	def destroy
 		# debugger
 		# @notification = Notification.find(params[:id])
-		# @notifcation.destroy
+		# @notification.destroy
 	end
 end

@@ -5,9 +5,9 @@ class NotificationList extends React.Component {
   render(){
 
     return(
-      <div className="container">
-      	<h3>Notifications</h3>
-      	<ul>
+      <div id="notification-list" className="container">
+      	<h3 className="row-sm-2">Notifications</h3>
+      	<div className ="row">
       		{
       			this.props.notifications.map((notification, idx) => {
       				return( <div key = {idx}>
@@ -17,7 +17,7 @@ class NotificationList extends React.Component {
       					)
       			})
       		}
-      	</ul>
+      	</div>
       </div>
    	 )
   }
