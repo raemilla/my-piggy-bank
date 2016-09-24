@@ -6,21 +6,21 @@ class UndepositedFunds extends React.Component {
 		// }
 	}
 	render(){
-		
+
 		return(
-			
+
 				<div className="row">
 				<div className="col-sm-2">
-				
+
 				</div>
 					<div className="col-md-8">
-						<p className="text-center">Welcome {this.props.current_child.name}, you have {this.props.current_child.undeposited_funds} cents to Deposit.</p>
+						<h1 className="text-center">Welcome {this.props.current_child.name}, you have {this.props.current_child.undeposited_funds} cents to Deposit.</h1>
 					</div>
 					<div className="col-md-2">
-					
+
 					</div>
 				</div>
-			
+
 			)
 	}
 }
