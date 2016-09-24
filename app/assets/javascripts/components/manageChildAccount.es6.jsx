@@ -24,7 +24,7 @@ class ManageChildAccount extends React.Component {
             <div className="col-md-6">
               {bank.type}, {bank.balance}
             </div>
-              <TransferButton bank={bank} banks={this.props.child.banks} /> <WithdrawButton />
+              <TransferButton bank={bank} banks={this.props.child.banks} /> <WithdrawButton bank={bank} />
           </li>)
         }
       </ul>
