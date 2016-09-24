@@ -4,14 +4,14 @@ class ManageChildAccount extends React.Component {
     this.state = {
       displayBanks: false
     }
-    this.toggleDisplay = this.toggleDisplay.bind(this)
+    this.toggleDisplayBanks = this.toggleDisplayBanks.bind(this)
     this.displayBanks = this.displayBanks.bind(this)
   }
 
-  toggleDisplay(){
-    let shouldToggle = !this.state.displayBanks
+  toggleDisplayBanks(){
+    let shouldToggleBanks = !this.state.displayBanks
     this.setState({
-      displayBanks: shouldToggle
+      displayBanks: shouldToggleBanks
     })
   }
 
@@ -21,11 +21,10 @@ class ManageChildAccount extends React.Component {
         {
           this.props.child.banks.map((bank, idx) =>
           <li className="list-group-item list-group-item-action" key={idx}>
-            <div className="col-md-8">
+            <div className="col-md-6">
               {bank.type}, {bank.balance}
             </div>
-              <button type="button" className="btn btn-primary btn-sm">transfer</button>
-              <button className="btn btn-primary btn-sm">withdraw</button>
+              <TransferButton bank={bank} banks={this.props.child.banks} /> <WithdrawButton />
           </li>)
         }
       </ul>
@@ -36,8 +35,8 @@ class ManageChildAccount extends React.Component {
   render(){
     return(
       <div className="row">
-      <li className="list-group-item list-group-item-action" onClick={this.toggleDisplay}>
-        <strong>{this.props.child.name}</strong> <br/>
+      <li className="list-group-item list-group-item-action">
+        <strong onClick={this.toggleDisplayBanks}>{this.props.child.name}</strong> <br/>
         total undeposited funds: {this.props.child.undeposited_funds}
         {this.state.displayBanks ? this.displayBanks() : null }
       </li>

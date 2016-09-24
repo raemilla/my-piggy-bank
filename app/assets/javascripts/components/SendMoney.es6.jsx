@@ -30,7 +30,7 @@ render(){
               <label >Child:</label>
               <select ref="child">
               {
-              this.props.children.map((child, idx) => <option key={idx} value={child.id}> {child.name} </option>)
+                this.props.children.map((child, idx) => <option key={idx} value={child.id}> {child.name} </option>)
               }
              </select>
             </div>
