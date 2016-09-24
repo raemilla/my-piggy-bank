@@ -54,6 +54,10 @@ class InitialSetup extends React.Component {
       data: $(event.target).serialize()
     }).done((response) => {
       console.log(response)
+      this.setState({
+        displayForm: false,
+        displayButton: true
+      })
     })
   }
 
