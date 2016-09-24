@@ -6,6 +6,7 @@ class ParentDashboard extends React.Component {
 
   render(){
     return(
+      <section>
       <div className="row">
         <h1>{this.props.parent.name}'s dashboard</h1>
         	<NotificationList />
@@ -16,6 +17,11 @@ class ParentDashboard extends React.Component {
           <SendMoney children={this.props.parent.children} />
         </div>
       </div>
+      <div className="row">
+        <h2>manage your child's accounts</h2>
+        <div className="col-md-8"><ManageAccounts children={this.props.parent.children} /></div>
+      </div>
+      </section>
     )
   }
 }
