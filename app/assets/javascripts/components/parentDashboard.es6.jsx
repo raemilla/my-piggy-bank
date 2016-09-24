@@ -9,13 +9,13 @@ class ParentDashboard extends React.Component {
       <section>
       <div className="row">
         <h1>{this.props.parent.name}'s dashboard</h1>
-        <div className="col-sm-4">
+        <div className="col-sm-3">
           <InitialSetup />
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-3">
           <SendMoney children={this.props.parent.children} />
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-6">
           <NotificationList />
         </div>
       </div>
