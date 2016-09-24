@@ -17,8 +17,17 @@ class ManageChildAccount extends React.Component {
 
   displayBanks(){
     return(
-      <ul>
-        {this.props.child.banks.map((bank, idx) => <li key={idx}>{bank.type}, {bank.balance}</li>)}
+      <ul className="list-group">
+        {
+          this.props.child.banks.map((bank, idx) =>
+          <li className="list-group-item list-group-item-action" key={idx}>
+            <div className="col-md-8">
+              {bank.type}, {bank.balance}
+            </div>
+              <button type="button" className="btn btn-primary btn-sm">transfer</button>
+              <button className="btn btn-primary btn-sm">withdraw</button>
+          </li>)
+        }
       </ul>
     )
   }
@@ -26,13 +35,12 @@ class ManageChildAccount extends React.Component {
 
   render(){
     return(
-      <div>
-      <li onClick={this.toggleDisplay}>
+      <div className="row">
+      <li className="list-group-item list-group-item-action" onClick={this.toggleDisplay}>
         <strong>{this.props.child.name}</strong> <br/>
         total undeposited funds: {this.props.child.undeposited_funds}
         {this.state.displayBanks ? this.displayBanks() : null }
       </li>
-      <br/>
       </div>
     )
   }
