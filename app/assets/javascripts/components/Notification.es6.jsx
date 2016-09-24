@@ -1,27 +1,27 @@
 class Notification extends React.Component {
 	constructor(){
 		super()
-		this.handleClick=this.handleClick.bind(this)
+		this.state = {
+      notifications: null
+    }
+    this.handleClick = this.handleClick.bind(this)
 	}
 
-	handleClick(event) {
-		event.preventDefault()
-
+	handleClick(e){
+		e.preventDefault()
 		var id= this.props.data.id
-		$.ajax({
-			url: '/notifications/'.concat(id),
-			method: 'delete',
-		}).done((response) => {
-			debugger
-			console.log('hey! things got deleted')
-		})
+    $.ajax({
+      url: '/notifications/'.concat(id),
+      method: 'delete',
+    }).done((response) => {
+      this.props.onSearch(response)
+      console.log('hey! things got deleted')
+    }.bind(this))
+
 	}
-
-
 
 
   render(){
-
     return(
     	<div id="notification"className = "container">
 	    	<div className="row" >
