@@ -1,6 +1,7 @@
 class ParentDashboard extends React.Component {
 	constructor(){
 		super()
+		debugger;
 		this.getMoney=this.getMoney.bind(this)
 		this.state = {
 			children: []
@@ -19,7 +20,6 @@ class ParentDashboard extends React.Component {
 	}
 
   render(){
-
     return(
       <section>
       <div className="row">
