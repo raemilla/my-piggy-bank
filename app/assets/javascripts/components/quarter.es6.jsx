@@ -1,9 +1,12 @@
 class Quarter extends React.Component {
+	ComponentDidMount(){
+    $('.coin').draggable()
+  }
   render(){
 
     return(
 
-      <p>25</p>
+      <p className="coin">25</p>
         )
   }
 }

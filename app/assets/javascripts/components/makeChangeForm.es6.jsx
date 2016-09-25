@@ -8,9 +8,11 @@ class ChangeMachine extends React.Component {
     this.loop = this.loop.bind(this)
   }
 
-	ComponentDidUpdate(){
-
+	componentDidUpdate(){
+    $('.coin').draggable()
   }
+
+ 
 
   handleSubmit(event){
   	event.preventDefault()
@@ -71,6 +73,7 @@ class ChangeMachine extends React.Component {
 
 					</form>
 				</div>
+        <Quarter />
 				{this.loop()}
 			</div>
 
