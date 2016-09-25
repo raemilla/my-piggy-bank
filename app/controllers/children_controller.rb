@@ -5,13 +5,14 @@ class ChildrenController < ApplicationController
   def create
     child = Child.new(child_params)
     child.parent = current_user
-    # debugger
+    children = current_user.children
+    #debugger
     if child.save
       Investment.create(child: child, interest_rate: params[:interest_rate])
       Donation.create(child: child)
       Saving.create(child: child)
       Spending.create(child: child)
-      redirect_to root_path
+      render json:children.as_json
     else
       flash[:alert] = "Error creating child"
       redirect_to root_path

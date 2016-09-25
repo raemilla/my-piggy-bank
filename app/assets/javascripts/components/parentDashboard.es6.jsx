@@ -1,8 +1,8 @@
 class ParentDashboard extends React.Component {
 	constructor(){
 		super()
-		debugger;
 		this.getMoney=this.getMoney.bind(this)
+    this.addChild=this.addChild.bind(this)
 		this.state = {
 			children: [], notifications: []
 		}
@@ -13,6 +13,10 @@ class ParentDashboard extends React.Component {
       children: this.props.parent.children
     })
 	}
+
+  addChild(newChildren){
+    this.setState({children: newChildren})
+  }
 
 
 	getMoney(newChildren){
@@ -25,7 +29,7 @@ class ParentDashboard extends React.Component {
       <div className="row">
         <h1>{this.props.parent.name}'s dashboard</h1>
         <div className="col-sm-3">
-          <InitialSetup />
+          <InitialSetup UpdateManageChildAccounts={this.addChild}/>
         </div>
         <div className="col-sm-3">
           <SendMoney children={this.props.parent.children} sendMoneyValue={this.getMoney} />
