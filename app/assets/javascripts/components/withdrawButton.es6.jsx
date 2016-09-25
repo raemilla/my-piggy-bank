@@ -7,6 +7,7 @@ class WithdrawButton extends React.Component {
     }
     this.toggleForm = this.toggleForm.bind(this)
     this.displayWithdrawForm = this.displayWithdrawForm.bind(this)
+    this.withdrawMoney = this.withdrawMoney.bind(this)
   }
 
   toggleForm(){
@@ -18,12 +19,23 @@ class WithdrawButton extends React.Component {
     })
   }
 
+  withdrawMoney(){
+    debugger
+    $.ajax({
+      url:'/withdraw',
+      method: 'post',
+      data: {amount: this.refs.amount.value, child: this.refs.child.value, banktype: this.refs.bankType.value }
+    }).done(response => {
+
+    }.bind(this))
+  }
+
   displayWithdrawForm(){
     return(
-    <form className="form-inline">
+    <form onSubmit={this.withdrawMoney}className="form-inline">
       <div className="form-group">
         <label>Child: </label>
-        <select>
+        <select ref="child">
           {
             this.props.children.map((child, idx) => <option key={idx}>{child.name}</option>)
           }
@@ -31,7 +43,7 @@ class WithdrawButton extends React.Component {
           </div>
       <div className="form-group">
         <label>From: </label>
-        <select>
+        <select ref="bankType">
         <option>Investment</option>
         <option>Spending</option>
         <option>Donation</option>
@@ -40,7 +52,7 @@ class WithdrawButton extends React.Component {
       </div>
       <div className="form-group">
         <label>Amount: </label>
-        <input type="number" className="form-control form-control-sm"/>
+        <input ref="amount" type="number" className="form-control form-control-sm"/>
       </div>
       <button type="submit" className="btn btn-primary">submit withdraw!</button>
     </form>

@@ -23,6 +23,7 @@ class ParentsController < ApplicationController
   render json:  @children.as_json
   end
 
+
   private
   def user_params
     params.require(:parent).permit(:name, :email, :username, :password)
@@ -30,5 +31,9 @@ class ParentsController < ApplicationController
 
   def transfer_params
     params.permit(:child, :amount)
+  end
+
+  def withdraw_params
+    params.permit(:banktype, :amount, :child)
   end
 end

@@ -23,4 +23,15 @@ class BanksController < ApplicationController
 		redirect_to root_path
 	end
 
+	 def withdraw
+    parent = current_user
+    @child = parent.children.find_by(name: withdraw_params["child"])
+    @bank = @child.banks.find_by(type: withdraw_params["banktype"])
+    new_amount = @bank.balance -= withdraw_params["amount"].to_i
+    @bank.update_attribute("balance", new_amount)
+    @children = @child.parent.children
+    render json: @children.as_json
+    debugger
+  end
+
 end

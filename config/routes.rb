@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 root to: 'pages#index'
 
 post '/transfer' => 'parents#transfer'
+
 post '/banks/transfer' => 'banks#transfer' 
+
+post '/banks/withdraw' => 'banks#withdraw'
+
 resources :pages, only: [:index]
 resources :parents
 resources :children
