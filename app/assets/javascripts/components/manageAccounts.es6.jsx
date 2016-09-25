@@ -7,7 +7,7 @@ class ManageAccounts extends React.Component {
       <ul className="list-group">
         {
           this.props.children.map((child, idx) =>
-            <ManageChildAccount  child={child} key={idx} />)
+            <ManageChildAccount child={child} key={idx} />)
         }
       </ul>
     )

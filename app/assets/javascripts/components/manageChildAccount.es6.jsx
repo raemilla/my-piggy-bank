@@ -12,7 +12,7 @@ class ManageChildAccount extends React.Component {
     let shouldToggleBanks = !this.state.displayBanks
     this.setState({
       displayBanks: shouldToggleBanks
-    }) 
+    })
   }
 
   displayBanks(){
