@@ -14,15 +14,12 @@ class ChildDashboard extends React.Component {
 
   componentDidMount(){
 
-    $('body').css('color', 'green')
-
     $('.banks').droppable({
     	accept: ".coin",
     	drop: function(event,ui){
 
           bank = this.props.current_child.banks.find(function(bank){return bank.type === $(event.target).attr('id')})
 
-    		// var childId = this.props.current_child.id
     		var bankId = bank.id
 
     		$.ajax({
