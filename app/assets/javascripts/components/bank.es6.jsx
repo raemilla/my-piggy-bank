@@ -5,6 +5,8 @@ class Bank extends React.Component {
      this.state = {
       displayTransferForm: false
     }
+    this.displayDonationForm = this.displayDonationForm.bind(this)
+    this.displayDonationButton = this.displayDonationButton.bind(this)
     this.toggleDisplayTransferForm = this.toggleDisplayTransferForm.bind(this)
     this.displayTransferForm = this.displayTransferForm.bind(this)
     this.filterBanks = this.filterBanks.bind(this)
@@ -40,10 +42,6 @@ class Bank extends React.Component {
   }
 
     displayTransferForm(){
-
-
-
-
     return(
       <div className="row">
       <form className="form-inline" onSubmit={this.handleRequestTransfer} >
@@ -66,6 +64,20 @@ class Bank extends React.Component {
     )
   }
 
+    displayDonationForm(){
+       return(
+         <h1>Clicked me!</h1>
+        )
+    }
+
+    displayDonationButton(){
+      return(
+         <button type="submit" onClick={this.displayDonationForm} className="btn btn-primary btn-lg">Request to Donate</button>
+        )
+    }
+
+
+
 
   render () {
 
@@ -79,6 +91,7 @@ class Bank extends React.Component {
 
    	  <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button>
       {this.state.displayTransferForm ? this.displayTransferForm() : null }
+      {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
   		</div></div>
 
       </li>
