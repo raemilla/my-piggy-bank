@@ -15,6 +15,7 @@ class ParentDashboard extends React.Component {
 	}
 
   addChild(newChildren){
+    debugger;
     this.setState({children: newChildren})
   }
 

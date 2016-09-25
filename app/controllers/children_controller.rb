@@ -12,7 +12,7 @@ class ChildrenController < ApplicationController
       Donation.create(child: child)
       Saving.create(child: child)
       Spending.create(child: child)
-      render json:children.as_json
+      render json:children.as_json(include: {banks: {methods: :type}})
     else
       flash[:alert] = "Error creating child"
       redirect_to root_path
