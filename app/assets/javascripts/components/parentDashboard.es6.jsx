@@ -1,10 +1,25 @@
 class ParentDashboard extends React.Component {
 	constructor(){
 		super()
+		this.getMoney=this.getMoney.bind(this)
+		this.state = {
+			children: []
+		}
+	}
+
+	compontentDidMount() {
+		this.state = {
+			children: this.props.parent.children
+		}
 	}
 
 
+	getMoney(newChildren){
+		this.setState({ children: newChildren})
+	}
+
   render(){
+  	
     return(
       <section>
       <div className="row">
@@ -13,7 +28,7 @@ class ParentDashboard extends React.Component {
           <InitialSetup />
         </div>
         <div className="col-sm-3">
-          <SendMoney children={this.props.parent.children} />
+          <SendMoney children={this.props.parent.children} sendMoneyValue={this.getMoney} />
         </div>
         <div className="col-sm-6">
           <NotificationList />
@@ -21,7 +36,7 @@ class ParentDashboard extends React.Component {
       </div>
       <div className="row">
         <h2>manage your child's accounts</h2>
-        <div className="col-md-8"><ManageAccounts children={this.props.parent.children} /></div>
+        <div className="col-md-8"><ManageAccounts children={this.state.children} /></div>
       </div>
       </section>
     )
