@@ -5,7 +5,7 @@ class Banks extends React.Component {
     	<ul className="list-inline">
 				{
 					this.props.current_child.banks.map((bank, idx) => {
-						return (<Bank key={idx} bank={bank} />)
+						return (<Bank child={this.props.current_child} key={idx} bank={bank} />)
 					})
 				}
 			</ul>

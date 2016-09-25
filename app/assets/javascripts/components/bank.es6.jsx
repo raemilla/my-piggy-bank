@@ -7,6 +7,22 @@ class Bank extends React.Component {
     }
     this.toggleDisplayTransferForm = this.toggleDisplayTransferForm.bind(this)
     this.displayTransferForm = this.displayTransferForm.bind(this)
+    this.filterBanks = this.filterBanks.bind(this)
+  }
+
+    handleRequestTransfer(event){
+    var amount = this.refs.amount.value
+    var bank = this.refs.bank.value
+    event.preventDefault()
+    $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: {text: this.props.child.name + " requested a transfer of "
+      + amount + " cents from " + this.props.bank.type + " to " + bank}
+    }).done((response) => {
+     
+    
+    })
   }
 
     toggleDisplayTransferForm(){
@@ -16,26 +32,40 @@ class Bank extends React.Component {
     }) 
   }
 
+    filterBanks(bank){
+    if(bank.type === this.props.bank.type){
+      return false
+    }
+    return true
+  }
+
     displayTransferForm(){
+
+
+
+
     return(
       <div className="row">
-      <form className="form-inline">
-
+      <form className="form-inline" onSubmit={this.handleRequestTransfer} >
+      <div className="form-group">
+          <label>To: </label>
+          <select ref='bank'>
+              {
+              this.props.child.banks.filter(this.filterBanks).map((bank, idx) => <option key={idx}>{bank.type}</option>)
+            }
+          </select>
+        </div>
         <div className="form-group">
           <label className="label-lg"> <h5>Amount:</h5> </label>
-          <input type="number" className="form-control input-lg" />
+          <input type="number" className="form-control input-lg" ref='amount'/>
         </div>
-        <button type="submit" className="btn btn-primary btn-lg">Transfer</button>
+        <button type="submit" className="btn btn-primary btn-lg">Submit</button>
    
       </form>
          </div>
     )
   }
 
-  handleRequestTransfer(event){
-    debugger;
-    event.preventDefault();
-  }
 
   render () {
 
