@@ -29,7 +29,7 @@ class TransferButton extends React.Component {
         <div className="form-group">
           <label>From: </label>
           <select>
-            <option defaultValue>{this.props.bank.type}</option>
+            <option defaultValue></option>
           </select>
         </div>
 
