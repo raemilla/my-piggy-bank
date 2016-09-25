@@ -1,68 +1,56 @@
 class ChildDashboard extends React.Component {
- 
+  constructor(){
+    super()
+    this.state = {
+      current_child: ''
+    }
+  }
+
+  componentWillMount(){
+    this.setState({
+			current_child: this.props.current_child
+		})
+  }
+
   componentDidMount(){
 
     $('body').css('color', 'green')
 
-    $('#Saving').droppable({
+    $('.banks').droppable({
     	accept: ".coin",
     	drop: function(event,ui){
-    		var childId = this.props.current_child.id
-    		var bankId = this.props.current_child.banks[2].id
+
+          bank = this.props.current_child.banks.find(function(bank){return bank.type === $(event.target).attr('id')})
+
+    		// var childId = this.props.current_child.id
+    		var bankId = bank.id
+
     		$.ajax({
-    			url: '/children/'+childId+'/banks/'+bankId,
+    			url: '/banks/'+bankId,
     			method: 'PUT',
-    			data: {value: $(ui.draggable[0]).text()}
+    			data: {value: $(ui.draggable[0]).attr('value')}
     		})
     		.done((response)=>{
+
+          this.setState({
+      			current_child: response
+      		})
     			ui.draggable.remove();
     		})
     	}.bind(this)
     })
 
-    // $('#Investment').droppable({
-    // 	accept: ".coin",
-    // 	drop: function(event,ui){
-    // 		var childId = this.props.current_child.id
-    // 		var bankId = this.props.current_child.banks[0].id
-    // 		$.ajax({
-    // 			url: '/children/'+childId+'/banks/'+bankId,
-    // 			method: 'PUT',
-    // 			data: {value: $(ui.draggable[0]).text()}
-    // 		})
-    // 		.done((response)=>{
-    // 			ui.draggable.remove();
-    // 		})
-    // 	}.bind(this)
-    // })
-
-  //   $('#bank_account').droppable({
-  //   accept: ".coin",
-  //   drop: function(event, ui){
-
-
-  //     $.ajax({
-  //       url: '/banks',
-  //       method: 'post',
-  //       data: {value: ui.draggable.attr('value')}
-  //     }).done(function(response){
-  //       $('.deposit_amount').html(response["remainder"])
-  //       $('.account-total').html(response["total"])
-  //       ui.draggable.remove();
-  //     })
-
-  //   },
-
-  // })
   }
 
 	render(){
 
 		return(
 			<div>
-			<UndepositedFunds current_child={this.props.current_child} />
-			<ChangeMachine />
-			<Banks current_child={this.props.current_child}/>
+			<UndepositedFunds current_child={this.state.current_child} />
+			<ChangeMachine current_child={this.state.current_child} />
+
+  			   <Banks current_child={this.state.current_child}/>
+
 			</div>
 		)
 	}

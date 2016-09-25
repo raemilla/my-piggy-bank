@@ -12,14 +12,19 @@ class ChangeMachine extends React.Component {
     $('.coin').draggable()
   }
 
- 
+
 
   handleSubmit(event){
   	event.preventDefault()
 
-  	var coins = [25, 10, 5]
+  	var coins = [25, 10, 5, 1]
   	var coinArray = []
   	var remainder = this.refs.amount.value
+	
+		if(remainder > this.props.current_child.undeposited_funds){
+			return (<p>Sorry, you don't have that much money</p>)
+		}
+
   	coins.forEach(function(value){
 
   		let numOfCoins = Math.floor(remainder / value)
@@ -44,8 +49,16 @@ class ChangeMachine extends React.Component {
       return(
       	<div className="row">
         {
-            this.state.coins.map((coin)=>{
-            return (<Quarter />)
+            this.state.coins.map((coin, i)=>{
+							if(coin === 25){
+            		return (<Quarter key={i} />)
+							}else if(coin === 10){
+								return (<Dime key={i}/>)
+							}else if(coin === 5){
+								return (<Nickel key={i}/>)
+							}else if(coin === 1){
+								return (<Penny key={i}/>)
+							}
           })
         }
       </div>
@@ -73,7 +86,6 @@ class ChangeMachine extends React.Component {
 
 					</form>
 				</div>
-        <Quarter />
 				{this.loop()}
 			</div>
 

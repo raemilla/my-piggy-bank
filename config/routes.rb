@@ -8,9 +8,9 @@ root to: 'pages#index'
 post '/transfer' => 'parents#transfer'
 resources :pages, only: [:index]
 resources :parents
-resources :children do 
-	resources :banks
-end
+resources :children
+resources :banks
+
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'

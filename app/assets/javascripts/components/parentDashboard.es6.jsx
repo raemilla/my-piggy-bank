@@ -7,10 +7,10 @@ class ParentDashboard extends React.Component {
 		}
 	}
 
-	compontentDidMount() {
-		this.setState = {
+	componentDidMount() {
+		this.setState({
 			children: this.props.parent.children
-		}
+		})
 	}
 
 
@@ -19,7 +19,7 @@ class ParentDashboard extends React.Component {
 	}
 
   render(){
-  	
+
     return(
       <section>
       <div className="row">
