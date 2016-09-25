@@ -8,6 +8,7 @@ class InitialSetup extends React.Component {
     this.toggleForm = this.toggleForm.bind(this)
     this.displayForm = this.displayForm.bind(this)
     this.createChild = this.createChild.bind(this)
+    this.createNewChild = this.createNewChild.bind(this)
   }
 
   toggleForm(event){
@@ -24,7 +25,7 @@ class InitialSetup extends React.Component {
 
   displayForm(){
     return(
-      <form onSubmit={this.createChild} method="post" action="/children">
+      <form onSubmit={this.createChild}  method="post" action="/children">
         <div className="form-group">
           <label htmlFor="childName">Name</label>
           <input type="text" className="form-control" placeholder="Enter your child's name" name="child[name]" />
@@ -46,6 +47,10 @@ class InitialSetup extends React.Component {
     )
   }
 
+  createNewChild(event){
+    event.preventDefault();
+  }
+
   createChild(event){
     event.preventDefault()
     $.ajax({
@@ -53,11 +58,11 @@ class InitialSetup extends React.Component {
       url: '/children',
       data: $(event.target).serialize()
     }).done((response) => {
-      console.log(response)
       this.setState({
         displayForm: false,
         displayButton: true
       })
+      this.props.UpdateManageChildAccounts(response)
     })
   }
 
