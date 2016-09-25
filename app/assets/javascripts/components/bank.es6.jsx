@@ -3,13 +3,16 @@ class Bank extends React.Component {
     super()
     this.handleRequestTransfer=this.handleRequestTransfer.bind(this)
      this.state = {
-      displayTransferForm: false
+      displayTransferForm: false,
+      displayDonationForm: false
     }
     this.displayDonationForm = this.displayDonationForm.bind(this)
     this.displayDonationButton = this.displayDonationButton.bind(this)
     this.toggleDisplayTransferForm = this.toggleDisplayTransferForm.bind(this)
+    this.toggleDisplayDonationForm = this.toggleDisplayDonationForm.bind(this)
     this.displayTransferForm = this.displayTransferForm.bind(this)
     this.filterBanks = this.filterBanks.bind(this)
+    this.handleDonateClick = this.handleDonateClick.bind(this)
   }
 
     handleRequestTransfer(event){
@@ -26,7 +29,13 @@ class Bank extends React.Component {
     
     })
   }
+  toggleDisplayDonationForm(){
+    let shouldToggleDonationForm = !this.state.displayTransferForm
+    this.setState({
+      displayDonationForm: shouldToggleDonationForm
+    }) 
 
+  }
     toggleDisplayTransferForm(){
     let shouldToggleTransferForm = !this.state.displayTransferForm
     this.setState({
@@ -64,15 +73,29 @@ class Bank extends React.Component {
     )
   }
 
+    handleDonateClick(event){
+      event.preventDefault();
+       $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: {text: this.props.child.name + " wants to make a donation"
+      }
+    }).done((response) => {
+     
+    
+    })
+
+    }
+
     displayDonationForm(){
        return(
-         <h1>Clicked me!</h1>
+         <h1>Where Donation form goes</h1>
         )
     }
 
     displayDonationButton(){
       return(
-         <button type="submit" onClick={this.displayDonationForm} className="btn btn-primary btn-lg">Request to Donate</button>
+         <button type="submit" onClick={this.handleDonateClick} className="btn btn-primary btn-lg">Request to Donate</button>
         )
     }
 
