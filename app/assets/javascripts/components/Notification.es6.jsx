@@ -30,13 +30,7 @@ class Notification extends React.Component {
 	    			<button onClick={this.handleClick}>x</button>
 	    		</div>
 	    	</div>
-	    	<div className="row"> 
-	    		<span className="col-sm-5">- 
-	    		{
-	    			this.props.data.child.name
-	    		}
-	    		</span> 
-	      </div>
+	    	
       </div>
     )
   }

@@ -7,6 +7,10 @@ class NotificationsController < ApplicationController
 		 render json: @notifications
 	end
 
+	def create
+		Notification.create(child_id: current_user.id, text: params[:text])
+	end
+
 
 	def destroy
 		@notification = Notification.find(params[:id])
@@ -16,4 +20,8 @@ class NotificationsController < ApplicationController
 			{child:{only: :name}})
 		render json:@notifications
 	end
+
+
 end
+
+

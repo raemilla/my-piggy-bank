@@ -1,12 +1,8 @@
 class RequestTransfer extends React.Component {
 
 
-
-
 render(){ 
   return(
-
-  
       <form action="/notifications" method="post" onSubmit={this.handleSubmit}>
         <select name="review[rating]">
           <option value="Investment">1</option>
