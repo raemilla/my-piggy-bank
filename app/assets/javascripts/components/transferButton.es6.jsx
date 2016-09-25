@@ -7,6 +7,7 @@ class TransferButton extends React.Component {
     }
     this.toggleTransferForm = this.toggleTransferForm.bind(this)
     this.displayForm = this.displayForm.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   toggleTransferForm(){
@@ -18,12 +19,35 @@ class TransferButton extends React.Component {
     })
   }
 
+  handleSubmit(event){
+    event.preventDefault()
+    var child = this.refs.child.value,
+    fromBank = this.refs.fromBank.value,
+    toBank = this.refs.toBank.value,
+    amount = this.refs.amount.value
+    $.ajax({
+      method: 'post',
+      url: '/banks/transfer',
+      data: {
+        amount: amount,
+        fromBank: fromBank,
+        toBank: toBank,
+        child: child
+      }
+    }).done((response) => {
+      this.setState({
+        displayTransferForm: false,
+        displayButton: true
+      })
+    })
+  }
+
   displayForm(){
     return(
-      <form className="form-inline">
+      <form onSubmit={this.handleSubmit} className="form-inline">
         <div className="form-group">
           <label>Child: </label>
-          <select>
+          <select ref="child">
             {
               this.props.children.map((child, idx) => <option key={idx}>{child.name}</option>)
             }
@@ -31,7 +55,7 @@ class TransferButton extends React.Component {
         </div>
         <div className="form-group">
           <label>From: </label>
-          <select>
+          <select ref="fromBank">
             <option>Investment</option>
             <option>Spending</option>
             <option>Donation</option>
@@ -41,7 +65,7 @@ class TransferButton extends React.Component {
 
         <div className="form-group">
           <label>To: </label>
-          <select>
+          <select ref="toBank">
           <option>Investment</option>
           <option>Spending</option>
           <option>Donation</option>
@@ -51,10 +75,10 @@ class TransferButton extends React.Component {
 
         <div className="form-group">
           <label>Amount: </label>
-          <input type="number" className="form-control form-control-sm" />
+          <input ref="amount" type="number" className="form-control form-control-sm" />
         </div>
 
-        <button type="submit" className="btn btn-primary btn-sm">submit transfer!</button>
+        <button type="submit" className="btn btn-primary">submit transfer!</button>
       </form>
     )
   }
@@ -62,7 +86,7 @@ class TransferButton extends React.Component {
   render(){
     return(
       <div>
-        {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary btn-sm">transfer</button> : null }
+        {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary">transfer</button> : null }
         {this.state.displayTransferForm ? this.displayForm() : null }
       </div>
     )
