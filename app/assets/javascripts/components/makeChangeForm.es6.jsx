@@ -20,9 +20,9 @@ class ChangeMachine extends React.Component {
   	var coins = [25, 10, 5, 1]
   	var coinArray = []
   	var remainder = this.refs.amount.value
-	
+
 		if(remainder > this.props.current_child.undeposited_funds){
-			return (<p>Sorry, you don't have that much money</p>)
+			return (alert("Sorry, you don't have that much money"))
 		}
 
   	coins.forEach(function(value){
@@ -45,7 +45,6 @@ class ChangeMachine extends React.Component {
    loop(){
 
       if(this.state.coins){
-
       return(
       	<div className="row">
         {
