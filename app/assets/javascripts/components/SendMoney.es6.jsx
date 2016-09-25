@@ -16,6 +16,7 @@ handleSubmit(event){
     method: 'post',
     data: {child: child, amount: amount}
   }).done((response) => {
+    this.props.sendMoneyValue(response)
     this.refs.amount.value = ""
   }.bind(this))
 }
@@ -30,7 +31,7 @@ render(){
               <label >Child:</label>
               <select ref="child">
               {
-                this.props.children.map((child, idx) => <option key={idx} value={child.id}> {child.name} </option>)
+                this.props.children.map((child, idx) => <option key={idx} value={child.name}> {child.name} </option>)
               }
              </select>
             </div>

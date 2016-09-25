@@ -17,7 +17,10 @@ class ParentsController < ApplicationController
   def transfer
     parent = current_user
     @child = parent.children.find_by(name: transfer_params["child"])
-		@child.update_attribute("undeposited_funds", transfer_params["amount"].to_i)
+    new_amount = @child.undeposited_funds += transfer_params["amount"].to_i
+    @child.update_attribute("undeposited_funds", new_amount)
+    @children = @child.parent.children
+  render json:  @children.as_json
   end
 
   private
