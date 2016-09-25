@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_to pages_path
     elsif @child && @child.authenticate(params[:user][:password])
       session[:child_id] = @child.id
+      
       redirect_to pages_path
     else
       @errors = ['Invalid email/password']
