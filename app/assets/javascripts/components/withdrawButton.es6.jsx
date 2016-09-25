@@ -42,7 +42,7 @@ class WithdrawButton extends React.Component {
         <label>Amount: </label>
         <input type="number" className="form-control form-control-sm"/>
       </div>
-      <button type="submit" className="btn btn-primary btn-sm">submit withdraw!</button>
+      <button type="submit" className="btn btn-primary">submit withdraw!</button>
     </form>
     )
   }
@@ -50,7 +50,7 @@ class WithdrawButton extends React.Component {
   render(){
     return(
       <div>
-        {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary btn-sm">withdraw</button> : null }
+        {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary">withdraw</button> : null }
         {this.state.displayForm ? this.displayWithdrawForm() : null }
       </div>
     )

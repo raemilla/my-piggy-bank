@@ -1,7 +1,6 @@
 class ParentDashboard extends React.Component {
 	constructor(){
 		super()
-		debugger;
 		this.getMoney=this.getMoney.bind(this)
 		this.state = {
 			children: [], notifications: []
