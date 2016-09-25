@@ -10,8 +10,8 @@ class ParentDashboard extends React.Component {
 
 	componentDidMount() {
 		this.setState({
-			children: this.props.parent.children
-		})
+      children: this.props.parent.children
+    })
 	}
 
 
