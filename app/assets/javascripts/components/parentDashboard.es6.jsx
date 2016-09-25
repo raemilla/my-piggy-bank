@@ -3,6 +3,7 @@ class ParentDashboard extends React.Component {
 		super()
 		this.getMoney=this.getMoney.bind(this)
     this.addChild=this.addChild.bind(this)
+    this.parentWithdraw=this.parentWithdraw.bind(this)
 		this.state = {
 			children: [], notifications: []
 		}
@@ -24,6 +25,10 @@ class ParentDashboard extends React.Component {
 		this.setState({ children: newChildren})
 	}
 
+  parentWithdraw(newChildren){
+    this.setState({children: newChildren})
+  }
+
   render(){
     return(
       <section>
@@ -41,7 +46,7 @@ class ParentDashboard extends React.Component {
       </div>
       <div className="row">
         <h2>manage your child's accounts</h2>
-        <div className="col-md-8"><ManageAccounts children={this.state.children} /></div>
+        <div className="col-md-8"><ManageAccounts trueWithdraw={this.parentWithdraw} children={this.state.children} /></div>
       </div>
       </section>
     )

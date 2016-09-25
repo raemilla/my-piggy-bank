@@ -19,14 +19,15 @@ class WithdrawButton extends React.Component {
     })
   }
 
-  withdrawMoney(){
-    debugger
+  withdrawMoney(event){
+    event.preventDefault()
     $.ajax({
-      url:'/withdraw',
+      url:'/banks/withdraw',
       method: 'post',
       data: {amount: this.refs.amount.value, child: this.refs.child.value, banktype: this.refs.bankType.value }
-    }).done(response => {
-
+    }).done((response) => {
+      this.props.withdrawUpdateChildren(response)
+      this.refs.amount.value = ""
     }.bind(this))
   }
 

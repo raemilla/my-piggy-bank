@@ -1,11 +1,17 @@
 class ManageAccounts extends React.Component {
   constructor(){
     super()
+
+    this.withdraw=this.withdraw.bind(this)
+  }
+
+  withdraw(response){
+    this.props.trueWithdraw(response)
   }
 
 
   render(){
-    // debugger;
+   
     return(
       <ul className="list-group">
         {
@@ -13,7 +19,7 @@ class ManageAccounts extends React.Component {
             <ManageChildAccount child={child} key={idx} />)
         }
         <TransferButton onClick={this.toggleTransferButton} children={this.props.children}/>
-        <WithdrawButton children={this.props.children} />
+        <WithdrawButton children={this.props.children} withdrawUpdateChildren={this.withdraw} />
       </ul>
     )
   }

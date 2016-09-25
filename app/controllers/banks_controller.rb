@@ -30,8 +30,14 @@ class BanksController < ApplicationController
     new_amount = @bank.balance -= withdraw_params["amount"].to_i
     @bank.update_attribute("balance", new_amount)
     @children = @child.parent.children
-    render json: @children.as_json
-    debugger
+    render json: @children.as_json(include:{ banks:{methods: :type} })
   end
 
+
+private
+
+
+  def withdraw_params
+    params.permit(:banktype, :amount, :child)
+  end
 end

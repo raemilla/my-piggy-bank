@@ -33,7 +33,4 @@ class ParentsController < ApplicationController
     params.permit(:child, :amount)
   end
 
-  def withdraw_params
-    params.permit(:banktype, :amount, :child)
-  end
 end
