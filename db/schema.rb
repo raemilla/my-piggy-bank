@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923203904) do
+ActiveRecord::Schema.define(version: 20160926144810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20160923203904) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "username"
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.integer  "amount",     null: false
+    t.string   "item",       null: false
+    t.integer  "child_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_rewards_on_child_id", using: :btree
   end
 
 end
