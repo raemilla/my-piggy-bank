@@ -7,6 +7,31 @@ class ParentRewardsList extends React.Component {
     }
     this.toggleRewardForm = this.toggleRewardForm.bind(this)
     this.displayRewardForm = this.displayRewardForm.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event){
+    event.preventDefault()
+    debugger
+    var child = this.refs.child.value,
+    amount = this.refs.amount.value,
+    item = this.refs.item.value
+    debugger;
+    $.ajax({
+      method: 'post',
+      url: '/rewards',
+      data: {
+        amount: amount,
+        child: child,
+        item: item
+      }
+    }).done((response) => {
+      console.log("great success!")
+      this.setState({
+        displayForm: false,
+        displayButton: true
+      })
+    })
   }
 
   toggleRewardForm(){
@@ -21,23 +46,24 @@ class ParentRewardsList extends React.Component {
 
   displayRewardForm(){
     return(
-      <form className="form-inline">
+      <form onSubmit={this.handleSubmit} className="form-inline">
         <div className="form-group">
           <label>reward: </label>
-          <input type="text" placeholder="enter a reward" name="reward[item]"/>
+          <input ref="item" type="text" placeholder="enter a reward" name="reward[item]"/>
         </div>
         <div className="form-group">
           <label>cost: </label>
-          <input type="number" placeholder="set a cost" name="reward[amount]"/>
+          <input ref="amount" type="number" placeholder="set a cost" name="reward[amount]"/>
         </div>
         <div className="form-group">
           <label>child: </label>
-          <select>
+          <select ref="child">
             {
               this.props.children.map((child, idx) =>
               <option key={idx} >{child.name}</option>
             )
             }
+            <option>All</option>
           </select>
         </div>
         <button type="submit" className="btn btn-primary">create reward!</button>
