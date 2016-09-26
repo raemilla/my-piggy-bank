@@ -1,7 +1,11 @@
 class ChildRewardList extends React.Component {
   constructor(){
     super()
+    this.state = {
+      displayAlert: false
+    }
     this.handlePurchase = this.handlePurchase.bind(this)
+    this.toggleAlert = this.toggleAlert.bind(this)
   }
 
   handlePurchase(event) {
@@ -13,12 +17,21 @@ class ChildRewardList extends React.Component {
         text: this.props.child.name + " wants to buy a reward: " + event.target.name
       }
     }).done((response) => {
-      console.log("great success")
+      this.setState({
+        displayAlert: true
+      })
+    })
+  }
+
+  toggleAlert(){
+    this.setState({
+      displayAlert: false
     })
   }
 
   render(){
     return(
+      <div>
       <table className="table table-sm table-striped">
         <thead className="thead-default">
           <tr>
@@ -39,6 +52,13 @@ class ChildRewardList extends React.Component {
           }
         </tbody>
       </table>
+      {this.state.displayAlert ? <div className="alert alert-success alert-dismissible">
+        <button onSubmit={this.toggleAlert} type="button" className="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Yay!</strong> Your parents will give you your reward!
+      </div> : null }
+      </div>
     )
   }
 }
