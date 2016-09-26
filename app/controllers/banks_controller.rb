@@ -21,7 +21,7 @@ class BanksController < ApplicationController
 		bank2 = child.banks.find_by(type: params[:toBank])
 		bank2.update_attribute("balance", (bank2.balance + amount))
 		@children = current_user.children
-		render json: @children.as_json(include:{ banks:{methods: :type} })
+		render json: @children.as_json(methods: :total_balance, include:{ banks:{methods: :type} })
 	end
 
 	 def withdraw
@@ -31,7 +31,7 @@ class BanksController < ApplicationController
     new_amount = @bank.balance -= withdraw_params["amount"].to_i
     @bank.update_attribute("balance", new_amount)
     @children = @child.parent.children
-    render json: @children.as_json(include:{ banks:{methods: :type} })
+    render json: @children.as_json(methods: :total_balance, include:{ banks:{methods: :type} })
   end
 
 

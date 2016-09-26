@@ -6,4 +6,8 @@ class Child < ApplicationRecord
   validates :name, presence: true
 
   has_secure_password
+
+  def total_balance
+    self.banks.reduce(0) { |sum, bank| sum + bank.balance }
+  end
 end
