@@ -1,4 +1,50 @@
 class ParentRewardsList extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      displayButton: true,
+      displayForm: false
+    }
+    this.toggleRewardForm = this.toggleRewardForm.bind(this)
+    this.displayRewardForm = this.displayRewardForm.bind(this)
+  }
+
+  toggleRewardForm(){
+    let shouldToggleForm = !this.state.displayForm
+    let shouldToggleButton = !this.state.displayButton
+
+    this.setState({
+      displayButton: shouldToggleButton,
+      displayForm: shouldToggleForm
+    })
+  }
+
+  displayRewardForm(){
+    return(
+      <form className="form-inline">
+        <div className="form-group">
+          <label>reward: </label>
+          <input type="text" placeholder="enter a reward" name="reward[item]"/>
+        </div>
+        <div className="form-group">
+          <label>cost: </label>
+          <input type="number" placeholder="set a cost" name="reward[amount]"/>
+        </div>
+        <div className="form-group">
+          <label>child: </label>
+          <select>
+            {
+              this.props.children.map((child, idx) =>
+              <option key={idx} >{child.name}</option>
+            )
+            }
+          </select>
+        </div>
+        <button type="submit" className="btn btn-primary">create reward!</button>
+      </form>
+    )
+  }
+
   render(){
     return(
       <div>
@@ -22,7 +68,8 @@ class ParentRewardsList extends React.Component {
           }
         </tbody>
       </table>
-      <p>add reward button</p>
+      {this.state.displayButton ? <button onClick={this.toggleRewardForm} className="btn btn-primary">add reward</button> : null }
+      {this.state.displayForm ? this.displayRewardForm() : null }
       </div>
     )
   }
