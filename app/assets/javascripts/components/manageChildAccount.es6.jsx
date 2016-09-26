@@ -33,6 +33,10 @@ class ManageChildAccount extends React.Component {
           </tr>
           )
         }
+        <tr>
+          <th scope="row">Total</th>
+          <td>{this.props.child.total_balance}</td>
+        </tr>
         </tbody>
       </table>
     )

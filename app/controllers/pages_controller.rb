@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def index
     if login?
       if parent?
-        @current_user = current_user.as_json(include: { children: {
+        @current_user = current_user.as_json(include: { children: {methods: :total_balance,
           include: {banks: {only: [:balance, :type]}}}})
         else
 
