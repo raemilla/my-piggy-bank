@@ -4,7 +4,8 @@ class Bank extends React.Component {
     this.handleRequestTransfer=this.handleRequestTransfer.bind(this)
      this.state = {
       displayTransferForm: false,
-      displayDonationForm: false
+      displayDonationForm: false,
+      displayTransferButton: true
     }
     this.displayDonationForm = this.displayDonationForm.bind(this)
     this.displayDonationButton = this.displayDonationButton.bind(this)
@@ -25,7 +26,10 @@ class Bank extends React.Component {
       data: {text: this.props.child.name + " requested a transfer of "
       + amount + " cents from " + this.props.bank.type + " to " + bank}
     }).done((response) => {
-     
+     this.setState({
+      displayTransferForm: false,
+      displayTransferButton: true
+     })
     
     })
   }
@@ -38,8 +42,10 @@ class Bank extends React.Component {
   }
     toggleDisplayTransferForm(){
     let shouldToggleTransferForm = !this.state.displayTransferForm
+    let shouldToggleTransferButton = !this.state.displayTransferButton
     this.setState({
-      displayTransferForm: shouldToggleTransferForm
+      displayTransferForm: shouldToggleTransferForm,
+      displayTransferButton: shouldToggleTransferButton
     }) 
   }
 
@@ -112,7 +118,7 @@ class Bank extends React.Component {
     	<li><div className="btn-group btn-group-justified" role="group" aria-label="...">
   		<div className="btn-group" role="group">
 
-   	  <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button>
+   	  {this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button> : null}
       {this.state.displayTransferForm ? this.displayTransferForm() : null }
       {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
   		</div></div>
