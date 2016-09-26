@@ -34,6 +34,10 @@ class InitialSetup extends React.Component {
           <label htmlFor="childUsername">Username</label>
           <input type="text" className="form-control" placeholder="Set a username for your child" name="child[username]" />
         </div>
+         <div className="form-group">
+          <label htmlFor="childSaveFor">Save For</label>
+          <input type="text" className="form-control" placeholder="Set a saving item for your child" name="child[save_item]" />
+        </div>
         <div className="form-group">
           <label htmlFor="childPassword">Password</label>
           <input type="password" className="form-control" placeholder="Set a password for your child" name="child[password]" />
