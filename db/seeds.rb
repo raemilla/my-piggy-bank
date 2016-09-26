@@ -26,3 +26,12 @@ Sam_Jr_Saving = Saving.create(balance: 5, child_id: 1)
 
 More_Money = Notification.create( text: "I RAN OUT OF MONEY :[", child_id: 1)
 Less_Money = Notification.create(text:"stop giving me money, i have enough", child_id: 2)
+
+rewards = [
+  {child_id: 1, amount: 3, item: "stay up 30 min past bedtime"},
+  {child_id: 2, amount: 4, item: "ice cream cone after dinner"},
+  {child_id: 1, amount: 2, item: "extra tv time"},
+  {child_id: 2, amount: 2, item: "extra tv time"}
+]
+
+Reward.create(rewards)
