@@ -3,20 +3,25 @@ class ParentRewardsList extends React.Component {
     super()
     this.state = {
       displayButton: true,
-      displayForm: false
+      displayForm: false,
+      rewards: []
     }
     this.toggleRewardForm = this.toggleRewardForm.bind(this)
     this.displayRewardForm = this.displayRewardForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount(){
+    this.setState({
+      rewards: this.props.rewards
+    })
+  }
+
   handleSubmit(event){
     event.preventDefault()
-    debugger
     var child = this.refs.child.value,
     amount = this.refs.amount.value,
     item = this.refs.item.value
-    debugger;
     $.ajax({
       method: 'post',
       url: '/rewards',
@@ -26,10 +31,10 @@ class ParentRewardsList extends React.Component {
         item: item
       }
     }).done((response) => {
-      console.log("great success!")
       this.setState({
         displayForm: false,
-        displayButton: true
+        displayButton: true,
+        rewards: response
       })
     })
   }
@@ -85,7 +90,7 @@ class ParentRewardsList extends React.Component {
         </thead>
         <tbody>
           {
-            this.props.rewards.map((reward, idx) => <tr key={idx}>
+            this.state.rewards.map((reward, idx) => <tr key={idx}>
               <th scope="row">{reward.item}</th>
               <td>{reward.amount}</td>
               <td>{reward.child.name}</td>
