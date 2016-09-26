@@ -42,7 +42,7 @@ class ParentDashboard extends React.Component {
           <InitialSetup UpdateManageChildAccounts={this.addChild}/>
         </div>
         <div className="col-sm-3">
-          <SendMoney children={this.props.parent.children} sendMoneyValue={this.getMoney} />
+          <SendMoney children={this.state.children} sendMoneyValue={this.getMoney} />
         </div>
         <div className="col-sm-6">
           <NotificationList parentChildNotifications={this.props.parentNotifications}/>
