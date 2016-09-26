@@ -28,6 +28,10 @@ class WithdrawButton extends React.Component {
     }).done((response) => {
       this.props.withdrawUpdateChildren(response)
       this.refs.amount.value = ""
+      this.setState({
+        displayForm: false,
+        displayButton: true
+      })
     }.bind(this))
   }
 
