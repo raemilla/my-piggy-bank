@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
+
     if login?
       if parent?
         @current_user = current_user.as_json(include: { children: {methods: :total_balance,
@@ -17,7 +18,6 @@ class PagesController < ApplicationController
       else
         redirect_to login_path
       end
-
   end
 
 end
