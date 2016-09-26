@@ -153,6 +153,7 @@ class Bank extends React.Component {
     	<div className="col-md-3 banks" id={this.props.bank.type}>
     	<li><h1>{this.props.bank.type}</h1></li>
     	<li><h1>{this.props.bank.balance}</h1></li>
+      <li>{this.props.bank.type === "Saving" ? <h4> Saving For: {this.props.bank.save_item} </h4>: null }</li>
       {this.showInterest()}
       { this.state.error? 
             <div className="row">
@@ -170,6 +171,7 @@ class Bank extends React.Component {
    	  {this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button> : null}
       {this.state.displayTransferForm ? this.displayTransferForm() : null }
       {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
+
   		</div></div>
 
       </li>
