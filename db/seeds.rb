@@ -17,12 +17,12 @@ Samantha_Investment = Investment.create(balance: 3, start_date: Date.today, inte
 
 Samantha_Spending = Spending.create(balance: 5, child_id: 2)
 Samantha_Donation = Donation.create(balance: 5, child_id: 2)
-Samantha_Saving = Saving.create(balance: 5, child_id: 2)
+Samantha_Saving = Saving.create(balance: 5, child_id: 2, save_item: "barbie dream house")
 
 Sam_Jr_Investment = Investment.create(balance: 3, start_date: Date.today, interest_rate: 2, child_id: 1 )
 Sam_Jr_Spending = Spending.create(balance: 5, child_id: 1)
 Sam_Jr_Donation = Donation.create(balance: 5, child_id: 1)
-Sam_Jr_Saving = Saving.create(balance: 5, child_id: 1)
+Sam_Jr_Saving = Saving.create(balance: 5, child_id: 1, save_item: "bicycle")
 
 More_Money = Notification.create( text: "I RAN OUT OF MONEY :[", child_id: 1)
 Less_Money = Notification.create(text:"stop giving me money, i have enough", child_id: 2)
