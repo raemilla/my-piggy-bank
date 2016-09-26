@@ -49,8 +49,15 @@ class ParentDashboard extends React.Component {
         </div>
       </div>
       <div className="row">
-        <h2>manage your child's accounts</h2>
-        <div className="col-md-8"><ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /></div>
+        <div className="col-md-5">
+					<h2>manage your child's accounts</h2>
+					<ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} />
+				</div>
+				<div className="col-sm-1"></div>
+				<div className="col-md-6">
+					<h2>manage rewards</h2>
+					<ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} />
+				</div>
       </div>
       </section>
     )
