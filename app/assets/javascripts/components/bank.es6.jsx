@@ -33,6 +33,10 @@ class Bank extends React.Component {
       displayTransferButton: true
      })
 
+
+      this.props.liveUpdateNotifications(response)
+    
+
     })
   }
   toggleDisplayDonationForm(){
