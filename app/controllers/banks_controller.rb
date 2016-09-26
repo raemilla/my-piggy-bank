@@ -20,7 +20,8 @@ class BanksController < ApplicationController
 		bank.update_attribute("balance", (bank.balance - amount))
 		bank2 = child.banks.find_by(type: params[:toBank])
 		bank2.update_attribute("balance", (bank2.balance + amount))
-		redirect_to root_path
+		@children = current_user.children
+		render json: @children.as_json(include:{ banks:{methods: :type} })
 	end
 
 	 def withdraw

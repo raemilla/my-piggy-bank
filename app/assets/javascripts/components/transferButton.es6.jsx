@@ -39,8 +39,11 @@ class TransferButton extends React.Component {
         displayTransferForm: false,
         displayButton: true
       })
+      this.props.updateBalance(response);
     })
   }
+
+
 
   displayForm(){
     return(
