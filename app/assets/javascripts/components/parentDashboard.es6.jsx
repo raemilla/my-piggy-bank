@@ -6,7 +6,7 @@ class ParentDashboard extends React.Component {
     this.parentWithdraw=this.parentWithdraw.bind(this)
     this.parentTransfer = this.parentWithdraw.bind(this)
 		this.state = {
-			children: [], notifications: []
+			children: [], notifications: [], error: null
 		}
 	}
 
@@ -26,14 +26,17 @@ class ParentDashboard extends React.Component {
 	}
 
   parentWithdraw(newChildren){
-    this.setState({children: newChildren})
+    newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children}) : this.setState({children: newChildren})
+    
+
   }
 
   parentTransfer(newChildren){
-    this.setState({children: newChildren})
+     newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children}) : this.setState({children: newChildren})
   }
 
   render(){
+
     return(
       <section>
       <div className="row">
@@ -49,9 +52,19 @@ class ParentDashboard extends React.Component {
         </div>
       </div>
       <div className="row">
+            { this.state.error? 
+            <div className="row">
+               <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
+                <strong>{this.state.error}</strong> 
+                 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+            </div>
+             : null }   
         <div className="col-md-5">
-					<h2>manage your child's accounts</h2>
-					<ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} />
+					 <h2>manage your child's accounts</h2>
+					 <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} />
 				</div>
 				<div className="col-sm-1"></div>
 				<div className="col-md-6">

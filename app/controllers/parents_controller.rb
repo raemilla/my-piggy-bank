@@ -11,6 +11,7 @@ class ParentsController < ApplicationController
       redirect_to pages_path
     else
       @errors = @parent.errors.full_messages
+      render "/parents/new"
     end
   end
 
