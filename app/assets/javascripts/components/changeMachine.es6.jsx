@@ -35,7 +35,7 @@ class ChangeMachine extends React.Component {
 			remainder = remainder % value
 
   	}.bind(this))
-
+    
   	this.setState({
         coins: coinArray
       })
