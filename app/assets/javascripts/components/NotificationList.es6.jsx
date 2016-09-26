@@ -2,9 +2,10 @@ class NotificationList extends React.Component {
   constructor(){
     super()
     this.state = {
-      notifications: null
+      notifications:null
     }
     this.updateNotifications = this.updateNotifications.bind(this)
+    this.nootifications=this.nootifications.bind(this )
   }
 
   componentDidMount(){
@@ -18,11 +19,18 @@ class NotificationList extends React.Component {
     })
   }
 
+
   updateNotifications(response){
     this.setState({ notifications: response})
   }
   
-
+  nootifications(){
+    if (this.props.parentChildNotifications.length > 0){
+    this.setState({
+      notifications: this.props.parentChildNotifications
+    })
+    }
+  }
 
   render(){
     return(

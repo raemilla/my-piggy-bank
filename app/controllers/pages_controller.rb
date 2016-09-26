@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    require_user
+    if login?
     if parent?
       @current_user = current_user.as_json(include: { children: {
                                                                 include: {banks: {only: [:balance, :type]}}
@@ -16,5 +16,9 @@ class PagesController < ApplicationController
 
       @current_user = current_user.as_json(include: {banks: {methods: :type}})
     end
+  else
+    redirect_to login_path
+    end
   end
 end
+

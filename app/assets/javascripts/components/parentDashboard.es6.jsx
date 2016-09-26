@@ -17,7 +17,6 @@ class ParentDashboard extends React.Component {
 	}
 
   addChild(newChildren){
-    debugger;
     this.setState({children: newChildren})
   }
 
@@ -46,7 +45,7 @@ class ParentDashboard extends React.Component {
           <SendMoney children={this.props.parent.children} sendMoneyValue={this.getMoney} />
         </div>
         <div className="col-sm-6">
-          <NotificationList />
+          <NotificationList parentChildNotifications={this.props.parentNotifications}/>
         </div>
       </div>
       <div className="row">

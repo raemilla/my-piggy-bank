@@ -4,6 +4,7 @@ class ChildDashboard extends React.Component {
     this.state = {
       current_child: ''
     }
+    this.liveNotifications = this.liveNotifications.bind(this)
   }
 
   componentWillMount(){
@@ -39,6 +40,10 @@ class ChildDashboard extends React.Component {
 
   }
 
+  liveNotifications(response){
+    this.props.newNotifications(response)
+  }
+
 	render(){
   
 		return(
@@ -46,7 +51,7 @@ class ChildDashboard extends React.Component {
 			<UndepositedFunds current_child={this.state.current_child} />
 			<ChangeMachine current_child={this.state.current_child} />
 
-  			   <Banks current_child={this.state.current_child} interestAmount = {this.props.interestAmount}/>
+  			   <Banks notifications={this.liveNotifications} interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
 
 			</div>
 		)

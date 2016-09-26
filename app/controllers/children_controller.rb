@@ -8,7 +8,7 @@ class ChildrenController < ApplicationController
     children = current_user.children
     #debugger
     if child.save
-      Investment.create(child: child, interest_rate: params[:interest_rate])
+      Investment.create(child: child, interest_rate: params[:interest_rate], start_date: Date.today)
       Donation.create(child: child)
       Saving.create(child: child)
       Spending.create(child: child)
