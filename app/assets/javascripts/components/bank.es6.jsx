@@ -6,7 +6,8 @@ class Bank extends React.Component {
      this.state = {
       displayTransferForm: false,
       displayDonationForm: false,
-      displayTransferButton: true
+      displayTransferButton: true,
+      error: null
     }
     this.displayDonationForm = this.displayDonationForm.bind(this)
     this.displayDonationButton = this.displayDonationButton.bind(this)
@@ -26,15 +27,20 @@ class Bank extends React.Component {
       url: '/notifications',
       method: 'POST',
       data: {text: this.props.child.name + " requested a transfer of "
-      + amount + " cents from " + this.props.bank.type + " to " + bank}
+      + amount + " cents from " + this.props.bank.type + " to " + bank,
+       amount: amount, 
+       type: this.props.bank.type}
     }).done((response) => {
+      response? 
      this.setState({
       displayTransferForm: false,
-      displayTransferButton: true
+      displayTransferButton: true,
+      error: response.error
+     }):
+     this.setState({
+      displayTransferForm: false,
+      displayTransferButton: true,
      })
-
-
-      this.props.liveUpdateNotifications(response)
     
 
     })
@@ -91,10 +97,13 @@ class Bank extends React.Component {
        $.ajax({
       url: '/notifications',
       method: 'POST',
-      data: {text: this.props.child.name + " wants to make a donation"
+      data: {text: this.props.child.name + " wants to make a donation",
+       amount: 0, 
+       type: this.props.bank.type
       }
     }).done((response) => {
 
+      this.setState({error: response.error})
 
     })
 
@@ -145,6 +154,16 @@ class Bank extends React.Component {
     	<li><h1>{this.props.bank.type}</h1></li>
     	<li><h1>{this.props.bank.balance}</h1></li>
       {this.showInterest()}
+      { this.state.error? 
+            <div className="row">
+             <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
+              <strong>{this.state.error}</strong> 
+               <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+            </div>
+             : null }  
     	<li><div className="btn-group btn-group-justified" role="group" aria-label="...">
   		<div className="btn-group" role="group">
 

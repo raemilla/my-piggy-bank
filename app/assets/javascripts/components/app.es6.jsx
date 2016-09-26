@@ -2,35 +2,22 @@ class App extends React.Component {
   constructor(){
     super()
     this.displayUserComponent = this.displayUserComponent.bind(this)
-    this.state= {
-      notifications : []
-    }
-    this.appNotifications = this.appNotifications.bind(this)
-  }
-
-  appNotifications(response){
-    // debugger
-    this.setState({
-      notifications: response
-    })
     
-  }
+      }
+
+
   
 
 
 
 
-  componentDidMount(){
-    // this.setState({
-    //   notifications: this.props.current_user.notifications
-    // })
-  }
+
 
   displayUserComponent(){
     if(this.props["parent?"]){
-      return (<ParentDashboard parent={this.props.current_user} parentNotifications={this.state.notifications}/>)
+      return (<ParentDashboard parent={this.props.current_user} />)
     } else {
-      return (<ChildDashboard newNotifications={this.appNotifications} current_child={this.props.current_user} interestAmount={this.props.interest_amount} />)
+      return (<ChildDashboard  current_child={this.props.current_user} interestAmount={this.props.interest_amount} />)
     }
   }
 

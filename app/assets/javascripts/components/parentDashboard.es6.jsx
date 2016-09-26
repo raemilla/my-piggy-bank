@@ -6,7 +6,7 @@ class ParentDashboard extends React.Component {
     this.parentWithdraw=this.parentWithdraw.bind(this)
     this.parentTransfer = this.parentWithdraw.bind(this)
 		this.state = {
-			children: [], notifications: [], error: null
+			children: [], error: null
 		}
 	}
 
@@ -48,7 +48,7 @@ class ParentDashboard extends React.Component {
           <SendMoney children={this.state.children} sendMoneyValue={this.getMoney} />
         </div>
         <div className="col-sm-6">
-          <NotificationList parentChildNotifications={this.props.parentNotifications}/>
+          <NotificationList />
         </div>
       </div>
       <div className="row">
