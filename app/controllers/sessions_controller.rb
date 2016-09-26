@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to pages_path
     else
       @errors = ['Invalid email/password']
-      redirect_to login_path
+      render "/sessions/new"
     end
   end
 

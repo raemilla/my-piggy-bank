@@ -1,3 +1,7 @@
+
+
+
+
 <form class="form-horizontal" action='/parents' method="POST">
   <fieldset>
     <div id="legend">
@@ -7,7 +11,7 @@
       <!-- name -->
       <label class="control-label"  for="name">Name</label>
       <div class="controls">
-        <input type="text" id="name" name="parent[name]" placeholder="" class="input-xlarge">
+        <input type="text" id="name" name="parent[name]" placeholder="" class="input-xlarge" required>
 
     </div>
     </div>
@@ -15,7 +19,7 @@
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
-        <input type="text" id="username" name="parent[username]" placeholder="" class="input-xlarge">
+        <input type="text" id="username" name="parent[username]" placeholder="" class="input-xlarge" required>
 
       </div>
     </div>
@@ -26,7 +30,7 @@
       <!-- Email -->
       <label class="control-label"  for="email">Email</label>
       <div class="controls">
-        <input type="text" id="email" name="parent[email]" placeholder="" class="input-xlarge">
+        <input type="text" id="email" name="parent[email]" placeholder="" class="input-xlarge" required>
 
       </div>
     </div>
@@ -35,7 +39,7 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="parent[password]" placeholder="" class="input-xlarge">
+        <input type="password" id="password" name="parent[password]" placeholder="" class="input-xlarge" required>
       </div>
     </div>
 
@@ -47,3 +51,4 @@
     </div>
   </fieldset>
 </form>
+
