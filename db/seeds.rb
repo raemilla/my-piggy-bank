@@ -12,7 +12,9 @@ Sam = Parent.create(name: "Sam", username: "sam", email:"sam@sam.com", password:
 Sam_Jr = Child.create(name: "Sam Jr.", username: "boyjr", password: "123456", parent_id: 1, undeposited_funds: 3)
 
 Samantha = Child.create(name: "Samantha", username: "girljr", password: "123456", parent_id: 1, undeposited_funds: 5)
+
 Samantha_Investment = Investment.create(balance: 3, start_date: Date.today, interest_rate: 2, child_id: 2 )
+
 Samantha_Spending = Spending.create(balance: 5, child_id: 2)
 Samantha_Donation = Donation.create(balance: 5, child_id: 2)
 Samantha_Saving = Saving.create(balance: 5, child_id: 2)

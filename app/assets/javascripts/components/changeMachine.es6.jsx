@@ -39,7 +39,7 @@ class ChangeMachine extends React.Component {
   	this.setState({
         coins: coinArray
       })
-
+    this.refs.amount.value = ''
   }
 
    loop(){

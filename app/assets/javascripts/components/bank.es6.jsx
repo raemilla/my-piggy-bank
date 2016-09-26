@@ -63,6 +63,7 @@ class Bank extends React.Component {
   }
 
     displayTransferForm(){
+     
     return(
       <div className="row">
       <form className="form-inline" onSubmit={this.handleRequestTransfer} >
@@ -140,7 +141,7 @@ class Bank extends React.Component {
 
     return (
 
-    	<div className="col-md-12 banks" id={this.props.bank.type}>
+    	<div className="col-md-3 banks" id={this.props.bank.type}>
     	<li><h1>{this.props.bank.type}</h1></li>
     	<li><h1>{this.props.bank.balance}</h1></li>
       {this.showInterest()}
