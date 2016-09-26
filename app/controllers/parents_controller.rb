@@ -20,7 +20,7 @@ class ParentsController < ApplicationController
     new_amount = @child.undeposited_funds += transfer_params["amount"].to_i
     @child.update_attribute("undeposited_funds", new_amount)
     @children = @child.parent.children
-  render json:  @children.as_json(include: {banks: {methods: :type}})
+    render json:  @children.as_json(methods: :total_balance, include:{ banks:{methods: :type} })
   end
 
 
