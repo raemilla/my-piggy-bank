@@ -1,7 +1,7 @@
 class Bank extends React.Component {
   constructor(){
     super()
-<<<<<<< 6eb3ffa63decb60943d8d7af58babf0df685f97f
+
     this.handleRequestTransfer=this.handleRequestTransfer.bind(this)
      this.state = {
       displayTransferForm: false,
