@@ -12,7 +12,7 @@ class PagesController < ApplicationController
           investment_bank.save
 
           @interest = total - old_balance
-          @current_user = current_user.as_json(include: {banks: {methods: :type}})
+          @current_user = current_user.as_json(include: [{banks: {methods: :type}}, :rewards])
         end
       else
         redirect_to login_path
