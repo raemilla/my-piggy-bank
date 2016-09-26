@@ -1,6 +1,7 @@
 class Bank extends React.Component {
   constructor(){
     super()
+<<<<<<< 6eb3ffa63decb60943d8d7af58babf0df685f97f
     this.handleRequestTransfer=this.handleRequestTransfer.bind(this)
      this.state = {
       displayTransferForm: false,
@@ -14,6 +15,7 @@ class Bank extends React.Component {
     this.displayTransferForm = this.displayTransferForm.bind(this)
     this.filterBanks = this.filterBanks.bind(this)
     this.handleDonateClick = this.handleDonateClick.bind(this)
+    this.showInterest = this.showInterest.bind(this)
   }
 
     handleRequestTransfer(event){
@@ -30,14 +32,14 @@ class Bank extends React.Component {
       displayTransferForm: false,
       displayTransferButton: true
      })
-    
+
     })
   }
   toggleDisplayDonationForm(){
     let shouldToggleDonationForm = !this.state.displayTransferForm
     this.setState({
       displayDonationForm: shouldToggleDonationForm
-    }) 
+    })
 
   }
     toggleDisplayTransferForm(){
@@ -46,7 +48,7 @@ class Bank extends React.Component {
     this.setState({
       displayTransferForm: shouldToggleTransferForm,
       displayTransferButton: shouldToggleTransferButton
-    }) 
+    })
   }
 
     filterBanks(bank){
@@ -73,7 +75,7 @@ class Bank extends React.Component {
           <input type="number" className="form-control input-lg" ref='amount'/>
         </div>
         <button type="submit" className="btn btn-primary btn-lg">Submit</button>
-   
+
       </form>
          </div>
     )
@@ -87,8 +89,8 @@ class Bank extends React.Component {
       data: {text: this.props.child.name + " wants to make a donation"
       }
     }).done((response) => {
-     
-    
+
+
     })
 
     }
@@ -108,6 +110,28 @@ class Bank extends React.Component {
 
 
 
+
+  }
+
+  showInterest(){
+
+    if(this.props.bank.type === 'Investment'){
+
+      if(this.props.interestAmount > 0){
+
+        return(
+          <div className="alert alert-warning alert-dismissible fade in" role="alert">
+          <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      <strong>Yay!</strong> You Just earned {this.props.interestAmount} cents interest!
+    </div>
+        )
+      }
+    }
+  }
+
+
   render () {
 
     return (
@@ -115,6 +139,7 @@ class Bank extends React.Component {
     	<div className="col-md-12 banks" id={this.props.bank.type}>
     	<li><h1>{this.props.bank.type}</h1></li>
     	<li><h1>{this.props.bank.balance}</h1></li>
+      {this.showInterest()}
     	<li><div className="btn-group btn-group-justified" role="group" aria-label="...">
   		<div className="btn-group" role="group">
 

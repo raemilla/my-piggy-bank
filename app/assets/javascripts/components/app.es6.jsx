@@ -8,7 +8,7 @@ class App extends React.Component {
     if(this.props["parent?"]){
       return (<ParentDashboard parent={this.props.current_user}/>)
     } else {
-      return (<ChildDashboard current_child={this.props.current_user} />)
+      return (<ChildDashboard current_child={this.props.current_user} interestAmount={this.props.interest_amount} />)
     }
   }
 
