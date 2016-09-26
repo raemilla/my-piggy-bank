@@ -111,7 +111,7 @@ class Bank extends React.Component {
 
 
 
-  }
+
 
   showInterest(){
 
