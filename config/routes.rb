@@ -15,7 +15,7 @@ resources :pages, only: [:index]
 resources :parents
 resources :children
 resources :banks
-resources :rewards, only: [:create]
+resources :rewards, only: [:create, :destroy]
 
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'

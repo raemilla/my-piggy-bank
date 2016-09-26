@@ -9,6 +9,7 @@ class ParentRewardsList extends React.Component {
     this.toggleRewardForm = this.toggleRewardForm.bind(this)
     this.displayRewardForm = this.displayRewardForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteReward = this.deleteReward.bind(this)
   }
 
   componentDidMount(){
@@ -34,6 +35,20 @@ class ParentRewardsList extends React.Component {
       this.setState({
         displayForm: false,
         displayButton: true,
+        rewards: response
+      })
+    })
+  }
+
+  deleteReward(event){
+    event.preventDefault()
+    var rewardId = event.target.name
+    debugger;
+    $.ajax({
+      method: "delete",
+      url: '/rewards/'+rewardId
+    }).done((response) => {
+      this.setState({
         rewards: response
       })
     })
@@ -94,7 +109,7 @@ class ParentRewardsList extends React.Component {
               <th scope="row">{reward.item}</th>
               <td>{reward.amount}</td>
               <td>{reward.child.name}</td>
-              <td>delete</td>
+              <td><a name={reward.id} onClick={this.deleteReward}>delete</a></td>
             </tr>)
           }
         </tbody>
