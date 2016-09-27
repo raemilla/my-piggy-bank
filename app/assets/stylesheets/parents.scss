@@ -2,4 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//
+#interest-input input {
+  width: 340px;
+}
+
+#interest-input {
+  position: relative;
+  bottom: 75px;
+}
+
+#add-child-button {
+  position: relative;
+  left: 400px;
+  bottom: 125px;
+}
+
+#input-child-name {
+  width: 200px;
+}
+
+#input-child-username {
+  position: relative;
+  width: 230px;
+  left: 225px;
+  bottom: 75px;
+}
+
+#input-save-for {
+  position: relative;
+  bottom: 75px;
+}
+
+#input-child-password {
+  position: relative;
+  bottom: 75px;
+}
