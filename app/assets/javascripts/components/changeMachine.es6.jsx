@@ -71,9 +71,10 @@ class ChangeMachine extends React.Component {
 	render(){
 
 		return(
+      <div>
 			<div className="row">
-				<div className="col-md-2"></div>
-				<div className="col-md-8">
+			
+				<div className="col-md-8 col-md-offset-2">
 					<h3 className="text-center">Make change</h3>
 					<form className="form-inline text-center" onSubmit={this.handleSubmit}>
 
@@ -85,8 +86,12 @@ class ChangeMachine extends React.Component {
 
 					</form>
 				</div>
-				{this.loop()}
+        <div className="col-md-2"></div>
 			</div>
+      <div className="row">
+        {this.loop()}
+        </div>
+      </div>
 
 			)
 	}

@@ -53,10 +53,11 @@ class ChildDashboard extends React.Component {
 	render(){
 		return(
 			<div>
+
 			<UndepositedFunds current_child={this.state.current_child} />
 			<ChangeMachine current_child={this.state.current_child} setCoins={this.setCoins} coins={this.state.coins} />
 
-  			   <Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
+  		<Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
 
 			</div>
 		)
