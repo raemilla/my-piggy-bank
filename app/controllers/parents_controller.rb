@@ -1,7 +1,9 @@
 class ParentsController < ApplicationController
 
   def new
-
+    if request.xhr?
+      render "parents/new", layout: false
+    end
   end
 
   def create
