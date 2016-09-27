@@ -32,7 +32,7 @@ class ChildDashboard extends React.Component {
     		})
     		.done((response)=>{
           ui.draggable[0].style.display = 'none'
-  
+ 
           this.setState({
       			current_child: response,
             coins: this.state.coins

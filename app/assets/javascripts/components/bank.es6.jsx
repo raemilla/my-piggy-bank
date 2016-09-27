@@ -232,9 +232,9 @@ class Bank extends React.Component {
         		<div className="btn-group" role="group">
 
            	 
-
+            
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
-
+            
               {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
 
               {this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }
