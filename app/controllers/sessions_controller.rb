@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
+
   def new
+    if request.xhr?
+      render "partials/_login", layout: false
+    end
   end
 
   def create
