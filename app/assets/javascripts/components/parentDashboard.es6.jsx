@@ -122,7 +122,7 @@ class ParentDashboard extends React.Component {
         </div>
         <div className="col-sm-6">
 					{this.state.displaySend ? <SendMoney children={this.state.children} sendMoneyValue={this.getMoney}/> : null }
-					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} /> : null }
+					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
 					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} /> : null }
         </div>

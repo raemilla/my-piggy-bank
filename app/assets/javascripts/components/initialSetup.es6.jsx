@@ -1,27 +1,23 @@
 class InitialSetup extends React.Component {
   constructor(){
     super()
-    this.state = {
-      displayButton: true,
-      displayForm: false
-    }
-    this.toggleForm = this.toggleForm.bind(this)
+    // this.toggleForm = this.toggleForm.bind(this)
     this.displayForm = this.displayForm.bind(this)
     this.createChild = this.createChild.bind(this)
     this.createNewChild = this.createNewChild.bind(this)
   }
 
-  toggleForm(event){
-    event.preventDefault()
-    let shouldToggleForm = !this.state.displayForm
-    let shouldToggleButton = !this.state.displayButton
-
-    this.setState({
-      displayForm: shouldToggleForm,
-      displayButton: shouldToggleButton
-    })
-
-  }
+  // toggleForm(event){
+  //   event.preventDefault()
+  //   let shouldToggleForm = !this.state.displayForm
+  //   let shouldToggleButton = !this.state.displayButton
+  // 
+  //   this.setState({
+  //     displayForm: shouldToggleForm,
+  //     displayButton: shouldToggleButton
+  //   })
+  //
+  // }
 
   displayForm(){
     return(
@@ -62,11 +58,8 @@ class InitialSetup extends React.Component {
       url: '/children',
       data: $(event.target).serialize()
     }).done((response) => {
-      this.setState({
-        displayForm: false,
-        displayButton: true
-      })
       this.props.UpdateManageChildAccounts(response)
+      this.props.toggleSend()
     })
   }
 
@@ -74,8 +67,8 @@ class InitialSetup extends React.Component {
     return(
       <div className="row">
         <div className="col-sm-8">
-          {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary">Add a child</button> : null }
-          {this.state.displayForm ? this.displayForm() : null }
+          <h2>add a child</h2>
+          {this.displayForm()}
         </div>
         <div className="col-sm-2"></div>
       </div>
