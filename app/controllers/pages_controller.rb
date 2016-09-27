@@ -9,10 +9,10 @@ class PagesController < ApplicationController
           investment_bank = current_user.banks.find_by(type: 'Investment')
           old_balance = investment_bank.balance
           total = investment_bank.calculate_interest
-          investment_bank.save
-
           @interest = total - old_balance
-          @current_user = current_user.as_json(methods: :dollars, include: [{banks: {methods: [:type, :dollars]}}, rewards: {methods: :dollars}])
+          investment_bank.accumulated_interest += @interest
+          investment_bank.save
+          @current_user = current_user.as_json(methods: :dollars, include: [{banks: {methods: [:type, :dollars, :accumulated_interest, :interest_dollars]}}, rewards: {methods: :dollars}])
         end
       else
         redirect_to login_path

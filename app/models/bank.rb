@@ -16,4 +16,8 @@ class Bank < ApplicationRecord
 		"$#{'%.2f' % (self.balance/100.0).to_f.to_s}" 
 	end
 
+  def interest_dollars
+    "$#{'%.2f' % (self.accumulated_interest/100.0).to_f.to_s}" 
+  end
+
 end

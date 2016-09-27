@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926205257) do
+ActiveRecord::Schema.define(version: 20160927144715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "banks", force: :cascade do |t|
-    t.integer  "balance",       default: 0
-    t.integer  "interest_rate", default: 0
+    t.integer  "balance",              default: 0
+    t.integer  "interest_rate",        default: 0
     t.date     "start_date"
     t.string   "type"
-    t.integer  "child_id",                  null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "child_id",                         null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "save_item"
+    t.integer  "accumulated_interest", default: 0
     t.index ["child_id"], name: "index_banks_on_child_id", using: :btree
   end
 
