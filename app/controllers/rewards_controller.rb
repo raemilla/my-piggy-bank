@@ -14,7 +14,7 @@ class RewardsController < ApplicationController
       reward.save
     end
     rewards = parent.rewards
-    render json: rewards.as_json(include: {child: {only: :name}})
+    render json: rewards.as_json(methods: :dollars, include: {child: {only: :name}})
   end
 
   def destroy
@@ -22,7 +22,7 @@ class RewardsController < ApplicationController
     reward = parent.rewards.find_by(id: params[:id])
     reward.destroy
     rewards = parent.rewards
-    render json: rewards.as_json(include: {child: {only: :name}})
+    render json: rewards.as_json(methods: :dollars, include: {child: {only: :name}})
   end
 
   private

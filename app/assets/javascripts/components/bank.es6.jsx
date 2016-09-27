@@ -174,7 +174,7 @@ class Bank extends React.Component {
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
     	<li><h1>{this.props.bank.type}</h1></li>
-    	<li><h1>{this.props.bank.balance}</h1></li>
+    	<li><h1>{this.props.bank.dollars}</h1></li>
       <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4>{"Saving for: " + this.props.bank.save_item} </h4>: null }</li>
       {this.showInterest()}
       { this.state.error?

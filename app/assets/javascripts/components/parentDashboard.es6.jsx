@@ -1,4 +1,6 @@
 class ParentDashboard extends React.Component {
+
+
 	constructor(){
 		super()
 		this.getMoney=this.getMoney.bind(this)
@@ -14,6 +16,8 @@ class ParentDashboard extends React.Component {
 		this.setState({
       children: this.props.parent.children
     })
+
+
 	}
 
   addChild(newChildren){

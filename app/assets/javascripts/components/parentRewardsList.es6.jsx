@@ -107,7 +107,7 @@ class ParentRewardsList extends React.Component {
           {
             this.state.rewards.map((reward, idx) => <tr key={idx}>
               <th scope="row">{reward.item}</th>
-              <td>{reward.amount}</td>
+              <td>{reward.dollars}</td>
               <td>{reward.child.name}</td>
               <td><a name={reward.id} onClick={this.deleteReward}>delete</a></td>
             </tr>)

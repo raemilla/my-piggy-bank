@@ -8,13 +8,16 @@ class NotificationList extends React.Component {
   }
 
   componentDidMount(){
-    $.ajax({
+    var blah = setInterval (()=> {
+      $.ajax({
       url: '/notifications',
       method: 'GET'
-    }).done(response =>{
+      }).done(response =>{
       this.setState({notifications: response
       })
-    })
+      })
+     }, 500);
+    
   }
 
 
