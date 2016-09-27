@@ -20,18 +20,18 @@ class Notification extends React.Component {
 
 	}
 
-  
+
 
   render(){
     return(
-    	<div id="notification"className = "container">
+    	<div id="notification">
 	    	<div className="row" >
-	    		<span className="col-sm-5" >{this.props.data.text}</span>
+	    		<span className="col-sm-9" >{this.props.data.text}</span>
 	    		<div className="col-sm-1">
-	    			<button onClick={this.handleClick}>x</button>
+	    			<button className="btn btn-primary btn-xs btn-default" onClick={this.handleClick}>x</button>
 	    		</div>
 	    	</div>
-	    	
+
       </div>
     )
   }

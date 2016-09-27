@@ -36,7 +36,7 @@ class BanksController < ApplicationController
     @child = parent.children.find_by(name: withdraw_params["child"])
     @bank = @child.banks.find_by(type: withdraw_params["banktype"])
     new_amount = @bank.balance -= withdraw_params["amount"].to_i
-    if new_amount < 0 
+    if new_amount < 0
     	@error = "#{withdraw_params['banktype']} does not have enough funds"
     		@children = @child.parent.children
     	render json: {children: @children.as_json(methods: [:total_balance, :dollars], include:{ banks:{methods: [:type, :dollars]} }), error: @error.as_json }
@@ -48,9 +48,7 @@ class BanksController < ApplicationController
   end
 
 
-private
-
-	 
+private 
   def withdraw_params
     params.permit(:banktype, :amount, :child)
   end

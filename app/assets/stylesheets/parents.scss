@@ -2,4 +2,86 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//
+#interest-input input {
+  width: 340px;
+}
+
+#interest-input {
+  position: relative;
+  bottom: 75px;
+}
+
+#add-child-button {
+  position: relative;
+  left: 400px;
+  bottom: 125px;
+  font-family: "Handlee", cursive;
+}
+
+#input-child-name {
+  width: 200px;
+}
+
+#input-child-username {
+  position: relative;
+  width: 230px;
+  left: 225px;
+  bottom: 75px;
+}
+
+#input-save-for {
+  position: relative;
+  bottom: 75px;
+}
+
+#input-child-password {
+  position: relative;
+  bottom: 75px;
+}
+
+#send-money-amount-input {
+  position: relative;
+  left: 110px;
+  bottom: 63px;
+}
+
+#send-money-amount-input input {
+  height: 25px;
+  width: 150px;
+}
+
+#send-money-submit {
+  position: relative;
+  bottom: 110px;
+  left: 300px;
+  font-family: "Handlee", cursive;
+}
+
+#send-money-form {
+  margin-top: 30px;
+}
+
+#reward-cost-input {
+  width: 150px;
+}
+
+#reward-child-input {
+  position: relative;
+  left: 180px;
+  bottom: 74px;
+}
+
+#reward-submit {
+  position: relative;
+  left: 320px;
+  bottom: 115px;
+  font-family: "Handlee", cursive;
+}
+
+.header {
+  font-family: "Handlee", cursive;
+}
+
+.btn {
+  font-family: "Handlee", cursive;
+}

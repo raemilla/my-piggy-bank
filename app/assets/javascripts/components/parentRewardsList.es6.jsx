@@ -66,17 +66,17 @@ class ParentRewardsList extends React.Component {
 
   displayRewardForm(){
     return(
-      <form onSubmit={this.handleSubmit} className="form-inline">
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>reward: </label>
-          <input ref="item" type="text" placeholder="enter a reward" name="reward[item]"/>
+          <input className="form-control" ref="item" type="text" placeholder="enter a reward" name="reward[item]"/>
         </div>
         <div className="form-group">
           <label>cost: </label>
-          <input ref="amount" type="number" placeholder="set a cost" name="reward[amount]"/>
+          <input id="reward-cost-input" className="form-control" ref="amount" type="number" placeholder="set a cost" name="reward[amount]"/>
         </div>
-        <div className="form-group">
-          <label>child: </label>
+        <div id="reward-child-input" className="form-group">
+          <label>child: </label><br/>
           <select ref="child">
             {
               this.props.children.map((child, idx) =>
@@ -86,7 +86,7 @@ class ParentRewardsList extends React.Component {
             <option>All</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">create reward!</button>
+        <button id="reward-submit" type="submit" className="btn btn-primary">create reward!</button>
       </form>
     )
   }
@@ -94,6 +94,7 @@ class ParentRewardsList extends React.Component {
   render(){
     return(
       <div>
+      <h3 className="header">manage your child's rewards</h3>
       <table className="table table-sm table-striped">
         <thead className="thead-default">
           <tr>
@@ -109,7 +110,7 @@ class ParentRewardsList extends React.Component {
               <th scope="row">{reward.item}</th>
               <td>{reward.dollars}</td>
               <td>{reward.child.name}</td>
-              <td><a name={reward.id} onClick={this.deleteReward}>delete</a></td>
+              <td><button className="btn btn-primary btn-xs btn-default" name={reward.id} onClick={this.deleteReward}>x</button></td>
             </tr>)
           }
         </tbody>
