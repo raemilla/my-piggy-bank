@@ -7,7 +7,8 @@ class Bank extends React.Component {
       displayTransferForm: false,
       displayDonationForm: false,
       displayTransferButton: true,
-      error: null
+      error: null,
+      displayRedeemAlert: false
     }
     this.displayDonationForm = this.displayDonationForm.bind(this)
     this.displayDonationButton = this.displayDonationButton.bind(this)
@@ -17,6 +18,8 @@ class Bank extends React.Component {
     this.filterBanks = this.filterBanks.bind(this)
     this.handleDonateClick = this.handleDonateClick.bind(this)
     this.showInterest = this.showInterest.bind(this)
+    this.displayRedeemButton = this.displayRedeemButton.bind(this)
+    this.handleSavingsClick = this.handleSavingsClick.bind(this)
   }
 
     handleRequestTransfer(event){
@@ -28,10 +31,10 @@ class Bank extends React.Component {
       method: 'POST',
       data: {text: this.props.child.name + " requested a transfer of "
       + amount + " cents from " + this.props.bank.type + " to " + bank,
-       amount: amount, 
+       amount: amount,
        type: this.props.bank.type}
     }).done((response) => {
-      response? 
+      response?
      this.setState({
       displayTransferForm: false,
       displayTransferButton: true,
@@ -41,7 +44,7 @@ class Bank extends React.Component {
       displayTransferForm: false,
       displayTransferButton: true,
      })
-    
+
 
     })
   }
@@ -69,7 +72,7 @@ class Bank extends React.Component {
   }
 
     displayTransferForm(){
-     
+
     return(
       <div className="row">
       <form className="form-inline" onSubmit={this.handleRequestTransfer} >
@@ -98,7 +101,7 @@ class Bank extends React.Component {
       url: '/notifications',
       method: 'POST',
       data: {text: this.props.child.name + " wants to make a donation",
-       amount: 0, 
+       amount: 0,
        type: this.props.bank.type
       }
     }).done((response) => {
@@ -145,6 +148,25 @@ class Bank extends React.Component {
     }
   }
 
+  displayRedeemButton(){
+    return(
+      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary btn-lg">Redeem {this.props.bank.save_item}</button>
+    )
+  }
+
+  handleSavingsClick(event){
+    event.preventDefault()
+    $.ajax({
+      method: 'post',
+      url: '/notifications',
+      data: {text: this.props.child.name + " wants to redeem " + this.props.bank.save_item, amount: 0, type: this.props.bank.type }
+    }).done((response) => {
+      this.setState({
+        displayRedeemAlert: true
+      })
+    })
+  }
+
 
   render () {
 
@@ -155,23 +177,29 @@ class Bank extends React.Component {
     	<li><h1>{this.props.bank.balance}</h1></li>
       <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4>{"Saving for: " + this.props.bank.save_item} </h4>: null }</li>
       {this.showInterest()}
-      { this.state.error? 
+      { this.state.error?
             <div className="row">
              <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
-              <strong>{this.state.error}</strong> 
+              <strong>{this.state.error}</strong>
                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
                </button>
              </div>
             </div>
-             : null }  
+             : null }
     	<li><div className="btn-group btn-group-justified" role="group" aria-label="...">
   		<div className="btn-group" role="group">
 
    	  {this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button> : null}
       {this.state.displayTransferForm ? this.displayTransferForm() : null }
       {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
-
+      {this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }
+      {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
+      </div> : null}
   		</div></div>
 
       </li>
