@@ -21,10 +21,13 @@ class TransferButton extends React.Component {
 
   handleSubmit(event){
     event.preventDefault()
-    var child = this.refs.child.value,
-    fromBank = this.refs.fromBank.value,
-    toBank = this.refs.toBank.value,
+    var child = this.refs.child.value
+    fromBank = this.refs.fromBank.value
+    toBank = this.refs.toBank.value
     amount = this.refs.amount.value
+      if(fromBank === toBank){
+      return (alert("Sorry, can't transfer to the same bank"))
+    }
     $.ajax({
       method: 'post',
       url: '/banks/transfer',
