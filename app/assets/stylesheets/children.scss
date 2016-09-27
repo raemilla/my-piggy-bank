@@ -9,18 +9,71 @@ body {
 #piggy {
 	color: #FFC9B5;
 }
+
+.bank-picture {
+	position:relative;
+}
+
 .bank-content {
-	 top:0;
-    left:0;
-    position: absolute;
+
+	 left: 10px;
+    position:absolute;
+    text-align:center;
+    top: 30px;
+    width: 100%
 }
 
 .banks {
-	/*margin-right: 5px;*/
 	width: 250px;
-	 position:relative;
+	margin-top: 60px; 
 }
 
 .coins {
 	z-index: 2;
 }
+.change-machine {
+
+	text-align: center;
+	position:relative;
+}
+
+.form-content {
+	text-align:center;
+	 left: 300px;
+    position:absolute;
+    
+    top: 40px;
+    width: 20%
+}
+
+#amount-field {
+	background-color:rgba(0,0,0,0) !important;
+  border:none !important;
+  height: 75px;
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

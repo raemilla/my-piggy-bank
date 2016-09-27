@@ -75,17 +75,21 @@ class ChangeMachine extends React.Component {
 			<div className="row">
 			
 				<div className="col-md-8 col-md-offset-2">
-					<h3 className="text-center">Make change</h3>
-					<form className="form-inline text-center" onSubmit={this.handleSubmit}>
 
-						<div className="form-group">
-					    <label>Amount: </label>
-					    <input type="text" ref="amount" className="form-control" placeholder="enter in an amount"/>
-		  			</div>
-		  			<button type="submit" className="btn btn-primary">Make Change</button>
+          <h2 className="text-center">Make change</h2>
+          <h4 className="text-center">Please enter an amount below</h4>
+        
+          <div className="change-machine">
+            <img src="https://maxcdn.icons8.com/Share/icon/Finance//atm1600.png" className="img-rounded" alt="piggy" width="350" height="236" id="atm-pic"/>
 
-					</form>
+  					<div className="form-content">
+  					<form className="form-inline text-center input-group-lg" id="change-form" onSubmit={this.handleSubmit}>
+  					    <input type="text" ref="amount" className="form-control" placeholder="Enter Amount" id="amount-field"/>
+  					</form>
+            </div>
+          </div>
 				</div>
+
         <div className="col-md-2"></div>
 			</div>
       <div className="row">

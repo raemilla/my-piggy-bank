@@ -196,17 +196,20 @@ class Bank extends React.Component {
     return (
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
+        <div className="bank-picture">
+      	   <img src="piggy.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
+          <div className="bank-content">
+            <li><h1 className="text-center">{this.props.bank.type}</h1></li>
+          	
+            <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
+            
+            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
 
-    	   <img src="http://www.dreamalittlebigger.com/wp-content/uploads/2014/06/001-felt-piggy-bank-pattern-dreamalittlebigger.jpg" className="img-rounded" alt="Cinque Terre" width="250" height="236" id="piggy" />
-         <div className="bank-content">
-        <li><h1 className="text-center">{this.props.bank.type}</h1></li>
-      	
-        <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
-        
-        <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center">{"Saving for: " + this.props.bank.save_item} </h4>: null }</li>
+            {this.showInterest()}
+            {this.showAccumulatedInterest()}
+          </div>
+        </div>
 
-        {this.showInterest()}
-        {this.showAccumulatedInterest()}
         { this.state.error?
               <div className="row">
                <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
@@ -247,7 +250,7 @@ class Bank extends React.Component {
           </div>
 
         </li>
-        </div>
+        
     	</div>
 
     	)}
