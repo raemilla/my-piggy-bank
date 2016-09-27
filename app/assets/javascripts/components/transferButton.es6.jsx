@@ -62,7 +62,7 @@ class TransferButton extends React.Component {
       this.props.updateBalance(response);
 
       // this.blah()
-      // tried to use fade out 
+      // tried to use fade out
 
     })
   }
@@ -112,18 +112,20 @@ class TransferButton extends React.Component {
   render(){
     return(
       <div>
-
+        <li>
         {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary">transfer</button> : null }
         {this.state.displayTransferForm ? this.displayForm() : null }
+        </li>
       {
         this.state.displayTransferFeedback && !this.state.transferError ?  <div  className="alert alert-success blah ">
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleTransferFeedback} aria-hidden="true">&times;</span>
             </button>
-          <strong >Transfer Successful</strong> 
+          <strong >Transfer Successful</strong>
         </div> : null
       }
       </div>
+
     )
   }
 }

@@ -94,6 +94,7 @@ class ParentRewardsList extends React.Component {
   render(){
     return(
       <div>
+      <h2>manage your child's rewards</h2>
       <table className="table table-sm table-striped">
         <thead className="thead-default">
           <tr>

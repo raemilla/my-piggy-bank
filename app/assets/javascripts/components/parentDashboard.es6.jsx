@@ -112,7 +112,7 @@ class ParentDashboard extends React.Component {
       <section>
       <div className="row">
         <h1>{this.props.parent.name}'s dashboard</h1>
-        <div className="col-sm-2">
+        <div className="col-md-2">
 					<ul className="nav nav-pills nav-stacked">
 						<li role="presentation" onClick={this.toggleAdd} className={this.state.activeAdd ? 'active' : null }><a>add child</a></li>
 						<li role="presentation" onClick={this.toggleSend} className={this.state.activeSend ? 'active' : null}><a>send money</a></li>
@@ -120,13 +120,23 @@ class ParentDashboard extends React.Component {
 						<li role="presentation" onClick={this.toggleRewards} className={this.state.activeRewards ? 'active' : null }><a>rewards</a></li>
 					</ul>
         </div>
-        <div className="col-sm-6">
+        <div className="col-md-4 col-md-offset-1">
+				{ this.state.error ?
+				<div className="row">
+					 <div className=" col-md-3 alert alert-danger" role="alert">
+						<strong>{this.state.error}</strong>
+						 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+						 <span onClick={this.toggleError} aria-hidden="true">&times;</span>
+						 </button>
+					 </div>
+				</div>
+				 : null }
 					{this.state.displaySend ? <SendMoney children={this.state.children} sendMoneyValue={this.getMoney}/> : null }
 					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
 					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} /> : null }
         </div>
-        <div className="col-sm-4">
+        <div className="col-md-4">
           <NotificationList />
         </div>
       </div>

@@ -23,9 +23,8 @@ handleSubmit(event){
 
 render(){
   return(
-      <div className="container">
-          <div className = "row">
-          <div className="col-sm-3">
+      <div>
+          <h2>send your child money</h2>
           <form method='post' action="/transfer" ref="sendmoneyform" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label >Child:</label>
@@ -42,8 +41,6 @@ render(){
               <button type="submit" className="btn btn-default">Submit</button>
           </form>
           </div>
-          </div>
-      </div>
     )
   }
 
