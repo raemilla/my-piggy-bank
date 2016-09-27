@@ -14,7 +14,7 @@ class ChildRewardList extends React.Component {
       method: 'post',
       url: '/notifications',
       data: {
-        text: this.props.child.name + " wants to buy a reward: " + event.target.name
+        text: this.props.child.name + " wants to buy a reward: " + event.target.name, amount: 0, type: "Spending"
       }
     }).done((response) => {
       this.setState({
@@ -45,7 +45,7 @@ class ChildRewardList extends React.Component {
             this.props.rewards.map((reward, idx) =>
               <tr key={idx}>
                 <th scope="row">{reward.item}</th>
-                <td>{reward.amount}</td>
+                <td>{reward.dollars}</td>
                 <td><a name={reward.item} onClick={this.handlePurchase}>buy</a></td>
               </tr>
             )

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
     if login?
       if parent?
-        @current_user = current_user.as_json(include: [{ children: {methods: :total_balance, include: {banks: {only: [:balance, :type]}}}}, rewards: {include: {child: {only: :name}}}])
+        @current_user = current_user.as_json(include: [{ children: {methods: [:total_balance, :dollars], include: {banks: {methods: [:balance, :type, :dollars]}}}}, rewards: {methods: :dollars, include: {child: {only: :name}}}])
         else
 
           investment_bank = current_user.banks.find_by(type: 'Investment')
@@ -12,7 +12,7 @@ class PagesController < ApplicationController
           investment_bank.save
 
           @interest = total - old_balance
-          @current_user = current_user.as_json(include: [{banks: {methods: :type}}, :rewards])
+          @current_user = current_user.as_json(methods: :dollars, include: [{banks: {methods: [:type, :dollars]}}, rewards: {methods: :dollars}])
         end
       else
         redirect_to login_path

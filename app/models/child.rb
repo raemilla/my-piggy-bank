@@ -9,6 +9,12 @@ class Child < ApplicationRecord
   has_secure_password
 
   def total_balance
-    self.banks.reduce(0) { |sum, bank| sum + bank.balance }
+    amount = self.banks.reduce(0) { |sum, bank| sum + bank.balance }
+    "$#{'%.2f' % (amount/100.0).to_f.to_s}" 
   end
+
+  def dollars
+		"$#{'%.2f' % (self.undeposited_funds/100.0).to_f.to_s}" 
+	end
+
 end

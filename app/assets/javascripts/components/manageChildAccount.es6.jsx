@@ -29,7 +29,7 @@ class ManageChildAccount extends React.Component {
           this.props.child.banks.map((bank, idx) =>
           <tr key={idx}>
             <th scope="row">{bank.type}</th>
-            <td>{bank.balance}</td>
+            <td>{bank.dollars}</td>
           </tr>
           )
         }
@@ -48,7 +48,7 @@ class ManageChildAccount extends React.Component {
       <div className="row">
       <li onClick={this.toggleDisplayBanks} className="list-group-item list-group-item-action">
         <strong>{this.props.child.name}</strong> <br/>
-        total undeposited funds: {this.props.child.undeposited_funds}
+        total undeposited funds: {this.props.child.dollars}
         {this.state.displayBanks ? this.displayBanks() : null }
       </li>
       </div>
