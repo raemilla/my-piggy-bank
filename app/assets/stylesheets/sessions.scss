@@ -1,3 +1,31 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	background-color: #E4E6C3 !important;
+}
+
+button{
+	background-color: #8DC498 !important;
+}
+
+.login-row{
+	border-style: solid;
+	background-color: #3C844B;
+	padding-bottom: 25px;
+	width:50%
+}
+
+.top-buffer {
+margin-top:250px; 
+}
+
+#navigation-bar{
+	background-color: #8DC498;
+	padding-bottom: -5px;
+}
+
+#navigation-container{
+	padding-bottom: -5px;
+}
