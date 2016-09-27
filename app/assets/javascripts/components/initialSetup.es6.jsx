@@ -1,23 +1,11 @@
 class InitialSetup extends React.Component {
   constructor(){
     super()
-    // this.toggleForm = this.toggleForm.bind(this)
     this.displayForm = this.displayForm.bind(this)
     this.createChild = this.createChild.bind(this)
     this.createNewChild = this.createNewChild.bind(this)
   }
 
-  // toggleForm(event){
-  //   event.preventDefault()
-  //   let shouldToggleForm = !this.state.displayForm
-  //   let shouldToggleButton = !this.state.displayButton
-  //
-  //   this.setState({
-  //     displayForm: shouldToggleForm,
-  //     displayButton: shouldToggleButton
-  //   })
-  //
-  // }
 
   displayForm(){
     return(

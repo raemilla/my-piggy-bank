@@ -15,6 +15,7 @@
   position: relative;
   left: 400px;
   bottom: 125px;
+  font-family: "Handlee", cursive;
 }
 
 #input-child-name {
@@ -53,8 +54,34 @@
   position: relative;
   bottom: 110px;
   left: 300px;
+  font-family: "Handlee", cursive;
 }
 
 #send-money-form {
   margin-top: 30px;
+}
+
+#reward-cost-input {
+  width: 150px;
+}
+
+#reward-child-input {
+  position: relative;
+  left: 180px;
+  bottom: 74px;
+}
+
+#reward-submit {
+  position: relative;
+  left: 320px;
+  bottom: 115px;
+  font-family: "Handlee", cursive;
+}
+
+.header {
+  font-family: "Handlee", cursive;
+}
+
+.btn {
+  font-family: "Handlee", cursive;
 }
