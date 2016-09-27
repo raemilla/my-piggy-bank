@@ -3,7 +3,7 @@ class Quarter extends React.Component {
   render(){
   	
     return(
-			<img className="coin" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/COBREcentavosecuador2000-2.png" value="25" data-index={this.props.index}  />
+			<img className="coin" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/COBREcentavosecuador2000-2.png" value="25" height="150" width="150" data-index={this.props.index}  />
         )
   }
 }

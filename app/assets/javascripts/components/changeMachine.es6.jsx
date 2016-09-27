@@ -44,7 +44,7 @@ class ChangeMachine extends React.Component {
 
       if(this.props.coins){
       return(
-      	<div className="row">
+      	<div className="row change">
         {
             this.props.coins.map((coin, i)=>{
 							if(coin.value === 25){
@@ -78,7 +78,7 @@ class ChangeMachine extends React.Component {
 
           <h2 className="text-center">Make change</h2>
           <h4 className="text-center">Please enter an amount below</h4>
-        
+
           <div className="change-machine">
             <img src="https://maxcdn.icons8.com/Share/icon/Finance//atm1600.png" className="img-rounded" alt="piggy" width="350" height="236" id="atm-pic"/>
 

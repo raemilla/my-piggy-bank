@@ -197,7 +197,7 @@ class Bank extends React.Component {
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
         <div className="bank-picture">
-      	   <img src="piggy.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
+      	   <img src="piggy1.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
           <div className="bank-content">
             <li><h1 className="text-center">{this.props.bank.type}</h1></li>
           	
