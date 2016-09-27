@@ -30,36 +30,37 @@ class ChangeMachine extends React.Component {
   		let numOfCoins = Math.floor(remainder / value)
 
   		for(var i=0; i < numOfCoins; i++){
-    		coinArray.push(value)
+    		coinArray.push({id: i, value: value})
 			}
 			remainder = remainder % value
 
   	}.bind(this))
 
-  	this.setState({
-        coins: coinArray
-      })
+    this.props.setCoins(coinArray)
+
     this.refs.amount.value = ''
   }
 
    loop(){
 
-      if(this.state.coins){
+      if(this.props.coins){
       return(
       	<div className="row">
         {
-            this.state.coins.map((coin, i)=>{
-							if(coin === 25){
-            		return (<Quarter key={i} />)
-							}else if(coin === 10){
-								return (<Dime key={i}/>)
-							}else if(coin === 5){
-								return (<Nickel key={i}/>)
-							}else if(coin === 1){
-								return (<Penny key={i}/>)
-							}
-          })
+            this.props.coins.map((coin, i)=>{
+							if(coin.value === 25){
+                
+            		return (<Quarter key={i} index={i} />)
+							}else if(coin.value === 10){
+								return (<Dime key={i} index={i}/>)
+							}else if(coin.value === 5){
+								return (<Nickel key={i} index={i}/>)
+							}else if(coin.value === 1){
+								return (<Penny key={i} index={i}/>)
+							}     
+            })   
         }
+      
       </div>
       )
       }
