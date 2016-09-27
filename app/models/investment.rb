@@ -27,4 +27,9 @@ class Investment < Bank
 		self.balance
 	end
 
+	def accumulate_interest()
+		self.accumulate_interest
+
+	end
+
 end

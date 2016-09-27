@@ -20,6 +20,7 @@ class Bank extends React.Component {
     this.showInterest = this.showInterest.bind(this)
     this.displayRedeemButton = this.displayRedeemButton.bind(this)
     this.handleSavingsClick = this.handleSavingsClick.bind(this)
+    this.showAccumulatedInterest = this.showAccumulatedInterest.bind(this)
   }
 
     handleRequestTransfer(event){
@@ -134,19 +135,41 @@ class Bank extends React.Component {
 
     if(this.props.bank.type === 'Investment'){
 
-      if(this.props.interestAmount > 0){
+      
+
+      if(this.props.interestAmount > 0 ){
 
         return(
           <div className="alert alert-warning alert-dismissible fade in" role="alert">
           <button type="button" className="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
-      <strong>Yay!</strong> You Just earned {this.props.interestAmount} cents interest!
-    </div>
+           <strong>Yay! </strong> You Just earned {this.props.interestAmount} cents interest! 
+          </div>
+        )
+      }
+
+
+    }
+  }
+
+  showAccumulatedInterest(){
+
+    if(this.props.bank.type === 'Investment'){
+      if( this.props.bank.accumulated_interest){
+
+        return(
+          <div className="alert alert-success fade in" role="alert">
+           <strong>Nice! </strong> Since you have opened this account, you have made {this.props.bank.interest_dollars} in interest!
+          </div>
         )
       }
     }
   }
+
+
+
+
 
   displayRedeemButton(){
     return(
@@ -177,6 +200,7 @@ class Bank extends React.Component {
     	<li><h1>{this.props.bank.dollars}</h1></li>
       <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4>{"Saving for: " + this.props.bank.save_item} </h4>: null }</li>
       {this.showInterest()}
+      {this.showAccumulatedInterest()}
       { this.state.error?
             <div className="row">
              <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">

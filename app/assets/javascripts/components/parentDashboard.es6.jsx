@@ -7,8 +7,9 @@ class ParentDashboard extends React.Component {
     this.addChild=this.addChild.bind(this)
     this.parentWithdraw=this.parentWithdraw.bind(this)
     this.parentTransfer = this.parentWithdraw.bind(this)
+    this.toggleError=this.toggleError.bind(this)
 		this.state = {
-			children: [], error: null
+			children: [], error: false
 		}
 	}
 
@@ -16,8 +17,6 @@ class ParentDashboard extends React.Component {
 		this.setState({
       children: this.props.parent.children
     })
-
-
 	}
 
   addChild(newChildren){
@@ -39,6 +38,10 @@ class ParentDashboard extends React.Component {
      newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children}) : this.setState({children: newChildren})
   }
 
+  toggleError(){
+    this.setState({error:false})
+  }
+
   render(){
 
     return(
@@ -58,10 +61,10 @@ class ParentDashboard extends React.Component {
       <div className="row">
             { this.state.error? 
             <div className="row">
-               <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
+               <div className=" col-md-3 alert alert-danger" role="alert">
                 <strong>{this.state.error}</strong> 
                  <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
+                 <span onClick={this.toggleError} aria-hidden="true">&times;</span>
                  </button>
                </div>
             </div>
