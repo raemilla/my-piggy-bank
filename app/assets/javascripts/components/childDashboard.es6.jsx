@@ -32,7 +32,7 @@ class ChildDashboard extends React.Component {
     		})
     		.done((response)=>{
           ui.draggable[0].style.display = 'none'
-  
+ 
           this.setState({
       			current_child: response,
             coins: this.state.coins
@@ -53,10 +53,11 @@ class ChildDashboard extends React.Component {
 	render(){
 		return(
 			<div>
+
 			<UndepositedFunds current_child={this.state.current_child} />
 			<ChangeMachine current_child={this.state.current_child} setCoins={this.setCoins} coins={this.state.coins} />
 
-  			   <Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
+  		<Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
 
 			</div>
 		)

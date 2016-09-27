@@ -1,13 +1,14 @@
 class BanksController < ApplicationController
 
 	def update
-
+		
 		bank = Bank.find(params[:id])
 		bank.balance = bank.balance + params[:value].to_i
 		if bank.save
 			bank.child.undeposited_funds = bank.child.undeposited_funds - params[:value].to_i
 			bank.child.save
-
+			
+			# bank.child.banks.order('type')
 			current_user = child_user.as_json(methods: :dollars, include: {banks: {methods: [:type, :dollars]}})
 			render json: current_user
 		end

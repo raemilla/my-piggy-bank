@@ -121,7 +121,7 @@ class Bank extends React.Component {
 
     displayDonationButton(){
       return(
-         <button type="submit" onClick={this.handleDonateClick} className="btn btn-primary btn-lg">Request to Donate</button>
+         <button type="submit" onClick={this.handleDonateClick} className="btn btn-primary ">Donate!</button>
         )
     }
 
@@ -154,17 +154,15 @@ class Bank extends React.Component {
   }
 
   showAccumulatedInterest(){
-
-    if(this.props.bank.type === 'Investment'){
-      if( this.props.bank.accumulated_interest){
-
+    if(this.props.bank.type === 'Investment' && this.props.bank.accumulated_interest >= 0){
+        
         return(
           <div className="alert alert-success fade in" role="alert">
            <strong>Nice! </strong> Since you have opened this account, you have made {this.props.bank.interest_dollars} in interest!
           </div>
         )
       }
-    }
+    
   }
 
 
@@ -173,7 +171,7 @@ class Bank extends React.Component {
 
   displayRedeemButton(){
     return(
-      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary btn-lg">Redeem {this.props.bank.save_item}</button>
+      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary">Redeem {this.props.bank.save_item}</button>
     )
   }
 
@@ -196,37 +194,61 @@ class Bank extends React.Component {
     return (
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
-    	<li><h1>{this.props.bank.type}</h1></li>
-    	<li><h1>{this.props.bank.dollars}</h1></li>
-      <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4>{"Saving for: " + this.props.bank.save_item} </h4>: null }</li>
-      {this.showInterest()}
-      {this.showAccumulatedInterest()}
-      { this.state.error?
-            <div className="row">
-             <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
-              <strong>{this.state.error}</strong>
-               <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
+        <div className="bank-picture">
+      	   <img src="piggy4.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
+          <div className="bank-content">
+            <li><h1 className="text-center">{this.props.bank.type}</h1></li>
+          	
+            <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
+            
+            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
+
+            {this.showInterest()}
+            {this.showAccumulatedInterest()}
+          </div>
+        </div>
+
+        { this.state.error?
+              <div className="row">
+               <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
+                <strong>{this.state.error}</strong>
+                 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+              </div>
+               : null }
+
+      	<li>
+
+          <div className="btn-group btn-group-justified" role="group" aria-label="...">
+            <div className="btn-group" role="group">
+              {this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary ">Request Transfer</button> : null}
+
             </div>
-             : null }
-    	<li><div className="btn-group btn-group-justified" role="group" aria-label="...">
-  		<div className="btn-group" role="group">
 
-   	  {this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary btn-lg">Request Transfer</button> : null}
-      {this.state.displayTransferForm ? this.displayTransferForm() : null }
-      {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
-      {this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }
-      {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
-        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-        <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
-      </div> : null}
-  		</div></div>
+        		<div className="btn-group" role="group">
 
-      </li>
+           	 
+            
+              {this.state.displayTransferForm ? this.displayTransferForm() : null }
+            
+              {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
+
+              {this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }
+
+              {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
+               </div> : null}
+
+        		</div>
+          </div>
+
+        </li>
+        
     	</div>
 
     	)}

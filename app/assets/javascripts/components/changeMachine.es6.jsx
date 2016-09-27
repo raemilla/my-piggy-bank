@@ -10,6 +10,7 @@ class ChangeMachine extends React.Component {
 
 	componentDidUpdate(){
     $('.coin').draggable()
+    $('.coin').css('z-index', '2')
   }
 
 
@@ -44,7 +45,7 @@ class ChangeMachine extends React.Component {
 
       if(this.props.coins){
       return(
-      	<div className="row">
+      	<div className="row change">
         {
             this.props.coins.map((coin, i)=>{
 							if(coin.value === 25){
@@ -71,22 +72,31 @@ class ChangeMachine extends React.Component {
 	render(){
 
 		return(
+      <div>
 			<div className="row">
-				<div className="col-md-2"></div>
-				<div className="col-md-8">
-					<h3 className="text-center">Make change</h3>
-					<form className="form-inline text-center" onSubmit={this.handleSubmit}>
+			
+				<div className="col-md-8 col-md-offset-2">
 
-						<div className="form-group">
-					    <label>Amount: </label>
-					    <input type="text" ref="amount" className="form-control" placeholder="enter in an amount"/>
-		  			</div>
-		  			<button type="submit" className="btn btn-primary">Make Change</button>
+          <h2 className="text-center">Make change</h2>
+          <h4 className="text-center">Please enter an amount below</h4>
 
-					</form>
+          <div className="change-machine">
+            <img src="https://maxcdn.icons8.com/Share/icon/Finance//atm1600.png" className="img-rounded" alt="piggy" width="350" height="236" id="atm-pic"/>
+
+  					<div className="form-content">
+  					<form className="form-inline text-center input-group-lg" id="change-form" onSubmit={this.handleSubmit}>
+  					    <input type="text" ref="amount" className="form-control font-weight-bold" placeholder="Enter Amount" id="amount-field"/>
+  					</form>
+            </div>
+          </div>
 				</div>
-				{this.loop()}
+
+        <div className="col-md-2"></div>
 			</div>
+      <div className="row">
+        {this.loop()}
+        </div>
+      </div>
 
 			)
 	}

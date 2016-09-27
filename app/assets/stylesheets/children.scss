@@ -1,3 +1,75 @@
 // Place all the styles related to the children controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#piggy {
+	color: #FFC9B5;
+}
+
+.bank-picture {
+	position:relative;
+}
+
+.bank-content {
+
+	 left: 10px;
+    position:absolute;
+    text-align:center;
+    top: 30px;
+    width: 100%
+}
+
+.banks {
+	width: 250px;
+	margin-top: 60px; 
+	margin-bottom: 150px;
+}
+
+
+.change-machine {
+
+	text-align: center;
+	position:relative;
+}
+
+.form-content {
+	text-align:center;
+	 left: 300px;
+    position:absolute;
+    
+    top: 40px;
+    width: 20%
+}
+
+#amount-field {
+	background-color:rgba(0,0,0,0) !important;
+  border:none !important;
+  height: 75px;
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
