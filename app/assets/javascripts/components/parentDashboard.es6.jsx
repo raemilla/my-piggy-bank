@@ -18,7 +18,11 @@ class ParentDashboard extends React.Component {
 			displaySend: true,
 			displayAdd: false,
 			displayAccounts: false,
-			displayRewards: false
+			displayRewards: false,
+			activeSend: true,
+			activeAdd: false,
+			activeAccounts: false,
+			activeRewards: false
 		}
 	}
 
@@ -56,7 +60,11 @@ class ParentDashboard extends React.Component {
 			displaySend: false,
 			displayAdd: true,
 			displayAccounts: false,
-			displayRewards: false
+			displayRewards: false,
+			activeAdd: true,
+			activeSend: false,
+			activeAccounts: false,
+			activeRewards: false
 		})
 	}
 
@@ -65,7 +73,11 @@ class ParentDashboard extends React.Component {
 			displaySend: true,
 			displayAdd: false,
 			displayAccounts: false,
-			displayRewards: false
+			displayRewards: false,
+			activeAdd: false,
+			activeSend: true,
+			activeAccounts: false,
+			activeRewards: false
 		})
 	}
 
@@ -74,7 +86,11 @@ class ParentDashboard extends React.Component {
 			displaySend: false,
 			displayAdd: false,
 			displayAccounts: true,
-			displayRewards: false
+			displayRewards: false,
+			activeAdd: false,
+			activeSend: false,
+			activeAccounts: true,
+			activeRewards: false
 		})
 	}
 
@@ -83,7 +99,11 @@ class ParentDashboard extends React.Component {
 			displaySend: false,
 			displayAdd: false,
 			displayAccounts: false,
-			displayRewards: true
+			displayRewards: true,
+			activeAdd: false,
+			activeSend: false,
+			activeAccounts: false,
+			activeRewards: true
 		})
 	}
 
@@ -94,10 +114,10 @@ class ParentDashboard extends React.Component {
         <h1>{this.props.parent.name}'s dashboard</h1>
         <div className="col-sm-2">
 					<ul className="nav nav-pills nav-stacked">
-						<li role="presentation" onClick={this.toggleAdd}><a>add child</a></li>
-						<li role="presentation" onClick={this.toggleSend}><a>send money</a></li>
-						<li role="presentation" onClick={this.toggleAccounts}><a>accounts</a></li>
-						<li role="presentation" onClick={this.toggleRewards}><a>rewards</a></li>
+						<li role="presentation" onClick={this.toggleAdd} className={this.state.activeAdd ? 'active' : null }><a>add child</a></li>
+						<li role="presentation" onClick={this.toggleSend} className={this.state.activeSend ? 'active' : null}><a>send money</a></li>
+						<li role="presentation" onClick={this.toggleAccounts} className={this.state.activeAccounts ? 'active' : null }><a>accounts</a></li>
+						<li role="presentation" onClick={this.toggleRewards} className={this.state.activeRewards ? 'active' : null }><a>rewards</a></li>
 					</ul>
         </div>
         <div className="col-sm-6">
