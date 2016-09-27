@@ -154,17 +154,15 @@ class Bank extends React.Component {
   }
 
   showAccumulatedInterest(){
-
-    if(this.props.bank.type === 'Investment'){
-      if( this.props.bank.accumulated_interest){
-
+    if(this.props.bank.type === 'Investment' && this.props.bank.accumulated_interest >= 0){
+        
         return(
           <div className="alert alert-success fade in" role="alert">
            <strong>Nice! </strong> Since you have opened this account, you have made {this.props.bank.interest_dollars} in interest!
           </div>
         )
       }
-    }
+    
   }
 
 
