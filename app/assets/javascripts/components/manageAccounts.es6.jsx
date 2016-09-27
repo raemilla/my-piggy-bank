@@ -19,7 +19,7 @@ class ManageAccounts extends React.Component {
 
     return(
       <div>
-      <h2>manage your child's accounts</h2>
+      <h3 className="header">manage your child's accounts</h3>
       <ul className="list-group">
         {
           this.props.children.map((child, idx) =>

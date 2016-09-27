@@ -11,7 +11,7 @@ class InitialSetup extends React.Component {
   //   event.preventDefault()
   //   let shouldToggleForm = !this.state.displayForm
   //   let shouldToggleButton = !this.state.displayButton
-  // 
+  //
   //   this.setState({
   //     displayForm: shouldToggleForm,
   //     displayButton: shouldToggleButton
@@ -67,7 +67,7 @@ class InitialSetup extends React.Component {
     return(
       <div className="row">
         <div className="col-sm-8">
-          <h2>add a child</h2>
+          <h3 className="header">add a child</h3>
           {this.displayForm()}
         </div>
         <div className="col-sm-2"></div>

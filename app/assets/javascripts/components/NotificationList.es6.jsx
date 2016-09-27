@@ -17,34 +17,30 @@ class NotificationList extends React.Component {
       })
       })
      }, 500);
-    
+
   }
 
 
   updateNotifications(response){
     this.setState({ notifications: response})
   }
-  
+
 
 
   render(){
     return(
-      <div id="notification-list" className="container">
-      	<h3 className="row-sm-2">Notifications</h3>
-      	<div className ="row">
+      <div>
+      	<h3 className="header">Notifications</h3>
       		{
-            this.state.notifications? 
+            this.state.notifications?
       			this.state.notifications.map((notification, idx) => {
       				return( <div key = {idx}>
       					<Notification data={notification} onSearch={this.updateNotifications}/>
       					<br/>
-      					</div> 
+      					</div>
       					)
-      			}) :
-            null
-
-      		}
-      	</div>
+      			}) : null
+          }
       </div>
    	 )
   }

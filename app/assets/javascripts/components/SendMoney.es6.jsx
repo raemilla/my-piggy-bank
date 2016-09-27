@@ -24,8 +24,8 @@ handleSubmit(event){
 render(){
   return(
       <div>
-          <h2>send your child money</h2>
-          <form method='post' action="/transfer" ref="sendmoneyform" onSubmit={this.handleSubmit}>
+          <h3 className="header">send your child money</h3>
+          <form className="form" method='post' action="/transfer" ref="sendmoneyform" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label >Child:</label>
               <select ref="child">
@@ -35,10 +35,10 @@ render(){
              </select>
             </div>
             <div className="form-group">
-              <label>Amount</label>
+              <label>Amount: </label>
               <input ref="amount" type="number" className="form-control" id="amount" placeholder="Amount"/>
              </div>
-              <button type="submit" className="btn btn-default">Submit</button>
+            <button type="submit" className="btn btn-default">Submit</button>
           </form>
           </div>
     )

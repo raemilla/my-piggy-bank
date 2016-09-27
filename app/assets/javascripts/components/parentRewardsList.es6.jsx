@@ -94,7 +94,7 @@ class ParentRewardsList extends React.Component {
   render(){
     return(
       <div>
-      <h2>manage your child's rewards</h2>
+      <h3 className="header">manage your child's rewards</h3>
       <table className="table table-sm table-striped">
         <thead className="thead-default">
           <tr>
@@ -110,12 +110,12 @@ class ParentRewardsList extends React.Component {
               <th scope="row">{reward.item}</th>
               <td>{reward.dollars}</td>
               <td>{reward.child.name}</td>
-              <td><a name={reward.id} onClick={this.deleteReward}>delete</a></td>
+              <td><button className="btn btn-primary btn-xs btn-default" name={reward.id} onClick={this.deleteReward}>x</button></td>
             </tr>)
           }
         </tbody>
       </table>
-      {this.state.displayButton ? <button onClick={this.toggleRewardForm} className="btn btn-primary">add reward</button> : null }
+      {this.state.displayButton ? <div class><button onClick={this.toggleRewardForm} className="btn btn-primary">add reward</button></div> : null }
       {this.state.displayForm ? this.displayRewardForm() : null }
       </div>
     )
