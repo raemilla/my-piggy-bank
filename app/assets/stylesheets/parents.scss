@@ -318,6 +318,26 @@
   position: relative;
   bottom: 45px;
 }
+
+.login-header {
+  color: white;
+  margin-top: -27px;
+}
+
+#sign-in-form input {
+  margin: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+
+#username-input {
+  margin-top: 4px;
+}
+
+.next-login-button {
+  margin-top: 20px;
+  position: relative;
+  left: 10px;
+}
 // .child-manage-accounts li:nth-child(odd) {
 //   background-color: silver;
 // }
