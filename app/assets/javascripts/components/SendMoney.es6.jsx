@@ -24,11 +24,11 @@ handleSubmit(event){
 render(){
   return(
       <div>
-          <h3 className="header">send your child money</h3>
+          <h3 id="send-money-header" className="header">send your child money</h3>
           <form id="send-money-form" className="form" method='post' action="/transfer" ref="sendmoneyform" onSubmit={this.handleSubmit}>
-            <div className="form-group">
+            <div id="send-money-select-child" className="form-group">
               <label>Child: </label><br/>
-              <select ref="child">
+              <select className="form-control" ref="child">
               {
                 this.props.children.map((child, idx) => <option key={idx} value={child.name}> {child.name} </option>)
               }
@@ -39,7 +39,7 @@ render(){
               <input ref="amount" type="number" className="form-control" id="amount" placeholder=" 
         0.00" step ="any" min = "0" required />
              </div>
-            <button id="send-money-submit" type="submit" className="btn btn-primary">Send</button>
+            <button id="send-money-submit" type="submit" className="btn btn-primary"><span className="home-text">Send</span></button>
           </form>
           </div>
     )

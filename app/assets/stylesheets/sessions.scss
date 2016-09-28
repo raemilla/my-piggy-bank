@@ -4,8 +4,8 @@
 
 body{
 	background-color: #D1F0B1 !important;
-	font-family: 'Open Sans', sans-serif;
 	padding: 70px 0 0 0;
+	font-family: 'Open Sans', sans-serif !important;
 }
 
 button{
@@ -19,11 +19,6 @@ button{
 	border-radius: 12px;
 	padding-bottom: 25px;
 	width:50%
-}
-
-a {
-	text-decoration: line-through;
-	color: orange;
 }
 
 .nav-link {
