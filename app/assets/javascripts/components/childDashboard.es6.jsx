@@ -3,10 +3,11 @@ class ChildDashboard extends React.Component {
     super()
     this.state = {
       current_child: '',
-       coins: []
+       coins: [],
+       displayRewards: false
     }
-    this.setCoins = this.setCoins.bind(this)
-
+    this.setCoins = this.setCoins.bind(this);
+    this.setDisplayRewards = this.setDisplayRewards.bind(this)
   }
 
   componentWillMount(){
@@ -43,6 +44,13 @@ class ChildDashboard extends React.Component {
 
   }
 
+  setDisplayRewards(shouldToggleRewards){
+   
+    this.setState({
+      displayRewards: shouldToggleRewards
+    })
+  }
+
   setCoins(coins){
     this.setState({
         coins: this.state.coins.concat(coins)
@@ -54,10 +62,10 @@ class ChildDashboard extends React.Component {
 		return(
 			<div>
 
-			<UndepositedFunds current_child={this.state.current_child} />
+			<UndepositedFunds current_child={this.state.current_child} setDisplayRewards={this.setDisplayRewards} displayRewards={this.state.displayRewards} />
 			<ChangeMachine current_child={this.state.current_child} setCoins={this.setCoins} coins={this.state.coins} />
 
-  		<Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child}/>
+  		<Banks  interestAmount = {this.props.interestAmount} current_child={this.state.current_child} setDisplayRewards={this.setDisplayRewards} displayRewards={this.state.displayRewards}/>
 
 			</div>
 		)
