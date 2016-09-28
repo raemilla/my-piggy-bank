@@ -117,7 +117,7 @@ class ParentRewardsList extends React.Component {
           }
         </tbody>
       </table>
-      {this.state.displayButton ? <button onClick={this.toggleRewardForm} className="btn btn-primary">add reward</button> : null }
+      {this.state.displayButton ? <button onClick={this.toggleRewardForm} id="add-reward-toggle-button" className="btn btn-primary btn-lg">add a reward</button> : null }
       {this.state.displayForm ? this.displayRewardForm() : null }
       </div>
     )
