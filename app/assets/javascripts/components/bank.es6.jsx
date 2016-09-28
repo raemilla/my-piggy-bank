@@ -289,6 +289,7 @@ class Bank extends React.Component {
               <li>{this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }</li>
               <li>{this.props.bank.type === "Spending" ? this.displayBuyRewardButton() : null }</li>
 
+
             </div>
 
 
@@ -303,6 +304,7 @@ class Bank extends React.Component {
                 </button>
                 <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
                </div> : null}
+
 
     	</div>
 
