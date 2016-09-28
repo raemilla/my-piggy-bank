@@ -157,9 +157,10 @@ class Bank extends React.Component {
     if(this.props.bank.type === 'Investment' && this.props.bank.accumulated_interest >= 0){
         
         return(
-          <div className="alert alert-success fade in" role="alert">
-           <strong>Nice! </strong> Since you have opened this account, you have made {this.props.bank.interest_dollars} in interest!
-          </div>
+       
+          <li>
+            <h4 className="text-center header">Total interest recieved<br/><p>{this.props.bank.interest_dollars}</p> </h4>
+          </li>
         )
       }
     
@@ -201,10 +202,10 @@ class Bank extends React.Component {
           	
             <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
             
-            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
-
-            {this.showInterest()}
+            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
             {this.showAccumulatedInterest()}
+            {this.showInterest()}
+            
           </div>
         </div>
 
