@@ -272,18 +272,6 @@ class Bank extends React.Component {
           </div>
         </div>
 
-              { this.state.error?
-              <div className="row">
-               <div className=" col-md-3 alert alert-danger " role="alert">
-                <strong>{this.state.error}</strong>
-                 <button type="button" className="close"  aria-label="Close">
-                 <span onClick={this.toggleRequestTransferError} aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-              </div>
-               : null }
-
-
 
 
             <div className="btn-group btn-group-justified list-inline" role="group">
@@ -314,8 +302,23 @@ class Bank extends React.Component {
 
                 </button>
                 <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
+
                </div> : null}
 
+
+
+              { this.state.error?
+              <div className="row">
+               <div className=" alert alert-danger " role="alert">
+                <strong>{this.state.error}</strong>
+                 <button type="button" className="close"  aria-label="Close">
+                 <span onClick={this.toggleRequestTransferError} aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+              </div>
+               : null }
+
+  
 
     	</div>
 
