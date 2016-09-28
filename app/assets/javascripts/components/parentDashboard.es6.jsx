@@ -130,14 +130,7 @@ class ParentDashboard extends React.Component {
 					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
 					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} /> : null }
-						{ this.state.toggleError ?
-					  <div  className="alert alert-danger">
-        		  <button  type="button" className="close"  aria-label="Close">
-            		 <span onClick={this.toggleError} aria-hidden="true">&times;</span>
-            		</button>
-         		 <strong >{this.state.error}</strong>
-        		</div>
-				 : null }
+					
         </div>
         <div className="col-md-3 col-md-offset-1">
           <NotificationList />
