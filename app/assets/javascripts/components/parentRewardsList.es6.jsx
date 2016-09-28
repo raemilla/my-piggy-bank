@@ -73,7 +73,8 @@ class ParentRewardsList extends React.Component {
         </div>
         <div className="form-group">
           <label>cost: </label>
-          <input required min="0" step="any" id="reward-cost-input" className="form-control" ref="amount" type="number" placeholder="set a cost" name="reward[amount]"/>
+          <input required min="0" step="any" id="reward-cost-input" className="form-control" ref="amount" type="number" placeholder=" 
+        0.00" name="reward[amount]"/>
         </div>
         <div id="reward-child-input" className="form-group">
           <label>child: </label><br/>
