@@ -78,10 +78,11 @@ class ParentRewardsList extends React.Component {
         </div>
         <div id="reward-child-input" className="form-group">
           <label>child: </label><br/>
-          <select ref="child">
+          <select className="form-control" ref="child">
+            <option selected>select your child</option>
             {
               this.props.children.map((child, idx) =>
-              <option key={idx} >{child.name}</option>
+              <option key={idx}>{child.name}</option>
             )
             }
             <option>All</option>
