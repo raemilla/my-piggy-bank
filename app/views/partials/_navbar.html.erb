@@ -7,7 +7,7 @@
 </div>
 <div class="col-sm-7"> </div>
 <div class="col-sm-3">
-<ul class="nav nav-pills" role="tablist">
+<ul class="nav nav-pills" id="nav-list" role="tablist">
  <% if parent?%>
  <li role="presentation"><a href="/"><%= current_user.name %><span class="badge"><%= current_user.notifications.length %></span></a></li>
  <li role="presentation"><a href="/logout">Log Out <span class="badge"></span></a></li>
