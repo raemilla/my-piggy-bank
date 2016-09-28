@@ -65,7 +65,7 @@ class WithdrawButton extends React.Component {
         <input ref="amount" type="number" className="form-control form-control-sm" step="any" min = "0" placeholder="
         0.00" required/>
       </div>
-      <button type="submit" className="btn btn-primary">submit withdraw!</button>
+      <button type="submit" className="btn btn-primary"> withdraw!</button>
     </form>
     )
   }
