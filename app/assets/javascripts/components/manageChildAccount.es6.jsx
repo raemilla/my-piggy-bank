@@ -45,12 +45,10 @@ class ManageChildAccount extends React.Component {
 
   render(){
     return(
-      <div className="row">
-      <li onClick={this.toggleDisplayBanks} className="list-group-item list-group-item-action">
+      <div id="individual-child-account" onClick={this.toggleDisplayBanks}>
         <strong>{this.props.child.name}</strong> <br/>
-        total undeposited funds: {this.props.child.dollars}
+        <span id="child-account-undeposited">total undeposited funds: {this.props.child.dollars}</span>
         {this.state.displayBanks ? this.displayBanks() : null }
-      </li>
       </div>
     )
   }

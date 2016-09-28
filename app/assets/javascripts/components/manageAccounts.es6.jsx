@@ -20,10 +20,10 @@ class ManageAccounts extends React.Component {
     return(
       <div>
       <h3 className="header">manage your child's accounts</h3>
-      <ul className="list-group">
+      <ul className="list-group child-manage-accounts">
         {
           this.props.children.map((child, idx) =>
-            <ManageChildAccount child={child} key={idx} />)
+            <li className="list-group-item list-group-item-action"><ManageChildAccount child={child} key={idx} /></li>)
         }
         <ul className="account-buttons list-inline text-center">
           <li><TransferButton onClick={this.toggleTransferButton} children={this.props.children}

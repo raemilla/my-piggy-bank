@@ -235,3 +235,17 @@
 #dashboard-nav a {
   color: black;
 }
+
+#child-account-undeposited {
+  position: relative;
+  left: 200px;
+  bottom: 20px;
+}
+
+#child-manage-accounts li {
+  margin: 5px;
+}
+
+// .child-manage-accounts li:nth-child(odd) {
+//   background-color: silver;
+// }
