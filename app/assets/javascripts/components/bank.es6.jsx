@@ -273,13 +273,13 @@ class Bank extends React.Component {
               <li>{this.props.bank.type === "Donation" ? this.displayDonationButton() : null }</li>
               <li>{this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }</li>
             </div>
-
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
               {this.state.transferFeedback? this.displayTransferFeedback(): null}
               {this.state.donateFeedback? this.displayDonateFeedback():null}
               {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
                 <button type="button" className="close"  aria-label="Close">
                 <span onClick ={this.toggleRedeemAlert} aria-hidden="true">&times;</span>
+
                 </button>
                 <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
                </div> : null}
