@@ -2,7 +2,10 @@ class App extends React.Component {
   constructor(){
     super()
     this.displayUserComponent = this.displayUserComponent.bind(this)
+
+
   }
+
 
   displayUserComponent(){
     if(this.props["parent?"]){
@@ -16,6 +19,7 @@ class App extends React.Component {
     return(
       <div className="container">  
         {this.displayUserComponent()}
+
       </div>
     )
   }

@@ -13,6 +13,8 @@ class WithdrawButton extends React.Component {
     this.toggleWithdrawFeedback = this.toggleWithdrawFeedback.bind(this)
   }
 
+
+
   toggleForm(){
     let shouldToggle = !this.state.displayForm
     let shouldToggleButton = !this.state.displayButton
@@ -83,8 +85,8 @@ class WithdrawButton extends React.Component {
         {this.state.displayForm ? this.displayWithdrawForm() : null }
         {this.state.displayWithdrawFeedback && !this.state.withdrawError ?
           <div className="alert alert-success ">
-            <button onSubmit={this.toggleWithdrawFeedback} type="button" className="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <button  type="button" className="close" aria-label="Close">
+            <span onClick={this.toggleWithdrawFeedback}aria-hidden="true">&times;</span>
             </button>
             <strong>Withdraw Successful</strong>
           </div> : null }

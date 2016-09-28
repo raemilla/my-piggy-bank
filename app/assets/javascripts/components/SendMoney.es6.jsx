@@ -2,8 +2,29 @@ class SendMoney extends React.Component {
 
 constructor(){
   super()
+  this.state = {
+      sendMoneyFeedback  : false
+    }
   this.handleSubmit = this.handleSubmit.bind(this)
+  this.displaySendMoneyFeedback = this.displaySendMoneyFeedback.bind(this)  
+  this.toggleSendMoneyFeedback = this.toggleSendMoneyFeedback.bind(this) 
 }
+
+
+displaySendMoneyFeedback(){
+     return( <div  className="alert alert-success blah ">
+          <button  type="button" className="close"  aria-label="Close">
+             <span onClick={this.toggleSendMoneyFeedback} aria-hidden="true">&times;</span>
+            </button>
+          <strong >Your money is on its way!</strong>
+        </div> 
+        )
+  }
+
+  toggleSendMoneyFeedback (){
+    this.setState({ sendMoneyFeedback: false})
+  }
+
 
 handleSubmit(event){
   event.preventDefault()
@@ -17,6 +38,7 @@ handleSubmit(event){
     data: {child: child, amount: amount}
   }).done((response) => {
     this.props.sendMoneyValue(response)
+    this.setState({ sendMoneyFeedback: true})
     this.refs.amount.value = ""
   }.bind(this))
 }
@@ -41,6 +63,7 @@ render(){
              </div>
             <button id="send-money-submit" type="submit" className="btn btn-primary"><span className="home-text">Send</span></button>
           </form>
+          {this.state.sendMoneyFeedback? this.displaySendMoneyFeedback(): null}
           </div>
     )
   }
