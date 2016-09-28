@@ -8,7 +8,8 @@ class Bank extends React.Component {
       displayDonationForm: false,
       displayTransferButton: true,
       error: null,
-      displayRedeemAlert: false
+      displayRedeemAlert: false,
+      donateFeedback: false
     }
     this.displayDonationForm = this.displayDonationForm.bind(this)
     this.displayDonationButton = this.displayDonationButton.bind(this)
@@ -21,6 +22,8 @@ class Bank extends React.Component {
     this.displayRedeemButton = this.displayRedeemButton.bind(this)
     this.handleSavingsClick = this.handleSavingsClick.bind(this)
     this.showAccumulatedInterest = this.showAccumulatedInterest.bind(this)
+    this.displayDonateFeedback = this.displayDonateFeedback.bind(this)
+    this.toggleDisplayFeedback = this.toggleDisplayFeedback.bind(this)
   }
 
     handleRequestTransfer(event){
@@ -65,6 +68,8 @@ class Bank extends React.Component {
     })
   }
 
+
+
     filterBanks(bank){
     if(bank.type === this.props.bank.type){
       return false
@@ -106,8 +111,9 @@ class Bank extends React.Component {
        type: this.props.bank.type
       }
     }).done((response) => {
-
-      this.setState({error: response.error})
+      response? 
+      this.setState({error: response.error, donateFeedback: true}) :
+      this.setState({donateFeedback: true})
 
     })
 
@@ -126,6 +132,21 @@ class Bank extends React.Component {
     }
 
 
+    displayDonateFeedback(){
+      return(
+         <div  className="alert alert-success">
+          <button  type="button" className="close"  aria-label="Close">
+             <span onClick={this.toggleDisplayFeedback} aria-hidden="true">&times;</span>
+            </button>
+          <strong >You made a donation!</strong>
+        </div>
+
+        )
+    }
+
+    toggleDisplayFeedback(){
+      this.setState({donateFeedback: false})
+    }
 
 
 
@@ -235,6 +256,7 @@ class Bank extends React.Component {
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
             
               {this.props.bank.type === "Donation" ? this.displayDonationButton() : null }
+              {this.state.donateFeedback? this.displayDonateFeedback():null}
 
               {this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }
 
