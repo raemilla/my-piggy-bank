@@ -16,7 +16,7 @@ class ChangeMachine extends React.Component {
 
   handleSubmit(event){
   	event.preventDefault()
-
+  
   	var coins = [25, 10, 5, 1]
   	var coinArray = []
   	var remainder = this.refs.amount.value
@@ -30,14 +30,14 @@ class ChangeMachine extends React.Component {
   		let numOfCoins = Math.floor(remainder / value)
 
   		for(var i=0; i < numOfCoins; i++){
-    		coinArray.push({id: i, value: value})
+    		coinArray.push(value)
 			}
 			remainder = remainder % value
 
   	}.bind(this))
 
     this.props.setCoins(coinArray)
-
+    
     this.refs.amount.value = ''
   }
 
@@ -48,14 +48,14 @@ class ChangeMachine extends React.Component {
       	<div className="row change">
         {
             this.props.coins.map((coin, i)=>{
-							if(coin.value === 25){
+							if(coin === 25){
 
             		return (<Quarter key={i} index={i} />)
-							}else if(coin.value === 10){
+							}else if(coin === 10){
 								return (<Dime key={i} index={i}/>)
-							}else if(coin.value === 5){
+							}else if(coin === 5){
 								return (<Nickel key={i} index={i}/>)
-							}else if(coin.value === 1){
+							}else if(coin === 1){
 								return (<Penny key={i} index={i}/>)
 							}
             })
