@@ -18,15 +18,17 @@ button{
 	border-style: 1px solid #648767;
 	border-radius: 12px;
 	padding-bottom: 25px;
+	margin-bottom: 50px;
 	width:50%
 }
+
 
 .nav-link {
 	color: #ffffff;
 }
 
 .top-buffer {
-margin-top:45px;
+	margin-top:35px; 
 }
 
 #navigation-bar{
@@ -35,8 +37,16 @@ margin-top:45px;
 }
 
 .welcome-header{
-	margin-top:150px;
-}
+	margin-top:15px; 
+	margin-bottom:20px; 
+	font-size: 80px;
+} 
+
+.slogan{
+	margin-bottom: 50px;
+	font-size: 20px;
+} 
+
 
 .piggy-bank-icon{
 	margin: auto;

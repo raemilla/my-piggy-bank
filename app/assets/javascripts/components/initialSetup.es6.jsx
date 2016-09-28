@@ -19,7 +19,7 @@ class InitialSetup extends React.Component {
           <input type="text" className="form-control" placeholder="Set a username for your child" name="child[username]" required/>
         </div>
          <div id="input-save-for" className="form-group">
-          <label htmlFor="childSaveFor">Save For</label>
+          <label htmlFor="childSaveFor">  Item For Child To Save For</label>
           <input type="text" className="form-control" placeholder="Set an item for your child to redeem from the savings bank" name="child[save_item]" required/>
         </div>
         <div id="input-child-password" className="form-group">
@@ -27,9 +27,8 @@ class InitialSetup extends React.Component {
           <input type="password" className="form-control" placeholder="Set a password for your child" name="child[password]" required/>
         </div>
         <div id="interest-input" className="form-group">
-          <label htmlFor="childInterestRate">Interest Rate</label>
+          <label htmlFor="childInterestRate">Weekly Interest Rate For Investment Account</label>
           <input type="number" className="form-control" defaultValue="2" name="interest_rate" required /><span id="percent" className="input-group-addon">%</span>
-
         </div>
         <button id="add-child-button" type="submit" className="btn btn-primary">Add!</button>
       </form>
