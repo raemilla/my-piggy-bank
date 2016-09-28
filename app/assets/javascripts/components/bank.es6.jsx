@@ -28,6 +28,7 @@ class Bank extends React.Component {
     this.displayTransferFeedback = this.displayTransferFeedback.bind(this)
     this.toggleTransferFeedback = this.toggleTransferFeedback.bind(this)
     this.toggleRedeemAlert = this.toggleRedeemAlert.bind(this)
+    this.handleBuyRewardClick = this.handleBuyRewardClick.bind(this)
   }
 
     displayTransferFeedback(){
@@ -148,7 +149,7 @@ class Bank extends React.Component {
 
     displayDonationButton(){
       return(
-         <button type="submit" onClick={this.handleDonateClick} className="btn btn-primary ">Donate!</button>
+         <button type="submit" onClick={this.handleDonateClick} className="btn btn-primary bank-button">Donate!</button>
         )
     }
 
@@ -208,11 +209,21 @@ class Bank extends React.Component {
 
   }
 
+   displayBuyRewardButton(){
+    return(
+      <button type="submit" onClick={this.handleBuyRewardClick} className="btn btn-primary bank-button reward-button" >Buy a Reward!</button>
+    )
+  }
+
+  handleBuyRewardClick(){
+    let shouldToggleRewards = !this.props.displayRewards
+    this.props.setDisplayRewards(shouldToggleRewards)
+  }
 
 
   displayRedeemButton(){
     return(
-      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary">Redeem!</button>
+      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary bank-button redeem-button" >Redeem!</button>
     )
   }
 
@@ -239,15 +250,16 @@ class Bank extends React.Component {
     return (
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
-        {this.showInterest()}
+        
         <div className="bank-picture">
       	   <img src="piggyshadow2.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
           <div className="bank-content">
-            <li><h1 className="text-center">{this.props.bank.type}</h1></li>
 
+            <li><h1 className="text-center header">{this.props.bank.type}</h1></li>
+          	
             <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
-
-            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
+            
+            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header ">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
 
             {this.showAccumulatedInterest()}
           </div>
@@ -269,10 +281,18 @@ class Bank extends React.Component {
 
             <div className="btn-group btn-group-justified list-inline" role="group">
 
-              <li>{this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary ">Request Transfer</button> : null}</li>
+              <li>{this.state.displayTransferButton ? <button type="submit" onClick={this.toggleDisplayTransferForm} className="btn btn-primary bank-button text-center" >Request Transfer</button> : null}</li>
+
+              <li>{this.props.bank.type === "Investment" ? <button type="submit" className="btn btn-primary bank-button text-center"  >Total Investments</button> : null}</li>
+
               <li>{this.props.bank.type === "Donation" ? this.displayDonationButton() : null }</li>
               <li>{this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }</li>
+              <li>{this.props.bank.type === "Spending" ? this.displayBuyRewardButton() : null }</li>
+
             </div>
+
+
+              {this.showInterest()}
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
               {this.state.transferFeedback? this.displayTransferFeedback(): null}
               {this.state.donateFeedback? this.displayDonateFeedback():null}

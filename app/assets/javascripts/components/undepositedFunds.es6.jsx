@@ -2,16 +2,17 @@ class UndepositedFunds extends React.Component {
 	constructor(){
 		super()
 		this.state = {
-			displayRewards: false,
+			// displayRewards: false,
 		}
 		this.toggleRewardDisplay = this.toggleRewardDisplay.bind(this)
 	}
 
 	toggleRewardDisplay(){
-		let shouldToggleRewards = !this.state.displayRewards
-		this.setState({
-			displayRewards: shouldToggleRewards
-		})
+		let shouldToggleRewards = !this.props.displayRewards
+		this.props.setDisplayRewards(shouldToggleRewards)
+		// this.setState({
+		// 	displayRewards: shouldToggleRewards
+		// })
 	}
 
 	render(){
@@ -23,7 +24,7 @@ class UndepositedFunds extends React.Component {
 					</div>
 					<div className="col-md-3">
 						<button onClick={this.toggleRewardDisplay} type="button" className="btn btn-success btn-lg btn-block">Rewards</button>
-						{this.state.displayRewards ? <ChildRewardList rewards={this.props.current_child.rewards} child={this.props.current_child} /> : null }
+						{this.props.displayRewards ? <ChildRewardList rewards={this.props.current_child.rewards} child={this.props.current_child} /> : null }
 					</div>
 				</div>
 

@@ -16,7 +16,7 @@ class Banks extends React.Component {
 				{
 					this.props.current_child.banks.map((bank, idx) => {
 
-						return (<Bank  interestAmount = {this.props.interestAmount} child={this.props.current_child}  key={idx} bank={bank} />)
+						return (<Bank  interestAmount = {this.props.interestAmount} child={this.props.current_child}  key={idx} bank={bank} setDisplayRewards={this.props.setDisplayRewards} displayRewards={this.props.displayRewards}/>)
 
 					})
 				}

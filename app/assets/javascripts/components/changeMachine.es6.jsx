@@ -75,9 +75,11 @@ class ChangeMachine extends React.Component {
       <div>
 			<div className="row">
 
+
 				<div className="col-md-8 col-md-offset-2">
           <h2 className="text-center">Make change</h2>
           <h4 className="text-center">Please enter an amount below</h4>
+
 
           <div className="change-machine">
 					<img id="arrow" width="150" height="150" src="arrow.png"></img>

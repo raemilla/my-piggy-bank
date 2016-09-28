@@ -1,5 +1,5 @@
 class Child < ApplicationRecord
-  has_many :banks
+  has_many :banks, -> { order 'type desc' } 
   has_many :notifications
   belongs_to :parent
   has_many :rewards
