@@ -9,7 +9,7 @@ class BanksController < ApplicationController
 			bank.child.save
 			
 			# bank.child.banks.order('type')
-			current_user = child_user.as_json(methods: :dollars, include: {banks: {methods: [:type, :dollars]}})
+			current_user = child_user.as_json(methods: :dollars, include: [{banks: {methods: [:type, :dollars, :accumulated_interest, :interest_dollars]}}, rewards: {methods: :dollars}])
 			render json: current_user
 		end
 	end
