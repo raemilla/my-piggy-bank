@@ -111,6 +111,18 @@
   font-family: "Handlee", cursive;
 }
 
+#add-reward-form input {
+  box-shadow: 2px 2px 5px black;
+}
+
+#add-reward-form select {
+  box-shadow: 2px 2px 5px black;
+}
+
+#add-reward-form button {
+  box-shadow: 2px 2px 5px black;
+}
+
 .header {
   font-family: "Handlee", cursive;
 }
@@ -212,4 +224,14 @@
   left: 337px;
   bottom: 34px;
   box-shadow: 2px 2px 5px black;
+}
+
+#dashboard-nav > li.active > a {
+  // font-family: "Handlee", cursive;
+  background-color: #648767 !important;
+  color: white;
+}
+
+#dashboard-nav a {
+  color: black;
 }
