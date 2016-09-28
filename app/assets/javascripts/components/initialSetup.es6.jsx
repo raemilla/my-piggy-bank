@@ -28,7 +28,7 @@ class InitialSetup extends React.Component {
         </div>
         <div id="interest-input" className="form-group">
           <label htmlFor="childInterestRate">Interest Rate</label>
-          <input type="number" className="form-control" defaultValue="2" name="interest_rate" />
+          <input type="number" className="form-control" defaultValue="2" name="interest_rate" /><span id="percent" className="input-group-addon">%</span>
         </div>
         <button id="add-child-button" type="submit" className="btn btn-primary">Add!</button>
       </form>
