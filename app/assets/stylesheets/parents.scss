@@ -279,6 +279,45 @@
 .child-welcome {
   margin-bottom: 150px;
 }
+
+#new-parent-form div {
+  padding: 3px;
+}
+
+#new-parent-form input {
+  box-shadow: 2px 2px 5px black;
+}
+
+.register-header {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#new-parent-name-input {
+  width: 170px;
+}
+
+#new-parent-username-input {
+  width: 175px;
+  position: relative;
+  bottom: 46px;
+  left: 175px;
+}
+
+#new-parent-email-input {
+  position: relative;
+  bottom: 45px;
+}
+
+#new-parent-password-input {
+  position: relative;
+  bottom: 45px;
+}
+
+#new-parent-submit {
+  position: relative;
+  bottom: 45px;
+}
 // .child-manage-accounts li:nth-child(odd) {
 //   background-color: silver;
 // }
