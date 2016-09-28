@@ -57,7 +57,6 @@ class TransferButton extends React.Component {
         displayTransferForm: false,
         displayButton: true,
         displayTransferFeedback: true,
-        blah: true
       })
       this.props.updateBalance(response);
 

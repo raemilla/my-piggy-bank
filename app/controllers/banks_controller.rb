@@ -20,7 +20,7 @@ class BanksController < ApplicationController
 		if params[:amount].include? "."
 			amount = float_to_whole(params[:amount])
 		else
-			amount = params[:amount].to_i
+			amount = (params[:amount].to_i * 100)
 		end
 
 
@@ -45,7 +45,7 @@ class BanksController < ApplicationController
 	 	if withdraw_params[:amount].include? "."
 			amount = float_to_whole(withdraw_params[:amount])
 		else
-			amount = withdraw_params[:amount].to_i
+			amount = (withdraw_params[:amount].to_i * 100)
 		end
     
     parent = current_user

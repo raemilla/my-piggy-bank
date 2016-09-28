@@ -5,12 +5,13 @@ class WithdrawButton extends React.Component {
       displayForm: false,
       displayButton: true,
       displayWithdrawFeedback: false,
-      withdrawError: false
+      withdrawError: false,
     }
     this.toggleForm = this.toggleForm.bind(this)
     this.displayWithdrawForm = this.displayWithdrawForm.bind(this)
     this.withdrawMoney = this.withdrawMoney.bind(this)
     this.toggleWithdrawFeedback = this.toggleWithdrawFeedback.bind(this)
+
   }
 
 
@@ -31,14 +32,13 @@ class WithdrawButton extends React.Component {
       method: 'post',
       data: {amount: this.refs.amount.value, child: this.refs.child.value, banktype: this.refs.bankType.value }
     }).done((response) => {
-      response.error? this.setState({ withdrawError: true }): null
-      this.props.withdrawUpdateChildren(response)
-      this.refs.amount.value = ""
+      response.error? this.setState({ withdrawError: true }):  this.setState({displayWithdrawFeedback:true})
       this.setState({
         displayForm: false,
         displayButton: true,
-        displayWithdrawFeedback: true
       })
+      this.props.withdrawUpdateChildren(response)
+      this.refs.amount.value = ""
     }.bind(this))
   }
 
