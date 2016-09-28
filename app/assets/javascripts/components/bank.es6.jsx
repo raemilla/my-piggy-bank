@@ -28,11 +28,11 @@ class Bank extends React.Component {
     this.displayTransferFeedback = this.displayTransferFeedback.bind(this)
     this.toggleTransferFeedback = this.toggleTransferFeedback.bind(this)
     this.toggleRedeemAlert = this.toggleRedeemAlert.bind(this)
-<<<<<<< 028f1e1040de3bf0b433f7a46cb58a8773f807ce
+
     this.handleBuyRewardClick = this.handleBuyRewardClick.bind(this)
-=======
+
     this.toggleRequestTransferError = this.toggleRequestTransferError.bind(this)
->>>>>>> fix errors
+
   }
 
     displayTransferFeedback(){
