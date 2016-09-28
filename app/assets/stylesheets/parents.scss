@@ -111,6 +111,18 @@
   font-family: "Handlee", cursive;
 }
 
+#add-reward-form input {
+  box-shadow: 2px 2px 5px black;
+}
+
+#add-reward-form select {
+  box-shadow: 2px 2px 5px black;
+}
+
+#add-reward-form button {
+  box-shadow: 2px 2px 5px black;
+}
+
 .header {
   font-family: "Handlee", cursive;
 }
@@ -213,3 +225,123 @@
   bottom: 34px;
   box-shadow: 2px 2px 5px black;
 }
+
+#dashboard-nav > li.active > a {
+  // font-family: "Handlee", cursive;
+  background-color: #648767 !important;
+  color: white;
+}
+
+#dashboard-nav a {
+  color: black;
+}
+
+#child-account-undeposited {
+  position: relative;
+  left: 200px;
+  bottom: 20px;
+}
+
+#child-manage-accounts li {
+  margin: 5px;
+}
+
+#notification-container {
+  border: 1px dotted black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px black;
+  background-color: #C8D5B9;
+}
+
+.notification-header {
+  padding-left: 7px;
+}
+
+.notification-table {
+  padding-left: 17px;
+}
+
+#arrow {
+  position: relative;
+  right: 40px;
+  bottom: 110px;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+
+#atm-pic {
+  position: relative;
+  right: 78px;
+}
+
+#logo {
+  padding: 7px;
+  font-size: 19px;
+}
+
+.child-welcome {
+  margin-bottom: 150px;
+}
+
+#new-parent-form div {
+  padding: 3px;
+}
+
+#new-parent-form input {
+  box-shadow: 2px 2px 5px black;
+}
+
+.register-header {
+  color: white;
+  margin-bottom: 20px;
+}
+
+#new-parent-name-input {
+  width: 170px;
+}
+
+#new-parent-username-input {
+  width: 175px;
+  position: relative;
+  bottom: 46px;
+  left: 175px;
+}
+
+#new-parent-email-input {
+  position: relative;
+  bottom: 45px;
+}
+
+#new-parent-password-input {
+  position: relative;
+  bottom: 45px;
+}
+
+#new-parent-submit {
+  position: relative;
+  bottom: 45px;
+}
+
+.login-header {
+  color: white;
+  margin-top: -27px;
+}
+
+#sign-in-form input {
+  margin: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+
+#username-input {
+  margin-top: 4px;
+}
+
+.next-login-button {
+  margin-top: 20px;
+  position: relative;
+  left: 10px;
+}
+// .child-manage-accounts li:nth-child(odd) {
+//   background-color: silver;
+// }

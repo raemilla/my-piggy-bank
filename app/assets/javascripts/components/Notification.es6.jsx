@@ -24,7 +24,7 @@ class Notification extends React.Component {
 
   render(){
     return(
-    	<div id="notification">
+    	<div>
 	    	<div className="row" >
 	    		<span className="col-sm-9" >{this.props.data.text}</span>
 	    		<div className="col-sm-1">

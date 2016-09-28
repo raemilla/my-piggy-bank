@@ -8,7 +8,7 @@ class NotificationList extends React.Component {
   }
 
     componentDidMount(){
- 
+
       $.ajax({
       url: '/notifications',
       method: 'GET'
@@ -27,18 +27,22 @@ class NotificationList extends React.Component {
 
   render(){
     return(
-      <div>
-      	<h3 className="header">Notifications</h3>
+      <div id="notification-container">
+      	<h3 className="header notification-header">Notifications</h3>
+          <table className="table table-sm table-striped notification-table">
+          <tbody>
       		{
             this.state.notifications?
       			this.state.notifications.map((notification, idx) => {
-      				return( <div key = {idx}>
-      					<Notification data={notification} onSearch={this.updateNotifications}/>
+      				return( <tr key = {idx}><th scope="row">
+      					<Notification data={notification} onSearch={this.updateNotifications}/></th>
       					<br/>
-      					</div>
+      					</tr>
       					)
       			}) : null
           }
+          </tbody>
+          </table>
       </div>
    	 )
   }

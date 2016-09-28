@@ -133,7 +133,7 @@ class Bank extends React.Component {
        type: this.props.bank.type
       }
     }).done((response) => {
-      response? 
+      response?
       this.setState({error: response.error, donateFeedback: true}) :
       this.setState({donateFeedback: true})
     })
@@ -177,7 +177,7 @@ class Bank extends React.Component {
 
     if(this.props.bank.type === 'Investment'){
 
-      
+
 
       if(this.props.interestAmount > 0 ){
 
@@ -186,7 +186,7 @@ class Bank extends React.Component {
           <button type="button" className="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
-           <strong>Yay! </strong> You Just earned {this.props.interestAmount} cents interest! 
+           <strong>Yay! </strong> You Just earned {this.props.interestAmount} cents interest!
           </div>
         )
       }
@@ -197,15 +197,15 @@ class Bank extends React.Component {
 
   showAccumulatedInterest(){
     if(this.props.bank.type === 'Investment' && this.props.bank.accumulated_interest >= 0){
-        
+
         return(
-       
+
           <li>
             <h4 className="text-center header">Total interest recieved<br/><p>{this.props.bank.interest_dollars}</p> </h4>
           </li>
         )
       }
-    
+
   }
 
 
@@ -241,12 +241,12 @@ class Bank extends React.Component {
     	<div className="col-md-3 banks" id={this.props.bank.type}>
         {this.showInterest()}
         <div className="bank-picture">
-      	   <img src="piggy4.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
+      	   <img src="piggyshadow2.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
           <div className="bank-content">
             <li><h1 className="text-center">{this.props.bank.type}</h1></li>
-          	
+
             <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
-            
+
             <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
 
             {this.showAccumulatedInterest()}
@@ -264,8 +264,8 @@ class Bank extends React.Component {
               </div>
                : null }
 
-         
-      
+
+
 
             <div className="btn-group btn-group-justified list-inline" role="group">
 
@@ -283,7 +283,7 @@ class Bank extends React.Component {
                 </button>
                 <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
                </div> : null}
-  
+
     	</div>
 
     	)}
