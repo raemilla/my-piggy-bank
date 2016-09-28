@@ -16,7 +16,7 @@ displaySendMoneyFeedback(){
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleSendMoneyFeedback} aria-hidden="true">&times;</span>
             </button>
-          <strong >Your money is on its way!</strong>
+          <strong >Your child's money is on its way!</strong>
         </div> 
         )
   }
