@@ -36,7 +36,7 @@ render(){
             </div>
             <div id="send-money-amount-input" className="form-group">
               <label>Amount: </label>
-              <input ref="amount" type="number" className="form-control" id="amount" placeholder="Amount"/>
+              <input ref="amount" type="number" className="form-control" id="amount" placeholder="Amount" step ="any" min = "0" required />
              </div>
             <button id="send-money-submit" type="submit" className="btn btn-primary">Send</button>
           </form>
