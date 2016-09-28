@@ -69,7 +69,7 @@ class ParentRewardsList extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label>reward: </label>
-          <input className="form-control" ref="item" type="text" placeholder="enter a reward" name="reward[item]"/>
+          <input className="form-control" ref="item" type="text" placeholder="enter a reward" name="reward[item]" required/>
         </div>
         <div className="form-group">
           <label>cost: </label>

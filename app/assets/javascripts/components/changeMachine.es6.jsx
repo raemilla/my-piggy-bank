@@ -85,7 +85,7 @@ class ChangeMachine extends React.Component {
 
   					<div className="form-content">
   					<form className="form-inline text-center input-group-lg" id="change-form" onSubmit={this.handleSubmit}>
-  					    <input type="text" ref="amount" className="form-control font-weight-bold" placeholder="Enter Amount" id="amount-field"/>
+  					    <input type="text" ref="amount" className="form-control font-weight-bold" placeholder="Enter Amount" id="amount-field" required/>
   					</form>
             </div>
           </div>
