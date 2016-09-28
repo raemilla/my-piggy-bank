@@ -28,7 +28,11 @@ class Bank extends React.Component {
     this.displayTransferFeedback = this.displayTransferFeedback.bind(this)
     this.toggleTransferFeedback = this.toggleTransferFeedback.bind(this)
     this.toggleRedeemAlert = this.toggleRedeemAlert.bind(this)
+<<<<<<< 028f1e1040de3bf0b433f7a46cb58a8773f807ce
     this.handleBuyRewardClick = this.handleBuyRewardClick.bind(this)
+=======
+    this.toggleRequestTransferError = this.toggleRequestTransferError.bind(this)
+>>>>>>> fix errors
   }
 
     displayTransferFeedback(){
@@ -244,6 +248,9 @@ class Bank extends React.Component {
     this.setState({ displayRedeemAlert: false})
   }
 
+  toggleRequestTransferError(){
+    this.setState({ error : false})
+  }
 
   render () {
 
@@ -267,10 +274,10 @@ class Bank extends React.Component {
 
               { this.state.error?
               <div className="row">
-               <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
+               <div className=" col-md-3 alert alert-danger " role="alert">
                 <strong>{this.state.error}</strong>
-                 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
+                 <button type="button" className="close"  aria-label="Close">
+                 <span onClick={this.toggleRequestTransferError} aria-hidden="true">&times;</span>
                  </button>
                </div>
               </div>
@@ -293,11 +300,15 @@ class Bank extends React.Component {
             </div>
 
 
+
               {this.showInterest()}
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
               {this.state.transferFeedback? this.displayTransferFeedback(): null}
               {this.state.donateFeedback? this.displayDonateFeedback():null}
-              {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
+            
+              {this.state.displayRedeemAlert ? 
+                <div className="alert alert-success ">
+
                 <button type="button" className="close"  aria-label="Close">
                 <span onClick ={this.toggleRedeemAlert} aria-hidden="true">&times;</span>
 
