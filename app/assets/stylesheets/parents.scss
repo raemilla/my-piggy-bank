@@ -82,7 +82,8 @@
 #send-money-form {
   margin-top: 20px;
   border: 1px solid #648767;
-  background-color: #648767;
+  // background-color: #648767;
+  background: linear-gradient(#648767, #497558);
   padding-left: 40px;
   padding-top: 40px;
   height: 150px;
@@ -145,6 +146,26 @@
   color: black !important;
 }
 
-.active {
+#dashboard-nav li .active {
   background-color: #8DC498 !important;
+}
+
+.account-buttons {
+  margin-top: 25px;
+}
+
+#transfer-child-form div {
+  padding: 7px;
+}
+
+#transfer-child-form {
+  margin-bottom: 10px;
+}
+
+#withdraw-child-form div {
+  padding: 7px
+}
+
+#withdraw-child-form {
+  margin-top: 10px;
 }
