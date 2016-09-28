@@ -75,13 +75,17 @@ class TransferButton extends React.Component {
         child: child
       }
     }).done((response) => {
-      response.error? this.setState({ transferError: true, transferErrorMessage: response.error}):this.setState({ displayTransferFeedback :true })
+      if (response.error) {
+        this.setState({ transferError: true, transferErrorMessage: response.error})
+      } 
+      else {this.setState({ displayTransferFeedback :true })
+      }
       this.setState({
         displayTransferForm: false,
         displayButton: true,
       })
       this.props.updateBalance(response);
-
+      
       // this.blah()
       // tried to use fade out
 
