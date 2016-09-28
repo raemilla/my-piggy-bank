@@ -84,4 +84,37 @@
 
 .btn {
   font-family: "Handlee", cursive;
+  background-color: #648767 !important;
+}
+
+#home-button {
+  text-color: black;
+  box-shadow: 5px 5px 5px black;
+  background-color: #D1F0B1 !important;
+}
+
+ .login-row {
+  background-color: #648767 !important;
+  box-shadow: 5px 5px 5px black;
+}
+
+#navigation-bar {
+  background-color: #648767 !important;
+}
+
+.welcome-header {
+  color: white;
+  position: relative;
+  top: 260px;
+  z-index: 1;
+  text-shadow: 1px 1px 3px;
+  font-size: 30px;
+}
+
+.home-text {
+  color: black !important;
+}
+
+.active {
+  background-color: #8DC498 !important;
 }
