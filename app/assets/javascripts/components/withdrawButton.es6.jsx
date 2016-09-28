@@ -5,12 +5,14 @@ class WithdrawButton extends React.Component {
       displayForm: false,
       displayButton: true,
       displayWithdrawFeedback: false,
-      withdrawError: false
+      withdrawError: false,
+      errorMessage: null
     }
     this.toggleForm = this.toggleForm.bind(this)
     this.displayWithdrawForm = this.displayWithdrawForm.bind(this)
     this.withdrawMoney = this.withdrawMoney.bind(this)
     this.toggleWithdrawFeedback = this.toggleWithdrawFeedback.bind(this)
+    this.toggleWithdrawError =   this.toggleWithdrawError.bind(this)
   }
 
 
@@ -31,14 +33,14 @@ class WithdrawButton extends React.Component {
       method: 'post',
       data: {amount: this.refs.amount.value, child: this.refs.child.value, banktype: this.refs.bankType.value }
     }).done((response) => {
-      response.error? this.setState({ withdrawError: true }): null
-      this.props.withdrawUpdateChildren(response)
-      this.refs.amount.value = ""
+      response.error? this.setState({ withdrawError: true , errorMessage : response.error }): this.setState({displayWithdrawFeedback:true})
       this.setState({
         displayForm: false,
         displayButton: true,
-        displayWithdrawFeedback: true
+        
       })
+      this.props.withdrawUpdateChildren(response)
+      //this.refs.amount.value = ""
     }.bind(this))
   }
 
@@ -76,6 +78,27 @@ class WithdrawButton extends React.Component {
     this.setState({
       displayWithdrawFeedback: false
     })
+    
+  }
+
+  displayWithdrawFeedback(){
+    return(
+      <div>
+    {!this.state.withdrawError ? <div className="alert alert-success ">
+            <button  type="button" className="close" aria-label="Close">
+            <span onClick={this.toggleWithdrawFeedback}aria-hidden="true">&times;</span>
+            </button>
+            <strong>Withdraw Successful</strong>
+          </div>: null} 
+          </div>
+          )
+    this.setState({withdrawError:false});
+  }
+
+  toggleWithdrawError(){
+    this.setState({
+      withdrawError: false
+    })
   }
 
   render(){
@@ -83,13 +106,16 @@ class WithdrawButton extends React.Component {
       <div>
         {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary btn-lg">withdraw</button> : null }
         {this.state.displayForm ? this.displayWithdrawForm() : null }
-        {this.state.displayWithdrawFeedback && !this.state.withdrawError ?
-          <div className="alert alert-success ">
-            <button  type="button" className="close" aria-label="Close">
-            <span onClick={this.toggleWithdrawFeedback}aria-hidden="true">&times;</span>
-            </button>
-            <strong>Withdraw Successful</strong>
-          </div> : null }
+        {this.state.displayWithdrawFeedback ?
+          this.displayWithdrawFeedback() : null }
+                { this.state.withdrawError ?
+            <div  className="alert alert-danger">
+              <button  type="button" className="close"  aria-label="Close">
+                 <span onClick={this.toggleWithdrawError} aria-hidden="true">&times;</span>
+                </button>
+             <strong >{this.state.errorMessage}</strong>
+            </div>
+         : null }
       </div>
     )
   }

@@ -43,7 +43,7 @@ class ParentRewardsList extends React.Component {
   deleteReward(event){
     event.preventDefault()
     var rewardId = event.target.name
-    debugger;
+    if (confirm('Are you sure you want to delete this reward?')) {
     $.ajax({
       method: "delete",
       url: '/rewards/'+rewardId
@@ -52,6 +52,11 @@ class ParentRewardsList extends React.Component {
         rewards: response
       })
     })
+
+    } else {
+      null
+    }
+
   }
 
   toggleRewardForm(){

@@ -14,7 +14,7 @@ class NotificationsController < ApplicationController
 		if params[:amount].include? "."
 			amount = float_to_whole(params[:amount])
 		else
-			amount = params[:amount].to_i
+			amount = (params[:amount].to_i * 100)
 		end
 
 		

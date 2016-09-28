@@ -7,12 +7,15 @@ class TransferButton extends React.Component {
       displayButton: true,
       displayTransferFeedback:false,
       transferError: false,
+      transferErrorMessage: null
 
     }
     this.toggleTransferForm = this.toggleTransferForm.bind(this)
     this.displayForm = this.displayForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleTransferFeedback = this.toggleTransferFeedback.bind(this)
+    this.toggleTransferError = this.toggleTransferError.bind(this)
+    this.displayTransferFeedback = this.displayTransferFeedback.bind(this)
 
   }
 
@@ -31,6 +34,26 @@ class TransferButton extends React.Component {
     })
   }
 
+  toggleTransferError(){
+    this.setState({
+      transferError: false
+    })
+  }
+
+
+  displayTransferFeedback(){
+    return(
+      <div>
+      {!this.state.transferError?   <div  className="alert alert-success">
+          <button  type="button" className="close"  aria-label="Close">
+             <span onClick={this.toggleTransferFeedback} aria-hidden="true">&times;</span>
+            </button>
+          <strong >Transfer Successful</strong>
+        </div>: null}
+    
+        </div>
+        )
+  }
 
 
   handleSubmit(event){
@@ -52,15 +75,17 @@ class TransferButton extends React.Component {
         child: child
       }
     }).done((response) => {
-      response.error? this.setState({ transferError: true}):null
+      if (response.error) {
+        this.setState({ transferError: true, transferErrorMessage: response.error})
+      } 
+      else {this.setState({ displayTransferFeedback :true })
+      }
       this.setState({
         displayTransferForm: false,
         displayButton: true,
-        displayTransferFeedback: true,
-        blah: true
       })
       this.props.updateBalance(response);
-
+      
       // this.blah()
       // tried to use fade out
 
@@ -114,14 +139,18 @@ class TransferButton extends React.Component {
       <div>
         {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary btn-lg">transfer</button> : null }
         {this.state.displayTransferForm ? this.displayForm() : null }
-      {
-        this.state.displayTransferFeedback && !this.state.transferError ?  <div  className="alert alert-success">
-          <button  type="button" className="close"  aria-label="Close">
-             <span onClick={this.toggleTransferFeedback} aria-hidden="true">&times;</span>
-            </button>
-          <strong >Transfer Successful</strong>
-        </div> : null
-      }
+        {
+        this.state.displayTransferFeedback  ?  this.displayTransferFeedback() : null
+        }
+        { this.state.transferError ?
+            <div  className="alert alert-danger">
+              <button  type="button" className="close"  aria-label="Close">
+                 <span onClick={this.toggleTransferError} aria-hidden="true">&times;</span>
+                </button>
+             <strong >{this.state.transferErrorMessage}</strong>
+            </div>
+         : null }
+
       </div>
 
     )

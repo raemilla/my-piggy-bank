@@ -28,7 +28,11 @@ class Bank extends React.Component {
     this.displayTransferFeedback = this.displayTransferFeedback.bind(this)
     this.toggleTransferFeedback = this.toggleTransferFeedback.bind(this)
     this.toggleRedeemAlert = this.toggleRedeemAlert.bind(this)
+
     this.handleBuyRewardClick = this.handleBuyRewardClick.bind(this)
+
+    this.toggleRequestTransferError = this.toggleRequestTransferError.bind(this)
+
   }
 
     displayTransferFeedback(){
@@ -244,6 +248,9 @@ class Bank extends React.Component {
     this.setState({ displayRedeemAlert: false})
   }
 
+  toggleRequestTransferError(){
+    this.setState({ error : false})
+  }
 
   render () {
 
@@ -265,18 +272,6 @@ class Bank extends React.Component {
           </div>
         </div>
 
-              { this.state.error?
-              <div className="row">
-               <div className=" col-md-3 alert alert-danger alert-dismissible" role="alert">
-                <strong>{this.state.error}</strong>
-                 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-              </div>
-               : null }
-
-
 
 
             <div className="btn-group btn-group-justified list-inline" role="group">
@@ -289,20 +284,41 @@ class Bank extends React.Component {
               <li>{this.props.bank.type === "Saving" ? this.displayRedeemButton() : null }</li>
               <li>{this.props.bank.type === "Spending" ? this.displayBuyRewardButton() : null }</li>
 
+
             </div>
+
 
 
               {this.showInterest()}
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
               {this.state.transferFeedback? this.displayTransferFeedback(): null}
               {this.state.donateFeedback? this.displayDonateFeedback():null}
-              {this.state.displayRedeemAlert ? <div className="alert alert-success alert-dismissible">
+            
+              {this.state.displayRedeemAlert ? 
+                <div className="alert alert-success ">
+
                 <button type="button" className="close"  aria-label="Close">
                 <span onClick ={this.toggleRedeemAlert} aria-hidden="true">&times;</span>
 
                 </button>
                 <strong>Yay!</strong> Your parents will redeem your {this.props.bank.save_item}!
+
                </div> : null}
+
+
+
+              { this.state.error?
+              <div className="row">
+               <div className=" alert alert-danger " role="alert">
+                <strong>{this.state.error}</strong>
+                 <button type="button" className="close"  aria-label="Close">
+                 <span onClick={this.toggleRequestTransferError} aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+              </div>
+               : null }
+
+  
 
     	</div>
 

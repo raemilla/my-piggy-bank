@@ -6,7 +6,7 @@ class RewardsController < ApplicationController
     if reward_params[:amount].include? "."
       amount = float_to_whole(reward_params[:amount])
     else
-      amount = reward_params[:amount].to_i
+      amount = (reward_params[:amount].to_i * 100)
     end
 
     if params[:child] == "All"

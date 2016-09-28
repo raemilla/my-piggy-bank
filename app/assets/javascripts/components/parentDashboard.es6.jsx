@@ -14,7 +14,7 @@ class ParentDashboard extends React.Component {
 		this.toggleRewards = this.toggleRewards.bind(this)
 		this.state = {
 			children: [],
-			error: null,
+			error: false,
 			displaySend: true,
 			displayAdd: false,
 			displayAccounts: false,
@@ -22,7 +22,8 @@ class ParentDashboard extends React.Component {
 			activeSend: true,
 			activeAdd: false,
 			activeAccounts: false,
-			activeRewards: false
+			activeRewards: false,
+			toggleError: false
 		}
 	}
 
@@ -42,17 +43,17 @@ class ParentDashboard extends React.Component {
 	}
 
   parentWithdraw(newChildren){
-    newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children}) : this.setState({children: newChildren})
+    newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children, toggleError:true}) : this.setState({children: newChildren})
 
 
   }
 
   parentTransfer(newChildren){
-     newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children}) : this.setState({children: newChildren})
+     newChildren.error ? this.setState({error: newChildren.error, children: newChildren.children, toggleError:true }) : this.setState({children: newChildren})
   }
 
   toggleError(){
-    this.setState({error:false})
+    this.setState({toggleError: false})
   }
 
 	toggleAdd(){
@@ -124,18 +125,12 @@ class ParentDashboard extends React.Component {
 					</ul>
         </div>
         <div className="col-md-5 col-md-offset-1">
-				{ this.state.error ?
-					 <div className=" col-md-3 alert alert-danger" role="alert">
-						<strong>{this.state.error}</strong>
-						 <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-						 <span onClick={this.toggleError} aria-hidden="true">&times;</span>
-						 </button>
-						</div>
-				 : null }
+			
 					{this.state.displaySend ? <SendMoney children={this.state.children} sendMoneyValue={this.getMoney}/> : null }
 					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
 					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} /> : null }
+					
         </div>
         <div className="col-md-3 col-md-offset-1">
           <NotificationList />

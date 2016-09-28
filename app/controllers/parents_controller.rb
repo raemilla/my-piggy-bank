@@ -23,7 +23,7 @@ class ParentsController < ApplicationController
     if transfer_params[:amount].include? "."
       amount = float_to_whole(params[:amount])
     else
-      amount = transfer_params[:amount].to_i
+      amount = (transfer_params[:amount].to_i * 100)
     end
 
     @child = parent.children.find_by(name: transfer_params["child"])
