@@ -2,15 +2,9 @@ class App extends React.Component {
   constructor(){
     super()
     this.displayUserComponent = this.displayUserComponent.bind(this)
-    
-      }
-
-
-
-
+  }
 
   displayUserComponent(){
-
     if(this.props["parent?"]){
       return (<ParentDashboard parent={this.props.current_user} />)
     } else {
@@ -20,7 +14,7 @@ class App extends React.Component {
 
   render(){
     return(
-      <div className="container">
+      <div className="container">  
         {this.displayUserComponent()}
       </div>
     )

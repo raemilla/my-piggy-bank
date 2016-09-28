@@ -42,10 +42,10 @@ class WithdrawButton extends React.Component {
 
   displayWithdrawForm(){
     return(
-    <form onSubmit={this.withdrawMoney}className="form-inline">
+    <form id="withdraw-child-form" onSubmit={this.withdrawMoney} className="form-inline">
       <div className="form-group">
         <label>Child: </label>
-        <select ref="child">
+        <select className="form-control" ref="child">
           {
             this.props.children.map((child, idx) => <option key={idx}>{child.name}</option>)
           }
@@ -53,19 +53,19 @@ class WithdrawButton extends React.Component {
           </div>
       <div className="form-group">
         <label>From: </label>
-        <select ref="bankType">
+        <select className="form-control" ref="bankType">
         <option>Investment</option>
         <option>Spending</option>
         <option>Donation</option>
         <option>Saving</option>
         </select>
       </div>
-      <div className="form-group">
+      <div id="withdraw-amount" className="form-group">
         <label>Amount: </label>
-        <input ref="amount" type="number" className="form-control form-control-sm" step="any" min = "0" placeholder=" 
+        <input ref="amount" type="number" className="form-control form-control-sm" step="any" min = "0" placeholder="
         0.00" required/>
       </div>
-      <button type="submit" className="btn btn-primary">submit withdraw!</button>
+      <button type="submit" className="btn btn-primary"> withdraw!</button>
     </form>
     )
   }
@@ -79,10 +79,8 @@ class WithdrawButton extends React.Component {
   render(){
     return(
       <div>
-      <li>
-        {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary">withdraw</button> : null }
+        {this.state.displayButton ? <button onClick={this.toggleForm} type="button" className="btn btn-primary btn-lg">withdraw</button> : null }
         {this.state.displayForm ? this.displayWithdrawForm() : null }
-      </li>
         {this.state.displayWithdrawFeedback && !this.state.withdrawError ?
           <div className="alert alert-success ">
             <button onSubmit={this.toggleWithdrawFeedback} type="button" className="close" aria-label="Close">

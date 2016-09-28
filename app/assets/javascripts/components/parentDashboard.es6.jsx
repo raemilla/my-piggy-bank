@@ -112,11 +112,11 @@ class ParentDashboard extends React.Component {
       <section>
 			<div className="row">
 				<div className="col-md-2"></div>
-				<div className="col-md-5 col-md-offset-1"><h1 className="text-center header">{this.props.parent.name}'s dashboard</h1></div>
+				<div className="col-md-5 col-md-offset-1"><h1 className="text-center header">{this.props.parent.name}'s Dashboard</h1></div>
 			</div>
       <div className="row">
         <div className="col-md-2">
-					<ul className="nav nav-pills nav-stacked">
+					<ul id="dashboard-nav" className="nav nav-pills nav-stacked">
 						<li role="presentation" onClick={this.toggleAdd} className={this.state.activeAdd ? 'active' : null }><a>add child</a></li>
 						<li role="presentation" onClick={this.toggleSend} className={this.state.activeSend ? 'active' : null}><a>send money</a></li>
 						<li role="presentation" onClick={this.toggleAccounts} className={this.state.activeAccounts ? 'active' : null }><a>accounts</a></li>

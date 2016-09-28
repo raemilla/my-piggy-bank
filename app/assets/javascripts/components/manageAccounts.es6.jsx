@@ -25,9 +25,9 @@ class ManageAccounts extends React.Component {
           this.props.children.map((child, idx) =>
             <ManageChildAccount child={child} key={idx} />)
         }
-        <ul className="list-inline text-center">
-          <TransferButton onClick={this.toggleTransferButton} children={this.props.children}
-          updateBalance={this.transfer}/> <WithdrawButton children={this.props.children} withdrawUpdateChildren={this.withdraw} />
+        <ul className="account-buttons list-inline text-center">
+          <li><TransferButton onClick={this.toggleTransferButton} children={this.props.children}
+          updateBalance={this.transfer}/></li> <li><WithdrawButton children={this.props.children} withdrawUpdateChildren={this.withdraw} /></li>
         </ul>
       </ul>
       </div>

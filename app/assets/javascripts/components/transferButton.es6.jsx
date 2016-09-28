@@ -70,10 +70,10 @@ class TransferButton extends React.Component {
 
   displayForm(){
     return(
-      <form onSubmit={this.handleSubmit} className="form-inline">
-        <div className="form-group">
+      <form id="transfer-child-form" onSubmit={this.handleSubmit} className="form-inline">
+        <div id="transfer-child-input" className="form-group">
           <label>Child: </label>
-          <select ref="child">
+          <select className="form-control" ref="child">
             {
               this.props.children.map((child, idx) => <option key={idx}>{child.name}</option>)
             }
@@ -81,7 +81,7 @@ class TransferButton extends React.Component {
         </div>
         <div className="form-group">
           <label>From: </label>
-          <select ref="fromBank">
+          <select className="form-control" ref="fromBank">
             <option>Investment</option>
             <option>Spending</option>
             <option>Donation</option>
@@ -91,7 +91,7 @@ class TransferButton extends React.Component {
 
         <div className="form-group">
           <label>To: </label>
-          <select ref="toBank">
+          <select className="form-control" ref="toBank">
           <option>Investment</option>
           <option>Spending</option>
           <option>Donation</option>
@@ -99,12 +99,12 @@ class TransferButton extends React.Component {
           </select>
         </div>
 
-        <div className="form-group">
+        <div id="transfer-amount" className="form-group">
           <label>Amount: </label>
           <input  min = "0" step = "any" ref="amount" type="number" className="form-control form-control-sm"  placeholder="0.00" required/>
         </div>
 
-        <button type="submit" className="btn btn-primary">submit transfer!</button>
+        <button type="submit" className="btn btn-primary">transfer!</button>
       </form>
     )
   }
@@ -112,12 +112,10 @@ class TransferButton extends React.Component {
   render(){
     return(
       <div>
-        <li>
-        {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary">transfer</button> : null }
+        {this.state.displayButton ? <button onClick={this.toggleTransferForm} type="button" className="btn btn-primary btn-lg">transfer</button> : null }
         {this.state.displayTransferForm ? this.displayForm() : null }
-        </li>
       {
-        this.state.displayTransferFeedback && !this.state.transferError ?  <div  className="alert alert-success blah ">
+        this.state.displayTransferFeedback && !this.state.transferError ?  <div  className="alert alert-success">
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleTransferFeedback} aria-hidden="true">&times;</span>
             </button>
