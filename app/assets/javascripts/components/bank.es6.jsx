@@ -92,7 +92,7 @@ class Bank extends React.Component {
         </div>
         <div className="form-group">
           <label className="label-lg"> <h5>Amount:</h5> </label>
-          <input type="number" className="form-control input-lg" ref='amount' step= "any" min ="0" />
+          <input type="number" className="form-control input-lg" ref='amount'  placeholder="0.00" step= "any" min ="0" />
         </div>
         <button type="submit" className="btn btn-primary btn-lg">Submit</button>
 

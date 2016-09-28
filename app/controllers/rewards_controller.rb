@@ -19,7 +19,10 @@ class RewardsController < ApplicationController
       reward = child.rewards.build(item: reward_params[:item], amount: amount)
       reward.save
     end
+
     
+
+
     rewards = parent.rewards
    
     render json: rewards.as_json(methods: :dollars, include: {child: {only: :name}})
