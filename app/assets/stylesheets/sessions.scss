@@ -14,9 +14,19 @@ button{
 
 
 .login-row{
+	border-radius: 10px;
 	background-color: #3C844B;
 	padding-bottom: 25px;
 	width:50%
+}
+
+a {
+	text-decoration: line-through;
+	color: orange;
+}
+
+.nav-link {
+	color: #ffffff;
 }
 
 .top-buffer {
