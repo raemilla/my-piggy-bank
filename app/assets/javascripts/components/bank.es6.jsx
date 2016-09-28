@@ -211,7 +211,7 @@ class Bank extends React.Component {
 
    displayBuyRewardButton(){
     return(
-      <button type="submit" onClick={this.handleBuyRewardClick} className="btn btn-primary bank-button" >Buy a Reward!</button>
+      <button type="submit" onClick={this.handleBuyRewardClick} className="btn btn-primary bank-button reward-button" >Buy a Reward!</button>
     )
   }
 
@@ -223,7 +223,7 @@ class Bank extends React.Component {
 
   displayRedeemButton(){
     return(
-      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary bank-button" >Redeem!</button>
+      <button type="submit" onClick={this.handleSavingsClick} className="btn btn-primary bank-button redeem-button" >Redeem!</button>
     )
   }
 
