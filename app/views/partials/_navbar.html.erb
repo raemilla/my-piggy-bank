@@ -2,16 +2,19 @@
 <div class="row" id="nav-container">
 <div class="col-sm-2">
 	<ul class="nav nav-pills" role="tablist">
-	<li role="presentation"><a href="/">My PiggyBank</a></li>
+	<li role="presentation"><a href="/"><img src="piggybank.png" alt="Piggy Bank" height="25" width="25">My PiggyBank</a></li>
 	</ul>
 </div>
-<div class="col-sm-8"> </div>
-<div class="col-sm-2">
+<div class="col-sm-7"> </div>
+<div class="col-sm-3">
 <ul class="nav nav-pills" role="tablist">
- <% if current_user%>
- <li role="presentation"><a href="/"><%= current_user.name %></a></li>
+ <% if parent?%>
+ <li role="presentation"><a href="/"><%= current_user.name %><span class="badge"><%= current_user.notifications.length %></span></a></li>
  <li role="presentation"><a href="/logout">Log Out <span class="badge"></span></a></li>
- <%else%>
+ <%elsif current_user%>
+ <li role="presentation"><a href="/"><%= current_user.name %><span class="badge"></span></a></li>
+ <li role="presentation"><a href="/logout">Log Out <span class="badge"></span></a></li>
+ <% else %>
  <li role="presentation" ><a href="/login">Login <span class="badge"></span></a></li>
    <%end%>
 </ul>
