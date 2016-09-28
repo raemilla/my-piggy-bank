@@ -7,18 +7,16 @@ class NotificationList extends React.Component {
     this.updateNotifications = this.updateNotifications.bind(this)
   }
 
-  componentDidMount(){
-    var blah = setInterval (()=> {
+    componentDidMount(){
+ 
       $.ajax({
       url: '/notifications',
       method: 'GET'
-      }).done(response =>{
-      this.setState({notifications: response
+      }).done((response) => {
+        this.setState({notifications: response})
       })
-      })
-     }, 500);
-
   }
+
 
 
   updateNotifications(response){

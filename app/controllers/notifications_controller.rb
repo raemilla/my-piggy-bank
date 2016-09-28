@@ -10,7 +10,13 @@ class NotificationsController < ApplicationController
 	def create
 		
 		@child = current_user
-		amount = params[:amount].to_i
+
+		if params[:amount].include? "."
+			amount = float_to_whole(params[:amount])
+		else
+			amount = params[:amount].to_i
+		end
+
 		
 		bank = @child.banks.find_by(type: params[:type])
 		new_amount = bank.balance - amount
@@ -33,6 +39,14 @@ class NotificationsController < ApplicationController
 		render json:@notifications
 	end
 
+private
+def float_to_whole(float_string)
+	if float_string.include? ","
+		float_string.gsub(/[\s,]/,"")
+	else
+	(float_string.to_f * 100 ).round
+	end
+end
 
 end
 

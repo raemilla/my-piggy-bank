@@ -16,7 +16,15 @@ class BanksController < ApplicationController
 
 	def transfer
 		child = current_user.children.find_by(name: params[:child])
-		amount = params[:amount].to_i
+
+		if params[:amount].include? "."
+			amount = float_to_whole(params[:amount])
+		else
+			amount = params[:amount].to_i
+		end
+
+
+
 		bank = child.banks.find_by(type: params[:fromBank])
 		if (bank.balance-amount) < 0
 			@error = "#{bank.type} does not have enough funds"
@@ -33,10 +41,17 @@ class BanksController < ApplicationController
 	end
 
 	 def withdraw
+
+	 	if withdraw_params[:amount].include? "."
+			amount = float_to_whole(withdraw_params[:amount])
+		else
+			amount = withdraw_params[:amount].to_i
+		end
+    
     parent = current_user
     @child = parent.children.find_by(name: withdraw_params["child"])
     @bank = @child.banks.find_by(type: withdraw_params["banktype"])
-    new_amount = @bank.balance -= withdraw_params["amount"].to_i
+    new_amount = @bank.balance -= amount
     if new_amount < 0
     	@error = "#{withdraw_params['banktype']} does not have enough funds"
     		@children = @child.parent.children
@@ -53,4 +68,13 @@ private
   def withdraw_params
     params.permit(:banktype, :amount, :child)
   end
+
+
+	def float_to_whole(float_string)
+		if float_string.include? ","
+			float_string.gsub(/[\s,]/,"")
+		else
+		(float_string.to_f * 100 ).round
+		end
+	end
 end

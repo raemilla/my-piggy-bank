@@ -101,7 +101,7 @@ class TransferButton extends React.Component {
 
         <div className="form-group">
           <label>Amount: </label>
-          <input ref="amount" type="number" className="form-control form-control-sm" />
+          <input  min = "0" step = "any" ref="amount" type="number" className="form-control form-control-sm" required/>
         </div>
 
         <button type="submit" className="btn btn-primary">submit transfer!</button>

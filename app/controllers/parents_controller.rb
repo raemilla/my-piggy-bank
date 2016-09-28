@@ -19,11 +19,21 @@ class ParentsController < ApplicationController
 
   def transfer
     parent = current_user
+
+    if transfer_params[:amount].include? "."
+      amount = float_to_whole(params[:amount])
+    else
+      amount = transfer_params[:amount].to_i
+    end
+
     @child = parent.children.find_by(name: transfer_params["child"])
-    new_amount = @child.undeposited_funds += transfer_params["amount"].to_i
+
+    new_amount = @child.undeposited_funds += amount
     @child.update_attribute("undeposited_funds", new_amount)
     @children = @child.parent.children
     render json:  @children.as_json(methods: [:total_balance, :dollars], include:{ banks:{methods: [:type, :dollars]} })
+ 
+
   end
 
 
@@ -34,6 +44,15 @@ class ParentsController < ApplicationController
 
   def transfer_params
     params.permit(:child, :amount)
+  end
+
+
+  def float_to_whole(float_string)
+    if float_string.include? ","
+      float_string.gsub(/[\s,]/,"")
+    else
+    (float_string.to_f * 100 ).round
+    end
   end
 
 end
