@@ -246,6 +246,30 @@
   margin: 5px;
 }
 
+#notification-container {
+  border-left: 1px solid black;
+}
+
+.notification-header {
+  padding-left: 7px;
+}
+
+.notification-table {
+  padding-left: 17px;
+}
+
+#arrow {
+  position: relative;
+  right: 40px;
+  bottom: 110px;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+
+#atm-pic {
+  position: relative;
+  right: 78px;
+}
 // .child-manage-accounts li:nth-child(odd) {
 //   background-color: silver;
 // }

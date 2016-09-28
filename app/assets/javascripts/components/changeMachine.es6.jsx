@@ -49,7 +49,7 @@ class ChangeMachine extends React.Component {
         {
             this.props.coins.map((coin, i)=>{
 							if(coin.value === 25){
-                
+
             		return (<Quarter key={i} index={i} />)
 							}else if(coin.value === 10){
 								return (<Dime key={i} index={i}/>)
@@ -57,10 +57,10 @@ class ChangeMachine extends React.Component {
 								return (<Nickel key={i} index={i}/>)
 							}else if(coin.value === 1){
 								return (<Penny key={i} index={i}/>)
-							}     
-            })   
+							}
+            })
         }
-      
+
       </div>
       )
       }
@@ -74,13 +74,13 @@ class ChangeMachine extends React.Component {
 		return(
       <div>
 			<div className="row">
-			
-				<div className="col-md-8 col-md-offset-2">
 
+				<div className="col-md-8 col-md-offset-2">
           <h2 className="text-center">Make change</h2>
           <h4 className="text-center">Please enter an amount below</h4>
 
           <div className="change-machine">
+					<img id="arrow" width="150" height="150" src="arrow.png"></img>
             <img src="https://maxcdn.icons8.com/Share/icon/Finance//atm1600.png" className="img-rounded" alt="piggy" width="350" height="236" id="atm-pic"/>
 
   					<div className="form-content">
