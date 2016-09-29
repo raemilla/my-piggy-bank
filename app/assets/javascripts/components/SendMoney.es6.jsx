@@ -23,6 +23,7 @@ displaySendMoneyFeedback(){
 
   toggleSendMoneyFeedback (){
     this.setState({ sendMoneyFeedback: false})
+    this.props.toggleAccounts()
   }
 
 
