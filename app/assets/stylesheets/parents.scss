@@ -16,7 +16,7 @@
   left: 410px;
   bottom: 158px;
   font-family: "Handlee", cursive;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #input-child-name {
@@ -45,7 +45,7 @@
 }
 
 #send-money-select-child select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #send-money-select-child label {
@@ -60,7 +60,7 @@
 }
 
 #send-money-amount-input input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #send-money-amount-input label {
@@ -72,7 +72,7 @@
   bottom: 125px;
   left: 290px;
   font-family: "Handlee", cursive;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
   background-color: #D1F0B1 !important;
 }
 
@@ -89,8 +89,8 @@
   padding-left: 40px;
   padding-top: 40px;
   height: 150px;
-  box-shadow: 2px 2px 5px black;
-  border-radius: 12px;
+  box-shadow: 2px 2px 5px #888888;
+  // border-radius: 12px;
 }
 
 #reward-cost-input {
@@ -112,19 +112,19 @@
 }
 
 #add-reward-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #add-reward-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #add-reward-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 .header {
-  font-family: "Handlee", cursive;
+  font-family: "Cutive", cursive;
 }
 
 .btn {
@@ -134,17 +134,22 @@
 }
 
 #home-button {
-  box-shadow: 5px 5px 5px black;
   background-color: #D1F0B1 !important;
+  border-radius: 0px;
+}
+
+#home-button:hover {
+  box-shadow: 5px 5px 5px #333333;
 }
 
  .login-row {
   background-color: #648767 !important;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 #navigation-bar {
   background-color: #648767 !important;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .welcome-header {
@@ -177,27 +182,27 @@
 }
 
 #transfer-child-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #transfer-child-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #transfer-child-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form div {
@@ -214,7 +219,7 @@
 }
 
 #initial-setup input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #percent {
@@ -223,7 +228,7 @@
   position: relative;
   left: 337px;
   bottom: 34px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #dashboard-nav > li.active > a {
@@ -252,9 +257,9 @@
 
 #notification-container {
   border: 1px dotted black;
-  border-radius: 10px;
+  // border-radius: 10px;
   padding: 10px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
   background-color: #C8D5B9;
 }
 
@@ -293,7 +298,7 @@
 }
 
 #new-parent-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 .register-header {
@@ -334,7 +339,7 @@
 
 #sign-in-form input {
   margin: 10px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #username-input {
