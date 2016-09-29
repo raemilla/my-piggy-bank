@@ -16,7 +16,7 @@ class ChangeMachine extends React.Component {
 
   handleSubmit(event){
   	event.preventDefault()
-  
+
   	var coins = [25, 10, 5, 1]
   	var coinArray = []
   	var remainder = this.refs.amount.value
@@ -37,7 +37,7 @@ class ChangeMachine extends React.Component {
   	}.bind(this))
 
     this.props.setCoins(coinArray)
-    
+
     this.refs.amount.value = ''
   }
 
@@ -77,7 +77,7 @@ class ChangeMachine extends React.Component {
 
 
 				<div className="col-md-8 col-md-offset-2">
-          <h2 className="text-center">Make change</h2>
+          <h2 className="text-center header">Make change</h2>
           <h4 className="text-center">Please enter an amount below</h4>
 
 
