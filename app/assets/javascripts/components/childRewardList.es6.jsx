@@ -10,6 +10,7 @@ class ChildRewardList extends React.Component {
 
   handlePurchase(event) {
     event.preventDefault();
+    event.target.name.display = "none"
     $.ajax({
       method: 'post',
       url: '/notifications',
@@ -46,17 +47,17 @@ class ChildRewardList extends React.Component {
               <tr key={idx}>
                 <th scope="row">{reward.item}</th>
                 <td>{reward.dollars}</td>
-                <td><a name={reward.item} onClick={this.handlePurchase}>buy</a></td>
+                <td><a name={reward.item} onClick={this.handlePurchase} className='buy-reward-click'>buy</a></td>
               </tr>
             )
           }
         </tbody>
       </table>
-      {this.state.displayAlert ? <div className="alert alert-success ">
+      {this.state.displayAlert ? <div className="alert alert-warning">
         <button type="button" className="close" aria-label="Close">
-        <span onClick={this.toggleAlert}aria-hidden="true">&times;</span>
+        <span onClick={this.toggleAlert} aria-hidden="true">&times;</span>
         </button>
-        <strong>Yay!</strong> Your parents will give you your reward!
+        <strong>Yay!</strong> You bought a reward!
       </div> : null }
       </div>
     )

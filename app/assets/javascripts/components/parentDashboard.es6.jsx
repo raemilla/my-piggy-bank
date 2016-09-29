@@ -12,6 +12,8 @@ class ParentDashboard extends React.Component {
 		this.toggleSend = this.toggleSend.bind(this)
 		this.toggleAccounts = this.toggleAccounts.bind(this)
 		this.toggleRewards = this.toggleRewards.bind(this)
+		this.updateRewards = this.updateRewards.bind(this)
+		this.deleteRewards = this.deleteRewards.bind(this)
 		this.state = {
 			children: [],
 			error: false,
@@ -23,13 +25,15 @@ class ParentDashboard extends React.Component {
 			activeAdd: false,
 			activeAccounts: false,
 			activeRewards: false,
-			toggleError: false
+			toggleError: false,
+			rewards: []
 		}
 	}
 
 	componentDidMount() {
 		this.setState({
-      children: this.props.parent.children
+      children: this.props.parent.children,
+			rewards: this.props.parent.rewards
     })
 	}
 
@@ -108,6 +112,18 @@ class ParentDashboard extends React.Component {
 		})
 	}
 
+	updateRewards(rewards) {
+		this.setState({
+			rewards: rewards
+		})
+	}
+
+	deleteRewards(rewards) {
+		this.setState({
+			rewards: rewards
+		})
+	}
+
   render(){
     return(
       <section>
@@ -125,12 +141,12 @@ class ParentDashboard extends React.Component {
 					</ul>
         </div>
         <div className="col-md-5 col-md-offset-1">
-			
+		
 					{this.state.displaySend ? <SendMoney children={this.state.children} sendMoneyValue={this.getMoney} toggleAccounts={this.toggleAccounts}/> : null }
 					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
-					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.props.parent.rewards} /> : null }
-					
+					{this.state.displayRewards ? <ParentRewardsList children={this.state.children} rewards={this.state.rewards} updateRewards={this.updateRewards} deleteRewards={this.deleteRewards} /> : null }
+
         </div>
         <div className="col-md-3 col-md-offset-1">
           <NotificationList />

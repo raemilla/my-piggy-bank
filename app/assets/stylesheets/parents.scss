@@ -16,7 +16,7 @@
   left: 410px;
   bottom: 158px;
   font-family: "Handlee", cursive;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #input-child-name {
@@ -45,7 +45,7 @@
 }
 
 #send-money-select-child select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #send-money-select-child label {
@@ -60,7 +60,7 @@
 }
 
 #send-money-amount-input input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #send-money-amount-input label {
@@ -72,8 +72,8 @@
   bottom: 125px;
   left: 290px;
   font-family: "Handlee", cursive;
-  box-shadow: 2px 2px 5px black;
-  background-color: #D1F0B1 !important;
+  box-shadow: 2px 2px 5px #333333;
+  background-color: #62d4d4 !important;
 }
 
 #send-money-header {
@@ -85,12 +85,12 @@
   border: 1px solid #648767;
   // background-color: #648767;
   // background: linear-gradient(#D1F0B1, #648767);
-  background: rgba(100, 135, 103, 0.7);
+  background-color: #ff6b6b;
   padding-left: 40px;
   padding-top: 40px;
   height: 150px;
-  box-shadow: 2px 2px 5px black;
-  border-radius: 12px;
+  box-shadow: 2px 2px 5px #888888;
+  // border-radius: 12px;
 }
 
 #reward-cost-input {
@@ -112,39 +112,48 @@
 }
 
 #add-reward-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #add-reward-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #add-reward-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 .header {
-  font-family: "Handlee", cursive;
+  font-family: "Cutive", cursive;
 }
 
 .btn {
-  font-family: "Handlee", cursive;
-  background-color: #648767 !important;
+  font-family: "Cutive", cursive;
+  background: #c44d58 !important;
   border: none !important;
 }
 
+.btn:hover {
+  background-color: #c7f464 !important;
+}
+
 #home-button {
-  box-shadow: 5px 5px 5px black;
-  background-color: #D1F0B1 !important;
+  background-color: #62d4d4 !important;
+  border-radius: 10px;
+}
+
+#home-button:hover {
+  box-shadow: 5px 5px 5px #333333;
 }
 
  .login-row {
-  background-color: #648767 !important;
-  box-shadow: 5px 5px 5px black;
+  background-color: #ff6b6b !important;
+  box-shadow: 3px 3px 5px #888888;
 }
 
 #navigation-bar {
-  background-color: #648767 !important;
+  background-color: #ff6b6b !important;
+  box-shadow: 1px 1px 5px #888888;
 }
 
 .welcome-header {
@@ -161,7 +170,7 @@
 }
 
 #dashboard-nav li .active {
-  background-color: #8DC498 !important;
+  background-color: #c44d58 !important;
 }
 
 .account-buttons {
@@ -177,27 +186,27 @@
 }
 
 #transfer-child-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #transfer-child-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #transfer-child-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form select {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form button {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #withdraw-child-form div {
@@ -214,7 +223,7 @@
 }
 
 #initial-setup input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #percent {
@@ -223,12 +232,12 @@
   position: relative;
   left: 337px;
   bottom: 34px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #888888;
 }
 
 #dashboard-nav > li.active > a {
   // font-family: "Handlee", cursive;
-  background-color: #648767 !important;
+  background-color: #c44d58 !important;
   color: white;
 }
 
@@ -246,16 +255,21 @@
   margin: 5px;
 }
 
+#manage-accounts {
+  cursor: pointer;
+}
+
 #notification-container {
   border: 1px dotted black;
-  border-radius: 10px;
+  // border-radius: 10px;
   padding: 10px;
-  box-shadow: 2px 2px 5px black;
-  background-color: #C8D5B9;
+  box-shadow: 2px 2px 5px #888888;
+  background-color: #c44d58;
 }
 
 .notification-header {
   padding-left: 7px;
+  color:white;
 }
 
 .notification-table {
@@ -277,6 +291,7 @@
 
 #logo {
   padding: 7px;
+  padding-left: 10px;
   font-size: 19px;
 }
 
@@ -289,7 +304,7 @@
 }
 
 #new-parent-form input {
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 .register-header {
@@ -330,7 +345,7 @@
 
 #sign-in-form input {
   margin: 10px;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px #333333;
 }
 
 #username-input {
@@ -345,3 +360,47 @@
 // .child-manage-accounts li:nth-child(odd) {
 //   background-color: silver;
 // }
+
+#transfer-form input{
+  box-shadow: 2px 2px 5px #333333;
+}
+
+#transfer-form select {
+  box-shadow: 2px 2px 5px #333333;
+}
+
+#transfer-form button {
+  box-shadow: 2px 2px 5px #333333;
+}
+
+.buy-reward-click:hover {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.logo-div {
+  width: 250px;
+}
+
+#logo-piggy {
+  padding: 1px;
+}
+
+.child-bank-header {
+  font-size: 29px;
+}
+
+.child-bank-extra {
+  font-size: 15px;
+}
+
+.bank-button {
+  font-size: 10px !important;
+}
+
+.notif-button {
+  background-color: #62d4d4 !important;
+}

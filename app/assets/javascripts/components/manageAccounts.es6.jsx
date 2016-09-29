@@ -23,7 +23,7 @@ class ManageAccounts extends React.Component {
   render(){
 
     return(
-      <div>
+      <div id="manage-accounts">
       <h3 className="header">manage your child's accounts</h3>
       <ul className="list-group child-manage-accounts">
         {
