@@ -32,8 +32,13 @@ class Bank extends React.Component {
     this.handleBuyRewardClick = this.handleBuyRewardClick.bind(this)
 
     this.toggleRequestTransferError = this.toggleRequestTransferError.bind(this)
+    this.oink=this.oink.bind(this)
 
   }
+    oink(){
+      var pigOink = $('#oink')[0]
+      pigOink.play()
+    }
 
     displayTransferFeedback(){
       return(
@@ -259,7 +264,7 @@ class Bank extends React.Component {
     	<div className="col-md-3 banks" id={this.props.bank.type}>
 
         <div className="bank-picture">
-      	   <img src="piggyshadow2.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
+      	   <img src="piggyshadow2.png" onMouseOver={this.oink} className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
           <div className="bank-content">
 
             <li><h1 className="text-center header child-bank-header">{this.props.bank.type}</h1></li>

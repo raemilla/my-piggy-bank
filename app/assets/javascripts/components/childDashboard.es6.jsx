@@ -24,7 +24,7 @@ class ChildDashboard extends React.Component {
           bank = this.props.current_child.banks.find(function(bank){return bank.type === $(event.target).attr('id')})
 
     		var bankId = bank.id
-        var audio = $('audio')[0]
+        var audio = $('#cha-ching')[0]
     		$.ajax({
 
     			url: '/banks/'+bankId,
