@@ -10,7 +10,8 @@ $(document).ready(function(){
     });
 
     request.done(function (response) {
-      $(event.target).remove();
+   
+      $(".register-form").remove();
       $(".login-button").remove();
       $(".form-signin-heading").after(response)
     });
@@ -26,7 +27,7 @@ $(document).ready(function(){
 
     request.done(function (response) {
     	$(".register-button").remove();
-      $(event.target).remove();
+      $(".login-button").remove();
       $(".middle").append(response)
     });
 	});
