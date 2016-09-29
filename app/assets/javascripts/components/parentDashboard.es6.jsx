@@ -126,7 +126,7 @@ class ParentDashboard extends React.Component {
 
   render(){
     return(
-      <section>
+      <section className="color-change">
 			<div className="row">
 				<div className="col-md-2"></div>
 				<div className="col-md-5 col-md-offset-1"><h1 className="text-center header">{this.props.parent.name}'s Dashboard</h1></div>
@@ -140,8 +140,8 @@ class ParentDashboard extends React.Component {
 						<li role="presentation" onClick={this.toggleRewards} className={this.state.activeRewards ? 'active' : null }><a>rewards</a></li>
 					</ul>
         </div>
-        <div className="col-md-5 col-md-offset-1">
-		
+        <div className="col-md-5 col-md-offset-1 parent-middle-component">
+
 					{this.state.displaySend ? <SendMoney children={this.state.children} sendMoneyValue={this.getMoney} toggleAccounts={this.toggleAccounts}/> : null }
 					{this.state.displayAdd ? <InitialSetup UpdateManageChildAccounts={this.addChild} toggleSend={this.toggleSend}/> : null }
 					{this.state.displayAccounts ? <ManageAccounts trueUpdateBalance={this.parentTransfer} trueWithdraw={this.parentWithdraw} children={this.state.children} /> : null }
