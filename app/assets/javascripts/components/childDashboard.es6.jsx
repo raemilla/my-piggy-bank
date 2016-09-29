@@ -52,6 +52,7 @@ class ChildDashboard extends React.Component {
   }
 
   setCoins(coins){
+
     this.setState({
         coins: this.state.coins.concat(coins)
       })
