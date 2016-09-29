@@ -20,7 +20,7 @@ class ChildDashboard extends React.Component {
     $('.banks').droppable({
     	accept: ".coin",
     	drop: function(event,ui){
-       
+        $(this).addClass( "ui-state-highlight" )
           bank = this.props.current_child.banks.find(function(bank){return bank.type === $(event.target).attr('id')})
 
     		var bankId = bank.id
