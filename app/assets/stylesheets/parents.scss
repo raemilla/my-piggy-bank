@@ -90,7 +90,9 @@
   padding-top: 40px;
   height: 150px;
   box-shadow: 2px 2px 5px #888888;
+  margin-bottom: 60px;
   // border-radius: 12px;
+
 }
 
 #reward-cost-input {
@@ -141,9 +143,6 @@
 #home-button {
   background-color: #62d4d4 !important;
   border-radius: 10px;
-}
-
-#home-button:hover {
   box-shadow: 5px 5px 5px #333333;
 }
 
@@ -155,6 +154,7 @@
 #navigation-bar {
   background-color: #ff6b6b !important;
   box-shadow: 1px 1px 5px #888888;
+  margin-bottom: -400px;
 }
 
 .welcome-header {
@@ -416,4 +416,30 @@
   position: relative;
   top: 6px;
   right: 4px;
+}
+
+.homepage {
+  border: 1px white dotted;
+  width: 900px;
+  height: 700px;
+  margin-top: -100px;
+  margin: 0 auto;
+  background-color: #b0e8e8 !important;
+  box-shadow: 1px 1px 5px #888888;
+}
+
+#slogan {
+  position: relative;
+  left: 280px;
+  top: 20px;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.parent-middle-component {
+  border: 1px dotted white;
+  // height: 700px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px #888888;
+  background-color: #62d4d4;
 }
