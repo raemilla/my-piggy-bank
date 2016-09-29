@@ -9,7 +9,7 @@ class ChangeMachine extends React.Component {
   }
 
 	componentDidUpdate(){
-    $('.coin').draggable()
+    $('.coin').draggable({revert: true})
     $('.coin').css('z-index', '2')
   }
 

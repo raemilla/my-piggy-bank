@@ -18,7 +18,7 @@ class UndepositedFunds extends React.Component {
 	render(){
 		return(
 
-				<div className="row">
+				<div className="row undeposited-funds">
 					<div className="col-md-6 col-md-offset-3">
 						<h1 className="text-center child-welcome">Welcome {this.props.current_child.name}, you have {this.props.current_child.dollars} to Deposit.</h1>
 					</div>
