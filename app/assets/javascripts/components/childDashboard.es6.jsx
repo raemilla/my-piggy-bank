@@ -17,7 +17,6 @@ class ChildDashboard extends React.Component {
   }
 
   componentDidMount(){
-
     $('.banks').droppable({
     	accept: ".coin",
     	drop: function(event,ui){
@@ -25,19 +24,21 @@ class ChildDashboard extends React.Component {
           bank = this.props.current_child.banks.find(function(bank){return bank.type === $(event.target).attr('id')})
 
     		var bankId = bank.id
-
+        var audio = $('audio')[0]
     		$.ajax({
+
     			url: '/banks/'+bankId,
     			method: 'PUT',
     			data: {value: $(ui.draggable[0]).attr('value')}
     		})
     		.done((response)=>{
           ui.draggable[0].style.display = 'none'
- 
+          
           this.setState({
       			current_child: response,
             coins: this.state.coins
       		})
+          audio.play()
     		}.bind(this))
     	}.bind(this)
     })
