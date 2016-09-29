@@ -35,8 +35,8 @@ class ParentRewardsList extends React.Component {
       this.setState({
         displayForm: false,
         displayButton: true,
-        rewards: response
       })
+      this.props.updateRewards(response)
     })
   }
 
@@ -48,9 +48,7 @@ class ParentRewardsList extends React.Component {
       method: "delete",
       url: '/rewards/'+rewardId
     }).done((response) => {
-      this.setState({
-        rewards: response
-      })
+      this.props.deleteRewards(response)
     })
 
     } else {
@@ -113,7 +111,7 @@ class ParentRewardsList extends React.Component {
         </thead>
         <tbody>
           {
-            this.state.rewards.map((reward, idx) => <tr key={idx}>
+            this.props.rewards.map((reward, idx) => <tr key={idx}>
               <th scope="row">{reward.item}</th>
               <td>{reward.dollars}</td>
               <td>{reward.child.name}</td>
