@@ -37,7 +37,7 @@ class Bank extends React.Component {
 
     displayTransferFeedback(){
       return(
-       <div  className="alert alert-success">
+       <div  className="alert alert-warning">
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleTransferFeedback} aria-hidden="true">&times;</span>
             </button>
@@ -160,7 +160,7 @@ class Bank extends React.Component {
 
     displayDonateFeedback(){
       return(
-         <div  className="alert alert-success">
+         <div  className="alert alert-warning">
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleDisplayFeedback} aria-hidden="true">&times;</span>
             </button>
@@ -206,7 +206,7 @@ class Bank extends React.Component {
         return(
 
           <li>
-            <h4 className="text-center header">Total interest recieved<br/><p>{this.props.bank.interest_dollars}</p> </h4>
+            <h4 className="text-center header child-bank-extra">Total interest <br/>recieved<p>{this.props.bank.interest_dollars}</p> </h4>
           </li>
         )
       }
@@ -257,16 +257,16 @@ class Bank extends React.Component {
     return (
 
     	<div className="col-md-3 banks" id={this.props.bank.type}>
-        
+
         <div className="bank-picture">
       	   <img src="piggyshadow2.png" className="img-rounded" alt="piggy" width="250" height="236" id="piggy" />
           <div className="bank-content">
 
-            <li><h1 className="text-center header">{this.props.bank.type}</h1></li>
-          	
+            <li><h1 className="text-center header child-bank-header">{this.props.bank.type}</h1></li>
+
             <li><h1 className="text-center">{this.props.bank.dollars}</h1></li>
-            
-            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header ">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
+
+            <li>{this.props.bank.type === "Saving" && this.props.bank.save_item != null ? <h4 className="text-center header child-bank-extra">Saving for my: <br/><p>{this.props.bank.save_item}</p> </h4>: null }</li>
 
             {this.showAccumulatedInterest()}
           </div>
@@ -293,9 +293,9 @@ class Bank extends React.Component {
               {this.state.displayTransferForm ? this.displayTransferForm() : null }
               {this.state.transferFeedback? this.displayTransferFeedback(): null}
               {this.state.donateFeedback? this.displayDonateFeedback():null}
-            
-              {this.state.displayRedeemAlert ? 
-                <div className="alert alert-success ">
+
+              {this.state.displayRedeemAlert ?
+                <div className="alert alert-warning ">
 
                 <button type="button" className="close"  aria-label="Close">
                 <span onClick ={this.toggleRedeemAlert} aria-hidden="true">&times;</span>
@@ -318,7 +318,7 @@ class Bank extends React.Component {
               </div>
                : null }
 
-  
+
 
     	</div>
 

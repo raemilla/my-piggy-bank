@@ -28,7 +28,7 @@ class Notification extends React.Component {
 	    	<div className="row" >
 	    		<span className="col-sm-9" >{this.props.data.text}</span>
 	    		<div className="col-sm-1">
-	    			<button className="btn btn-primary btn-xs btn-default" onClick={this.handleClick}>x</button>
+	    			<button className="btn btn-primary btn-xs btn-default notif-button" onClick={this.handleClick}>x</button>
 	    		</div>
 	    	</div>
 

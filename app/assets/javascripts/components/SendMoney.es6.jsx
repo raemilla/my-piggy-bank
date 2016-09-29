@@ -6,18 +6,18 @@ constructor(){
       sendMoneyFeedback  : false
     }
   this.handleSubmit = this.handleSubmit.bind(this)
-  this.displaySendMoneyFeedback = this.displaySendMoneyFeedback.bind(this)  
-  this.toggleSendMoneyFeedback = this.toggleSendMoneyFeedback.bind(this) 
+  this.displaySendMoneyFeedback = this.displaySendMoneyFeedback.bind(this)
+  this.toggleSendMoneyFeedback = this.toggleSendMoneyFeedback.bind(this)
 }
 
 
 displaySendMoneyFeedback(){
-     return( <div  className="alert alert-success blah ">
+     return( <div  className="alert alert-warning blah ">
           <button  type="button" className="close"  aria-label="Close">
              <span onClick={this.toggleSendMoneyFeedback} aria-hidden="true">&times;</span>
             </button>
           <strong >Your child's money is on its way!</strong>
-        </div> 
+        </div>
         )
   }
 
@@ -59,7 +59,7 @@ render(){
             </div>
             <div id="send-money-amount-input" className="form-group">
               <label>Amount: </label>
-              <input ref="amount" type="number" className="form-control" id="amount" placeholder=" 
+              <input ref="amount" type="number" className="form-control" id="amount" placeholder="
         0.00" step ="any" min = "0" required />
              </div>
             <button id="send-money-submit" type="submit" className="btn btn-primary"><span className="home-text">Send</span></button>

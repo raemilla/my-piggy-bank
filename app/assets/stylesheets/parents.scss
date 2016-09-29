@@ -73,7 +73,7 @@
   left: 290px;
   font-family: "Handlee", cursive;
   box-shadow: 2px 2px 5px #333333;
-  background-color: #D1F0B1 !important;
+  background-color: #62d4d4 !important;
 }
 
 #send-money-header {
@@ -85,7 +85,7 @@
   border: 1px solid #648767;
   // background-color: #648767;
   // background: linear-gradient(#D1F0B1, #648767);
-  background: rgba(100, 135, 103, 0.7);
+  background-color: #ff6b6b;
   padding-left: 40px;
   padding-top: 40px;
   height: 150px;
@@ -128,14 +128,18 @@
 }
 
 .btn {
-  font-family: "Handlee", cursive;
-  background-color: #648767 !important;
+  font-family: "Cutive", cursive;
+  background: #c44d58 !important;
   border: none !important;
 }
 
+.btn:hover {
+  background-color: #c7f464 !important;
+}
+
 #home-button {
-  background-color: #D1F0B1 !important;
-  border-radius: 0px;
+  background-color: #62d4d4 !important;
+  border-radius: 10px;
 }
 
 #home-button:hover {
@@ -143,12 +147,12 @@
 }
 
  .login-row {
-  background-color: #648767 !important;
-  box-shadow: 1px 1px 5px #888888;
+  background-color: #ff6b6b !important;
+  box-shadow: 3px 3px 5px #888888;
 }
 
 #navigation-bar {
-  background-color: #648767 !important;
+  background-color: #ff6b6b !important;
   box-shadow: 1px 1px 5px #888888;
 }
 
@@ -166,7 +170,7 @@
 }
 
 #dashboard-nav li .active {
-  background-color: #8DC498 !important;
+  background-color: #c44d58 !important;
 }
 
 .account-buttons {
@@ -233,7 +237,7 @@
 
 #dashboard-nav > li.active > a {
   // font-family: "Handlee", cursive;
-  background-color: #648767 !important;
+  background-color: #c44d58 !important;
   color: white;
 }
 
@@ -260,11 +264,12 @@
   // border-radius: 10px;
   padding: 10px;
   box-shadow: 2px 2px 5px #888888;
-  background-color: #C8D5B9;
+  background-color: #c44d58;
 }
 
 .notification-header {
   padding-left: 7px;
+  color:white;
 }
 
 .notification-table {
@@ -286,6 +291,7 @@
 
 #logo {
   padding: 7px;
+  padding-left: 10px;
   font-size: 19px;
 }
 
@@ -354,3 +360,47 @@
 // .child-manage-accounts li:nth-child(odd) {
 //   background-color: silver;
 // }
+
+#transfer-form input{
+  box-shadow: 2px 2px 5px #333333;
+}
+
+#transfer-form select {
+  box-shadow: 2px 2px 5px #333333;
+}
+
+#transfer-form button {
+  box-shadow: 2px 2px 5px #333333;
+}
+
+.buy-reward-click:hover {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.logo-div {
+  width: 250px;
+}
+
+#logo-piggy {
+  padding: 1px;
+}
+
+.child-bank-header {
+  font-size: 29px;
+}
+
+.child-bank-extra {
+  font-size: 15px;
+}
+
+.bank-button {
+  font-size: 10px !important;
+}
+
+.notif-button {
+  background-color: #62d4d4 !important;
+}
