@@ -126,7 +126,7 @@ class ParentDashboard extends React.Component {
 
   render(){
     return(
-      <section className="color-change">
+      <section>
 			<div className="row">
 				<div className="col-md-2"></div>
 				<div className="col-md-5 col-md-offset-1"><h1 className="text-center header">{this.props.parent.name}'s Dashboard</h1></div>

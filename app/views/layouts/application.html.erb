@@ -8,8 +8,11 @@
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Handlee|Open+Sans|Lalezar|Bangers|Luckiest+Guy|Cutive" rel="stylesheet">
   </head>
+  <% if parent? %>
+  <body style="background-color: #F7F7F7 !important;">
+  <% else %>
   <body>
-
+  <% end %>
 		<div class="container">
   		<%= render :template => 'partials/_navbar' %>
       <%= render :template => 'partials/_errors' %>
