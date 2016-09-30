@@ -19,7 +19,7 @@ Samantha_Spending = Spending.create(balance: 500, child_id: 2)
 Samantha_Donation = Donation.create(balance: 200, child_id: 2)
 Samantha_Saving = Saving.create(balance: 400, child_id: 2, save_item: "barbie dream house")
 
-Sam_Jr_Investment = Investment.create(balance: 300, start_date: Date.parse('2016-01-05'), interest_rate: 2, child_id: 1, accumulated_interest: 200)
+Sam_Jr_Investment = Investment.create(balance: 300, start_date: Date.parse('2016-09-15'), interest_rate: 2, child_id: 1, accumulated_interest: 200)
 Sam_Jr_Spending = Spending.create(balance: 300, child_id: 1)
 Sam_Jr_Donation = Donation.create(balance: 500, child_id: 1)
 Sam_Jr_Saving = Saving.create(balance: 150, child_id: 1, save_item: "bicycle")
