@@ -10,7 +10,7 @@ class App extends React.Component {
 
   displayUserComponent(){
     if(this.props["parent?"]){
-      return (<div className="color-change"><ParentDashboard parent={this.props.current_user} /></div>)
+      return (<ParentDashboard parent={this.props.current_user} />)
     } else {
       return (<ChildDashboard  current_child={this.props.current_user} interestAmount={this.props.interest_amount} />)
     }

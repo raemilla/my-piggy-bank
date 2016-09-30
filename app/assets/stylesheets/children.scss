@@ -63,11 +63,13 @@
 }
 
 .bank-button {
-	width: 113px;
+	width: 100px;
 	margin-right: 0px;
 	margin-left: 0px;
 	padding-left: 0px;
 	padding-right: 0px;
+	position: relative;
+	left: 30px;
 }
 
 li.bank-button  {
@@ -83,6 +85,8 @@ li.bank-button  {
 
 .reward-button {
 	width: 100px;
+	position: relative;
+	right: 100px;
 }
 
 .coin:hover {
@@ -91,4 +95,17 @@ li.bank-button  {
 
 .undeposited-funds {
 	margin-top: 50px;
+}
+
+.investment-button {
+	// position: relative;
+	// margin-right: 25px;
+}
+
+.transfer-text{
+	font-size: 8px;
+}
+
+.invest-text{
+	font-size:8px;
 }
